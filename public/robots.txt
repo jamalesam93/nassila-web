@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://nassila.dev/sitemap.xml
+Sitemap: https://nassila-web.vercel.app/sitemap.xml

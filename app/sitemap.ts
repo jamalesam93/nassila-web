@@ -1,7 +1,7 @@
 import type { MetadataRoute } from 'next'
 import { routing } from '@/i18n/routing'
 
-const BASE = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://nassila.dev'
+const BASE = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://nassila-web.vercel.app'
 
 const paths = ['', '/features', '/download', '/docs/how-to', '/docs/user-guide', '/docs/manuscript', '/changelog', '/privacy', '/about']
 

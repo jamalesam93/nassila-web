@@ -39,7 +39,7 @@ export function generateStaticParams() {
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }) {
   const { locale } = await params
   const t = await getTranslations({ locale, namespace: 'meta' })
-  const base = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://nassila.dev'
+  const base = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://nassila-web.vercel.app'
   return {
     metadataBase: new URL(base),
     title: t('title'),

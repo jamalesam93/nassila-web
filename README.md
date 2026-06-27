@@ -23,7 +23,7 @@ npm start
 - **Vercel:** import repo, framework preset Next.js, build `npm run build`
 - **Netlify:** same; publish directory `.next` with Next.js runtime plugin or use `next start` on supported plans
 
-Set `NEXT_PUBLIC_SITE_URL` when you attach a custom domain (optional, for absolute URLs later).
+Set `NEXT_PUBLIC_SITE_URL` when you attach a custom domain (production default: `https://nassila-web.vercel.app`).
 
 ## Design
 
