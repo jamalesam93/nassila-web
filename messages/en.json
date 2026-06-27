@@ -1,0 +1,129 @@
+{
+  "meta": {
+    "title": "Nassila — Verify your references. Ground your claims.",
+    "description": "The last check before you submit — bibliography, registries, and source-backed writing. Desktop app for Windows."
+  },
+  "nav": {
+    "features": "Features",
+    "docs": "Documentation",
+    "download": "Download",
+    "changelog": "Changelog",
+    "about": "About",
+    "privacy": "Privacy",
+    "github": "GitHub"
+  },
+  "home": {
+    "heroTitle": "Nassila",
+    "heroTagline": "Verify your references. Ground your claims.",
+    "heroSubtitle": "The last check before you submit — bibliography, registries, and source-backed writing.",
+    "downloadCta": "Download for Windows",
+    "seeHow": "See how it works",
+    "tryIt": "Try it — paste a reference",
+    "tryItHint": "Plain-text parser preview (offline, in your browser)",
+    "tryPlaceholder": "Smith J, Doe A. Climate adaptation in coastal cities. Nature. 2020;586(7829):123-128. doi:10.1038/s41586-020-1234-5",
+    "parsedFields": "Parsed fields",
+    "noParse": "Could not parse — try a DOI or Vancouver-style journal line",
+    "loopTitle": "The Ouroboros loop",
+    "loopSubtitle": "One connected manuscript workflow — not seven disconnected tools.",
+    "featuresTitle": "Built for submission day",
+    "featuresSubtitle": "A quality pass on citations you already have — not a reference manager replacement."
+  },
+  "loop": {
+    "upload": "Upload manuscript",
+    "uploadDesc": "DOCX, PDF, or paste text — extract structure and in-text citations.",
+    "sources": "Cited sources",
+    "sourcesDesc": "Attach PDFs or resolve via Crossref, PubMed, and OpenAlex.",
+    "audit": "Audit",
+    "auditDesc": "L1/L2 registry verify plus Sanad passage grounding with a local LLM.",
+    "explain": "Explain",
+    "explainDesc": "Mismatch cards and risk flags with jump-to-row clarity.",
+    "export": "Export",
+    "exportDesc": "Formatted bibliography in thousands of CSL styles."
+  },
+  "features": {
+    "title": "Features",
+    "import": {
+      "title": "Import or paste",
+      "body": "BibTeX, RIS, CSL-JSON, plain text, DOCX/PDF reference sections, or exports from Zotero, Mendeley, and EndNote."
+    },
+    "validate": {
+      "title": "Validate offline",
+      "body": "CSL validation, autocorrect for DOI formats, capitalization, and page ranges — no network required."
+    },
+    "verify": {
+      "title": "Verify L1 + L2",
+      "body": "Resolve each row to Crossref, PubMed, or OpenAlex, then compare your metadata to the canonical record. Up to 200 rows per run."
+    },
+    "integrity": {
+      "title": "Integrity checks",
+      "body": "Predatory journal flags, duplicate groups with merge, and honest registry mismatch cards."
+    },
+    "manuscript": {
+      "title": "Manuscript loop",
+      "body": "Upload a draft, verify cited references, fetch open-access source text where available, and run Sanad grounding — AI-assisted; verify manually."
+    },
+    "export": {
+      "title": "Export anywhere",
+      "body": "APA, IEEE, Vancouver, Chicago, Harvard, MLA, Nature, or any style from the Zotero CSL repository."
+    },
+    "shownIn": "Shown in Nassila v1.1"
+  },
+  "download": {
+    "title": "Download",
+    "subtitle": "Windows installer from GitHub Releases. Editing and validation work offline.",
+    "latest": "Latest release",
+    "requirements": "System requirements",
+    "reqOs": "Windows 10 or later (64-bit)",
+    "reqRam": "4 GB RAM minimum; 8 GB recommended for manuscript audit with local LLM",
+    "reqDisk": "~200 MB for the app; additional space for LM Studio models if using Sanad",
+    "install": "Install",
+    "installSteps": "Download the installer, run Nassila Setup, and launch from the Start menu. No account required.",
+    "source": "Source code",
+    "mit": "MIT licensed"
+  },
+  "privacy": {
+    "title": "Privacy",
+    "offline": "Offline by default",
+    "offlineBody": "List editing, validation, formatting, and deduplication do not require a network connection.",
+    "network": "When the network is used",
+    "networkBody": "Registry verification, DOI lookup, predatory-list sync, open-access source fetch, and optional LLM calls run only when you trigger those actions.",
+    "local": "Local LLM",
+    "localBody": "Sanad grounding talks to LM Studio, Ollama, or another endpoint you configure — not a cloud default."
+  },
+  "about": {
+    "title": "About Nassila",
+    "sanad": "The name Nassila is coined, inspired by a sanad (سند): a clear chain from what you write to where it came from.",
+    "notRm": "Nassila is not a full reference manager. It is a quality pass before submission: validate, verify, dedupe, flag predatory journals, export.",
+    "ai": "AI-assisted — never \"AI writes your citations.\" Deterministic layers decide where schemas and registries are authoritative."
+  },
+  "changelog": {
+    "title": "Changelog",
+    "subtitle": "Notable releases of the desktop app."
+  },
+  "docs": {
+    "title": "Documentation",
+    "howTo": "How-to guide",
+    "userGuide": "User guide",
+    "manuscript": "Manuscript loop",
+    "onThisPage": "On this page",
+    "editGithub": "Edit on GitHub"
+  },
+  "footer": {
+    "tagline": "Verify your references. Ground your claims.",
+    "license": "MIT License",
+    "training": "Model training lives in NassilaT"
+  },
+  "parse": {
+    "type": "Type",
+    "title": "Title",
+    "authors": "Authors",
+    "year": "Year",
+    "doi": "DOI",
+    "journal": "Journal",
+    "url": "URL"
+  },
+  "release": {
+    "loading": "Checking releases…",
+    "unavailable": "Release info unavailable"
+  }
+}

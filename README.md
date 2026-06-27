@@ -1,36 +1,36 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Nassila website
 
-## Getting Started
+Public marketing and documentation site for [Nassila](https://github.com/jamalesam93/Nassila) — bilingual (EN/AR), custom Next.js layout, deployable to Vercel or Netlify.
 
-First, run the development server:
+## Develop
 
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000/en](http://localhost:3000/en).
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Build
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```bash
+npm run build
+npm start
+```
 
-## Learn More
+## Deploy
 
-To learn more about Next.js, take a look at the following resources:
+- **Vercel:** import repo, framework preset Next.js, build `npm run build`
+- **Netlify:** same; publish directory `.next` with Next.js runtime plugin or use `next start` on supported plans
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Set `NEXT_PUBLIC_SITE_URL` when you attach a custom domain (optional, for absolute URLs later).
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Design
 
-## Deploy on Vercel
+See [DESIGN-WEB.md](./DESIGN-WEB.md) — extends the desktop app's Impeccable discipline; no AI-template landing patterns.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Content
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- `content/docs/{en,ar}/` — user documentation (ported from Nassila `docs/`)
+- `content/changelog/` — release summaries
+- `public/media/` — product screenshots (replace placeholders with fresh v1.1 captures)
