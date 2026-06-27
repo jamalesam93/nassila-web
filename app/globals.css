@@ -1,1 +1,31 @@
 @import "../lib/tokens.css";
+
+/* Ouroboros orbit — purposeful motion; disabled via prefers-reduced-motion in tokens.css */
+@keyframes ouroboros-dash-flow {
+  to {
+    stroke-dashoffset: -480;
+  }
+}
+
+@keyframes ouroboros-pulse-ring {
+  0%,
+  100% {
+    opacity: 0.28;
+  }
+  50% {
+    opacity: 0.12;
+  }
+}
+
+.ouroboros-orbit-track {
+  stroke-dasharray: 6 10;
+}
+
+.ouroboros-orbit-flow {
+  stroke-dasharray: 40 440;
+  animation: ouroboros-dash-flow 16s linear infinite;
+}
+
+.ouroboros-pulse {
+  animation: ouroboros-pulse-ring 2.5s ease-in-out infinite;
+}

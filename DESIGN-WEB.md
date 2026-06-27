@@ -9,6 +9,7 @@ Extends [Nassila DESIGN.md](https://github.com/jamalesam93/Nassila/blob/main/doc
 - Asymmetric layouts; citation samples in serif
 - Subtle motion; `prefers-reduced-motion` honored
 - Bilingual EN/AR with native RTL
+- Ouroboros diagram: **hero-scale** elliptic orbit; stage hues from Nassila semantics (teal, audit green, warn amber) — not decorative micro-graphics beside a duplicate list
 
 ## Reject before merge
 
