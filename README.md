@@ -1,6 +1,8 @@
 # Nassila website
 
-Public marketing and documentation site for [Nassila](https://github.com/jamalesam93/Nassila) — bilingual (EN/AR), custom Next.js layout, deployable to Vercel or Netlify.
+**Live:** [https://nassila-web.vercel.app](https://nassila-web.vercel.app) (EN · [AR](https://nassila-web.vercel.app/ar))
+
+Public marketing and documentation site for [Nassila](https://github.com/jamalesam93/Nassila) — bilingual (EN/AR), custom Next.js layout, hosted on Vercel.
 
 ## Develop
 
@@ -20,10 +22,12 @@ npm start
 
 ## Deploy
 
-- **Vercel:** import repo, framework preset Next.js, build `npm run build`
-- **Netlify:** same; publish directory `.next` with Next.js runtime plugin or use `next start` on supported plans
+Production: **https://nassila-web.vercel.app** (Vercel project `nassila-web`).
 
-Set `NEXT_PUBLIC_SITE_URL` when you attach a custom domain (production default: `https://nassila-web.vercel.app`).
+- **Vercel:** [github.com/jamalesam93/nassila-web](https://github.com/jamalesam93/nassila-web) → import, build `npm run build`
+- **Netlify:** same; use the Next.js runtime plugin
+
+`NEXT_PUBLIC_SITE_URL` is set to `https://nassila-web.vercel.app` on Vercel. Update it only if you add a custom domain later.
 
 ## Design
 
