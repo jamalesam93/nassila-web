@@ -9,7 +9,7 @@ const SHOWREEL_POSTER = '/media/banner.png'
 const FRAMES = [
   { src: '/media/ui-bibliography.png', alt: 'Nassila bibliography workspace with verify status' },
   { src: '/media/ui-loop.png', alt: 'Manuscript Ouroboros loop audit view' },
-  { src: '/media/banner.png', alt: 'Nassila desktop app' },
+  { src: '/media/ui-import.png', alt: 'Import references into Nassila' },
 ]
 
 function subscribeReducedMotion(cb: () => void) {
