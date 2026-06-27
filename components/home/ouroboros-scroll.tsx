@@ -43,13 +43,16 @@ function pointOnEllipse(t: number) {
   }
 }
 
-function stageFromProgress(t: number) {
-  return Math.floor((t % 1) * STAGE_COUNT) % STAGE_COUNT
+function stageFromProgress(progress: number) {
+  if (!Number.isFinite(progress)) return 0
+  const normalized = ((progress % 1) + 1) % 1
+  const index = Math.floor(normalized * STAGE_COUNT)
+  return Math.min(STAGE_COUNT - 1, Math.max(0, index))
 }
 
 export function OuroborosScroll() {
   const home = useTranslations('home')
-  const t = useTranslations('loop')
+  const loop = useTranslations('loop')
   const reduceMotion = useSyncExternalStore(subscribeReducedMotion, getReducedMotion, () => false)
 
   const [progress, setProgress] = useState(0)
@@ -59,6 +62,7 @@ export function OuroborosScroll() {
   const progressRef = useRef(0)
 
   const active = stageFromProgress(progress)
+  const activeKey = STAGE_KEYS[active]
   const traveler = pointOnEllipse(progress)
 
   const syncProgress = useCallback((value: number) => {
@@ -108,7 +112,7 @@ export function OuroborosScroll() {
             viewBox="0 0 500 360"
             className="h-auto w-full"
             role="img"
-            aria-label={t(STAGE_KEYS[active])}
+            aria-label={loop(activeKey)}
           >
             <defs>
               <linearGradient id="orbit-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
@@ -189,8 +193,6 @@ export function OuroborosScroll() {
               const pt = pointOnEllipse(i / STAGE_COUNT)
               const isActive = active === i
               const palette = STAGE_PALETTE[i]
-              const labelX = pt.x + pt.nx * 36
-              const labelY = pt.y + pt.ny * 28
 
               return (
                 <g
@@ -198,7 +200,7 @@ export function OuroborosScroll() {
                   role="button"
                   tabIndex={0}
                   className="cursor-pointer outline-none focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
-                  aria-label={t(key)}
+                  aria-label={loop(key)}
                   aria-current={isActive ? 'step' : undefined}
                   onClick={() => selectStage(i)}
                   onKeyDown={(e) => {
@@ -238,20 +240,6 @@ export function OuroborosScroll() {
                   >
                     {i + 1}
                   </text>
-                  <text
-                    x={labelX}
-                    y={labelY}
-                    textAnchor={labelX < CX - 20 ? 'end' : labelX > CX + 20 ? 'start' : 'middle'}
-                    dominantBaseline="central"
-                    fill={isActive ? palette.label : 'hsl(var(--muted-foreground))'}
-                    style={{
-                      fontSize: isActive ? 13 : 11,
-                      fontWeight: isActive ? 600 : 500,
-                      pointerEvents: 'none',
-                    }}
-                  >
-                    {t(key)}
-                  </text>
                 </g>
               )
             })}
@@ -266,10 +254,10 @@ export function OuroborosScroll() {
               className="text-lg font-semibold transition-colors duration-500"
               style={{ color: STAGE_PALETTE[active].label }}
             >
-              {t(STAGE_KEYS[active])}
+              {loop(activeKey)}
             </p>
             <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
-              {t(`${STAGE_KEYS[active]}Desc`)}
+              {loop(`${activeKey}Desc`)}
             </p>
           </div>
 
@@ -294,7 +282,7 @@ export function OuroborosScroll() {
                 }
                 aria-pressed={active === i}
               >
-                {i + 1}. {t(key)}
+                {i + 1}. {loop(key)}
               </button>
             ))}
           </div>

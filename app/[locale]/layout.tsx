@@ -1,12 +1,14 @@
 import { IBM_Plex_Sans, IBM_Plex_Sans_Arabic, Source_Serif_4 } from 'next/font/google'
 import { NextIntlClientProvider } from 'next-intl'
 import { getMessages, getTranslations, setRequestLocale } from 'next-intl/server'
+import { cookies } from 'next/headers'
 import { notFound } from 'next/navigation'
 import type { ReactNode } from 'react'
 import { SiteFooter } from '@/components/site-footer'
 import { SiteHeader } from '@/components/site-header'
 import { Providers } from '@/components/theme-provider'
 import { routing, type Locale } from '@/i18n/routing'
+import { THEME_COOKIE, themeClassFromCookie } from '@/lib/theme'
 import '../globals.css'
 
 const ibmPlex = IBM_Plex_Sans({
@@ -65,12 +67,14 @@ export default async function LocaleLayout({ children, params }: Props) {
   setRequestLocale(locale)
   const messages = await getMessages()
   const dir = locale === 'ar' ? 'rtl' : 'ltr'
+  const themeCookie = (await cookies()).get(THEME_COOKIE)?.value
+  const themeClass = themeClassFromCookie(themeCookie)
 
   return (
     <html
       lang={locale}
       dir={dir}
-      className={`${ibmPlex.variable} ${ibmPlexArabic.variable} ${sourceSerif.variable} h-full`}
+      className={`${ibmPlex.variable} ${ibmPlexArabic.variable} ${sourceSerif.variable} h-full${themeClass ? ` ${themeClass}` : ''}`}
       suppressHydrationWarning
     >
       <body
