@@ -1,5 +1,6 @@
 import { compileMDX } from 'next-mdx-remote/rsc'
 import rehypeSlug from 'rehype-slug'
+import remarkGfm from 'remark-gfm'
 import { MarkdownContent } from './markdown-content'
 import { mdxComponents } from './mdx-elements'
 
@@ -18,6 +19,7 @@ export async function DocContent({ content, format }: Props) {
     components: mdxComponents,
     options: {
       mdxOptions: {
+        remarkPlugins: [remarkGfm],
         rehypePlugins: [rehypeSlug],
       },
     },

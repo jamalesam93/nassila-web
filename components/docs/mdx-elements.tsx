@@ -50,15 +50,18 @@ export const mdxComponents: MDXComponents = {
   },
   pre: ({ children }) => <>{children}</>,
   table: (props) => (
-    <div className="mb-6 overflow-x-auto">
-      <table className="w-full border-collapse text-sm" {...props} />
+    <div className="mb-6 overflow-x-auto rounded-lg border border-border">
+      <table className="w-full min-w-[480px] border-collapse text-sm" {...props} />
     </div>
   ),
+  thead: (props) => <thead className="bg-muted/80" {...props} />,
+  tbody: (props) => <tbody {...props} />,
+  tr: (props) => <tr className="border-b border-border last:border-b-0" {...props} />,
   th: (props) => (
-    <th className="border border-border bg-muted px-3 py-2 text-start font-medium" {...props} />
+    <th className="border border-border px-3 py-2 text-start font-medium text-foreground" {...props} />
   ),
   td: (props) => (
-    <td className="border border-border px-3 py-2 text-muted-foreground" {...props} />
+    <td className="border border-border px-3 py-2 text-muted-foreground align-top" {...props} />
   ),
   blockquote: (props) => (
     <blockquote className="mb-4 border-s-2 border-primary ps-4 text-muted-foreground" {...props} />
