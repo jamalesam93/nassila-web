@@ -1,17 +1,45 @@
 ---
 title: Roadmap
-description: Honest product gaps — worker maturity, webpage citations, and planned Masdar/Maktab work.
+description: Honest product gaps — release train, worker maturity, and planned Masdar/Maktab work.
 section: docs.sectionModelsRoadmap
 ---
 
 This page lists **user-visible** planned work and known gaps. It does not cover internal training or evaluation pipelines.
+
+## Current release
+
+**Nassila 1.1.2 · Raqim Bridge** — bibliography bridge, packaged-app verify, PDF import parity. See [Changelog](/changelog).
+
+## Release train (planned)
+
+App versions use **worker-themed codenames**. These are **planned** — not promises with dates.
+
+| Version | Codename | User-visible focus |
+|---------|----------|------------------|
+| **1.1.3** | **Polish** | Notifications when audit/export finish; lighter in-app Sanad setup (full guide on [Sanad setup](/docs/sanad-setup)) |
+| **1.2.0** | **Masdar-lite** | Open-access **PDF text** in grounding (not just abstract); live **N/M progress** during long audits |
+| **1.2.1** | **Masdar UX** | Attach your own PDF per reference; quote-verification chips; more audit shortcuts |
+| **1.2.2** | **Throughput** | Faster audits with sensible limits for registry work vs local Sanad LLM |
+| **1.3.0** | **Sharh-lite** | Clearer deterministic explanations; **Help menu → documentation** deep links |
+
+<Callout variant="info" title="Masdar-lite is not a new AI model">
+**1.2.0 Masdar-lite** uses deterministic PDF text extraction in the app — it does **not** require downloading a new Sanad GGUF. Your existing **S12** or **S14** checkpoint stays the same.
+</Callout>
+
+## Shipped milestones (recent)
+
+| Version | Codename | Highlight |
+|---------|----------|-----------|
+| **1.1.0** | **Sanad** | Manuscript loop + L3 passage grounding |
+| **1.1.1** | **Bibliography-first** | Curate references before audit |
+| **1.1.2** | **Raqim Bridge** | Send refs to Bibliography; audit from library |
 
 ## Worker maturity
 
 | Worker | Today | Target |
 |--------|-------|--------|
 | **Raqim** | Bibliography import, L1/L2, export, bibliography bridge | Continued citeproc and registry improvements |
-| **Sanad** | L3 in manuscript loop; E4B/12B tiers | Deeper Masdar integration for full-text excerpts |
+| **Sanad** | L3 in manuscript loop; S12/S14 tiers | Deeper Masdar integration for full-text excerpts |
 | **Tasnif / Sharh** | Inline deterministic copy | Richer explanations as Sharh matures |
 | **Maktab** | Stub | Automatic manuscript segmentation in loop |
 | **Masdar** | Stub | User PDF attach + cited-source chunk pipeline |
@@ -60,16 +88,17 @@ Registry verification and citeproc formatting stay in Raqim's **deterministic** 
 
 ## Bibliography bridge (shipped)
 
-v1.1.2+ sends manuscript References to Bibliography and supports **audit from Bibliography library** with `manuscript-ref:N` cite keys. See [Bibliography bridge](/docs/bibliography-bridge).
+v1.1.2 sends manuscript References to Bibliography and supports **audit from Bibliography library** with `manuscript-ref:N` cite keys. See [Bibliography bridge](/docs/bibliography-bridge).
 
 ## What we will not promise here
 
 - Full reference manager replacement
 - Cloud LLM as default (local Sanad remains the primary path)
 - Automatic paywall bypass via Unpaywall email
+- Training schedules, eval scores, or internal checkpoint gates
 
 ## Related pages
 
 - [Workers glossary](/docs/workers)
-- [Manuscript loop](/docs/manuscript)
+- [Local models](/docs/local-models) — Sanad S12 / S14
 - [Changelog](/changelog)

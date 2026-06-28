@@ -1,5 +1,6 @@
 import { Link } from '@/i18n/navigation'
 import { getTranslations } from 'next-intl/server'
+import { ReleaseTrainPanel } from '@/components/docs/release-train-panel'
 import { DOC_SECTIONS, getDocPage } from '@/lib/docs'
 import type { Locale } from '@/i18n/routing'
 
@@ -9,8 +10,9 @@ export async function DocsIndex({ locale }: { locale: Locale }) {
   return (
     <div className="max-w-3xl">
       <h1 className="mb-3 text-3xl font-semibold tracking-tight">{t('title')}</h1>
-      <p className="mb-8 leading-relaxed text-muted-foreground">{t('indexIntro')}</p>
+      <p className="mb-6 leading-relaxed text-muted-foreground">{t('indexIntro')}</p>
 
+      <ReleaseTrainPanel locale={locale} />
       <div className="space-y-10">
         {DOC_SECTIONS.map(({ sectionKey, slugs }) => {
           const pages = slugs

@@ -72,6 +72,8 @@
     "title": "Download",
     "subtitle": "Windows installer from GitHub Releases. Editing and validation work offline.",
     "latest": "Latest release",
+    "releaseCodename": "Release codename",
+    "currentCodename": "Raqim Bridge",
     "requirements": "System requirements",
     "reqOs": "Windows 10 or later (64-bit)",
     "reqRam": "4 GB RAM minimum; 8 GB recommended for manuscript audit with local LLM",
@@ -98,7 +100,7 @@
   },
   "changelog": {
     "title": "Changelog",
-    "subtitle": "Notable releases of the desktop app."
+    "subtitle": "Notable releases of the desktop app, with worker-themed codenames where applicable."
   },
   "docs": {
     "title": "Documentation",
@@ -110,7 +112,13 @@
     "sectionModelsRoadmap": "Models & roadmap",
     "onThisPage": "On this page",
     "changelogLink": "Release history:",
-    "changelogLinkLabel": "Changelog"
+    "changelogLinkLabel": "Changelog",
+    "releaseTrainTitle": "Release train",
+    "releaseTrainIntro": "Nassila ships on a versioned schedule with worker-themed codenames. App version (e.g. 1.1.2) is separate from Sanad checkpoint labels (S12, S14).",
+    "currentRelease": "Current release",
+    "plannedReleases": "Planned next",
+    "releaseTrainDetail": "Full roadmap and shipped notes:",
+    "roadmapLink": "Roadmap"
   },
   "footer": {
     "tagline": "Verify your references. Ground your claims.",

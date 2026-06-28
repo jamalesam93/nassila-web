@@ -72,6 +72,8 @@
     "title": "التنزيل",
     "subtitle": "مثبّت Windows من إصدارات GitHub. التحرير والتحقق يعملان دون اتصال.",
     "latest": "أحدث إصدار",
+    "releaseCodename": "اسم الإصدار",
+    "currentCodename": "جسر Raqim",
     "requirements": "متطلبات النظام",
     "reqOs": "Windows 10 أو أحدث (64-bit)",
     "reqRam": "4 GB RAM كحد أدنى؛ 8 GB موصى به لتدقيق المخطوطة مع نموذج محلي",
@@ -98,7 +100,7 @@
   },
   "changelog": {
     "title": "سجل التغييرات",
-    "subtitle": "إصدارات بارزة من تطبيق سطح المكتب."
+    "subtitle": "إصدارات بارزة من تطبيق سطح المكتب، مع أسماء مستوحاة من العمال حيث ينطبق."
   },
   "docs": {
     "title": "التوثيق",
@@ -110,7 +112,13 @@
     "sectionModelsRoadmap": "النماذج وخارطة الطريق",
     "onThisPage": "في هذه الصفحة",
     "changelogLink": "سجل الإصدارات:",
-    "changelogLinkLabel": "سجل التغييرات"
+    "changelogLinkLabel": "سجل التغييرات",
+    "releaseTrainTitle": "قطار الإصدارات",
+    "releaseTrainIntro": "تُصدر ناسيلا وفق جدول إصدارات مع أسماء مستوحاة من العمال. إصدار التطبيق (مثل 1.1.2) منفصل عن تسميات نقاط تفتيش Sanad (S12، S14).",
+    "currentRelease": "الإصدار الحالي",
+    "plannedReleases": "المخطط قريباً",
+    "releaseTrainDetail": "خارطة الطريق الكاملة والملاحظات المنشورة:",
+    "roadmapLink": "خارطة الطريق"
   },
   "footer": {
     "tagline": "تحقق من مراجعك. اربط ما تكتبه بالمصدر.",

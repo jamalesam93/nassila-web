@@ -32,10 +32,11 @@ Remove or rewrite bullets that are:
 
 ## Format
 
-- Keep `## [version] — YYYY-MM-DD` headings
+- Headings: `## [version] — YYYY-MM-DD · Codename` for releases with a worker-themed subtitle (e.g. `## [1.1.2] — 2026-06-27 · Raqim Bridge`). Patch releases without a codename may omit the subtitle.
 - Use `### Added`, `### Fixed`, `### Changed` subsections
 - End with link: `[Full history on GitHub](https://github.com/jamalesam93/Nassila/blob/main/CHANGELOG.md)`
-- Arabic file: same structure, translated prose; version numbers and product names unchanged
+- Arabic file: same structure, translated prose; version numbers, codenames, and product names unchanged
+- When syncing, update `lib/release-train.ts` `CURRENT_RELEASE` if the latest shipped version changed
 
 ## Example strip
 

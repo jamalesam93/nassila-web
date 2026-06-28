@@ -1,6 +1,7 @@
 import { setRequestLocale } from 'next-intl/server'
 import { getTranslations } from 'next-intl/server'
 import { LiveReleaseBadge } from '@/components/home/live-release-badge'
+import { CURRENT_RELEASE } from '@/lib/release-train'
 import { fetchLatestRelease, GITHUB_REPO, RELEASES_LATEST } from '@/lib/github-release'
 import type { Locale } from '@/i18n/routing'
 
@@ -37,6 +38,12 @@ export default async function DownloadPage({ params }: Props) {
         <h2 className="text-lg font-semibold">{t('latest')}</h2>
         <div className="mt-4 flex flex-wrap items-center gap-4">
           <LiveReleaseBadge unavailableLabel="—" />
+          <span className="text-sm text-muted-foreground">
+            {t('releaseCodename')}:{' '}
+            <span className="font-medium text-foreground">
+              {locale === 'ar' ? CURRENT_RELEASE.codenameAr : CURRENT_RELEASE.codenameEn}
+            </span>
+          </span>
           <a
             href={release?.downloadUrl ?? RELEASES_LATEST}
             className="inline-flex rounded-md bg-primary px-4 py-2 text-sm font-medium text-primary-foreground hover:opacity-90"

@@ -1,4 +1,4 @@
-## [1.1.2] — 2026-06-27
+## [1.1.2] — 2026-06-27 · Raqim Bridge
 
 ### Added
 
@@ -16,7 +16,7 @@
 
 - **Loop audit detail** — compact layer summary and cite-site list.
 
-## [1.1.1] — 2026-06-27
+## [1.1.1] — 2026-06-27 · Bibliography-first
 
 ### Added
 
@@ -33,7 +33,7 @@
 
 - Settings clarifies Unpaywall email is **not** university paywall login.
 
-## [1.1.0] — 2026-06-27
+## [1.1.0] — 2026-06-27 · Sanad
 
 ### Added
 
