@@ -1,5 +1,6 @@
 import type { MDXComponents } from 'mdx/types'
 import { Callout } from './callout'
+import { childrenToText } from './children-to-text'
 import { CodeBlock } from './code-block'
 import { Step, Steps } from './steps'
 import { Tab, Tabs } from './tabs'
@@ -38,9 +39,9 @@ export const mdxComponents: MDXComponents = {
     <a className="font-medium text-primary underline-offset-2 hover:underline" {...props} />
   ),
   code: ({ children, className, ...props }) => {
-    const text = String(children ?? '')
+    const text = childrenToText(children)
     if (className?.includes('language-') || text.includes('\n')) {
-      return <CodeBlock>{text}</CodeBlock>
+      return <CodeBlock>{children}</CodeBlock>
     }
     return (
       <code className="rounded bg-muted px-1 py-0.5 font-mono text-sm text-foreground" {...props}>

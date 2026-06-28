@@ -1,10 +1,11 @@
 'use client'
 
-import { useState } from 'react'
+import { useState, type ReactNode } from 'react'
+import { childrenToText } from './children-to-text'
 
-export function CodeBlock({ children }: { children: string }) {
+export function CodeBlock({ children }: { children: ReactNode }) {
   const [copied, setCopied] = useState(false)
-  const text = String(children).trim()
+  const text = childrenToText(children).trim()
 
   const onCopy = async () => {
     try {
