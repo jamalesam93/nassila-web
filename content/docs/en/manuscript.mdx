@@ -1,0 +1,93 @@
+---
+title: Manuscript loop
+description: Upload a draft, run audit, review L1/L2/L3 per citation, and export.
+section: docs.sectionManuscript
+---
+
+The **Manuscript** mode is Nassila's Ouroboros loop: one connected workflow from upload to audit to export — not seven disconnected tools.
+
+*Verify your references. Ground your claims.*
+
+## What the loop does
+
+<Steps>
+<Step title="Upload manuscript">
+Paste text or import **DOCX** / **PDF**. Nassila extracts structure, in-text citations, and the **References** section.
+</Step>
+<Step title="Resolve cited sources">
+For each cite, run **L1/L2** registry checks. Fetch registry abstracts, Europe PMC text, or Unpaywall open-access HTML where available.
+</Step>
+<Step title="Run audit">
+When **Passage grounding** is enabled, **Sanad** (L3) compares your passage around each cite to the source excerpt and returns structured verdicts with quotes.
+</Step>
+<Step title="Review and export">
+Read mismatch cards, grounding panels, and inline **Tasnif** / **Sharh** copy. Export bibliography or audit summary when ready.
+</Step>
+</Steps>
+
+## Before you audit
+
+<Callout variant="warning" title="Bibliography-first">
+If your embedded References list is messy — wrong numbering, missing DOIs, bad plain-text parse — audit quality suffers. **Curate in Bibliography first**, then return to Manuscript. See [Bibliography bridge](/docs/bibliography-bridge).
+</Callout>
+
+## After an audit
+
+The **cited-sources table** lists each in-text citation. Expand a row for detail:
+
+| Panel | Meaning |
+|-------|---------|
+| **Your passage** | Text from your manuscript around the cite |
+| **Source excerpt** | Chunk sent to Sanad (abstract or OA text) |
+| **Claims + quotes** | Per-claim verdict; verbatim quotes when supported |
+| **Source text** header | `Abstract only`, `Open-access full text`, or `Unavailable` |
+
+**L1 / L2 / L3** chips summarize registry match, metadata alignment, and passage grounding.
+
+### Coverage labels
+
+- **Abstract only** — No OA full text; Sanad used the registry abstract.
+- **Open-access full text** — Europe PMC or Unpaywall supplied HTML/JATS (may be chunk-selected).
+- **Source text unavailable** — No abstract and no OA text; L3 is limited.
+
+## Sanad bar
+
+At the top of the manuscript view:
+
+- **Toggle** — enable/disable grounding for this session
+- **Tier chip** — **E4B** (default) or **12B** (quality)
+- **Setup / Configure** — Sanad modal and Passage grounding settings
+
+Setup: [Sanad setup](/docs/sanad-setup).
+
+## Unpaywall email
+
+Settings → **General → Manuscript source fetch** — one-time email for Unpaywall OA lookups. Stored locally only; **not** university paywall login.
+
+## Workers in the loop
+
+| Stage | Worker | Status |
+|-------|--------|--------|
+| Ingest | Maktab | Stub — segmentation improving |
+| Sources | Masdar | Stub — user PDF attach planned |
+| Records | Raqim | Live — L1/L2, export |
+| Ground | Sanad | Live — L3 when enabled |
+| Risk | Tasnif | Live — inline in loop |
+| Explain | Sharh | Partial — deterministic copy |
+| Evidence | Shahid | Disabled — Tier 3+ |
+
+Full glossary: [Workers](/docs/workers).
+
+## What is not shipped yet
+
+- Cited **PDF attach** in audits (Masdar)
+- Automatic Maktab→Masdar→Sanad pipeline without manual steps
+- Table/figure evidence (Shahid)
+
+Honest stubs appear in the UI — no fake progress bars.
+
+## Related pages
+
+- [User guide](/docs/user-guide)
+- [Verification](/docs/verification)
+- [Roadmap](/docs/roadmap)

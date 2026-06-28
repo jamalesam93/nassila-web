@@ -1,0 +1,50 @@
+---
+title: Troubleshooting
+description: Common fixes for verify, import, Sanad, network, and export issues.
+section: docs.sectionReference
+---
+
+## Bibliography and verify
+
+| Problem | What to try |
+|---------|-------------|
+| **Verify** does nothing or shows errors | Check internet, VPN/firewall, and retry; verification is capped to **200 rows** per run. |
+| Wrong **item type** (e.g. webpage vs article) | Ensure a **DOI** is present or use **Resolve**; run **Verify** to reclassify from Crossref/PubMed when possible. |
+| **Mismatch** after verify | Open the card, jump to the row, compare fields; accept patches already applied or edit manually. |
+| Import from **PDF** is empty or partial | PDF reference extraction is heuristic; try pasting text or use a `.bib` / `.ris` export from your reference manager. |
+| Export looks wrong | Confirm the chosen **CSL style** matches your venue; check missing fields in Issues. |
+| DOI only as URL | Plain-text parser accepts `https://doi.org/...` links — re-parse after paste if DOI field was empty. |
+
+## Manuscript and audit
+
+| Problem | What to try |
+|---------|-------------|
+| Weak audit / bad cite mapping | **Bibliography-first**: verify References in Bibliography mode before audit. See [Bibliography bridge](/docs/bibliography-bridge). |
+| `Source text unavailable` | No abstract and no OA text — set Unpaywall email in Settings → General; confirm DOI resolves. |
+| L3 always insufficient | Enable Sanad toggle; check runner connectivity; confirm excerpt is not empty. |
+| Cited PDF ignored | User PDF attach (Masdar) is **not shipped** — OA fetch and abstracts only today. |
+
+## Sanad and local LLM
+
+| Problem | What to try |
+|---------|-------------|
+| Connection refused | Start LM Studio server or `ollama serve`; verify base URL port. |
+| Model not found | Match Nassila model field to loaded GGUF name or `ollama list`. |
+| Out of memory | Use **E4B** tier (~8 GB VRAM); close other GPU workloads. |
+| Nonsense JSON / empty claims | Update to latest app release; retry audit; verify manually regardless. |
+
+See [Sanad setup](/docs/sanad-setup) for runner-specific steps.
+
+## Network and privacy
+
+| Problem | What to try |
+|---------|-------------|
+| Verify works in dev but not installer | Fixed in v1.1.2+ — update to latest release (main-process verify). |
+| Unpaywall does not unlock paywalls | Expected — email is API contact only, not library login. |
+| Predatory list outdated | Use predatory sync from settings/menu when online. |
+
+## Still stuck?
+
+- [User guide](/docs/user-guide)
+- [Verification](/docs/verification)
+- [GitHub Issues](https://github.com/jamalesam93/Nassila/issues)

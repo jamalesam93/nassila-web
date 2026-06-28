@@ -1,0 +1,55 @@
+---
+title: جسر المراجع
+description: أرسل مراجع المخطوطة إلى Bibliography، تحقق في Raqim، ودقّق من مكتبتك المنظّمة.
+section: docs.sectionManuscript
+---
+
+يحلّل تدقيق المخطوطة قسم **References** المضمّن في مسودتك. عندما يكون ذلك القسم فوضوياً، يرث L1 وسند ربط استشهاد→مرجع سيئاً. يتيح **جسر المراجع** تنظيم المراجع في وضع Bibliography، ثم التدقيق من مكتبتك المتحقق منها.
+
+## متى تستخدمه
+
+<Callout variant="info" title="قاعدة المراجع أولاً">
+استخدم الجسر عندما يكون للمراجع ترقيم خاطئ، أو DOI مفقودة، أو صفوف مكررة، أو لم يُشغّل **Verify references** أبداً.
+</Callout>
+
+## سير العمل
+
+<Steps>
+<Step title="افتح Bibliography">
+بدّل وضع الشريط العلوي إلى **Bibliography**.
+</Step>
+<Step title="استورد أو أرسل المراجع">
+استورد `.bib` / RIS / DOCX / PDF، أو الصق قائمة، أو **أرسل References المخطوطة إلى Bibliography** من وضع Manuscript.
+</Step>
+<Step title="تحقق وأصلح">
+شغّل **Verify references** (Ctrl+Shift+V). أصلح بطاقات عدم التطابق، التصحيح التلقائي، إزالة التكرار.
+</Step>
+<Step title="عد إلى Manuscript">
+ارجع إلى **Manuscript**. فعّل **Audit from Bibliography library** عند العرض.
+</Step>
+<Step title="شغّل التدقيق">
+**Run audit** — تُحفظ مفاتيح الاستشهاد الرقمية عبر معرّفات `manuscript-ref:N`.
+</Step>
+</Steps>
+
+## الحفاظ على مفتاح الاستشهاد
+
+عند تصدير المراجع من حلقة المخطوطة إلى Bibliography:
+
+- تُربط الاستشهادات الرقمية داخل النص بمعرّفات ثابتة **`manuscript-ref:N`**
+- تحافظ الصفوف المعاد استيرادها على المحاذاة مع استشهادات النمط `[1]` و`[2]` و…
+- يمكن لمطابقة استشهادات المؤلف–السنة الصفوف المستوردة يدوياً دون تصدير
+
+## Unpaywall ونص المصدر
+
+تنظيم DOI في Bibliography يحسّن L1 قبل التدقيق. لمدخلات سند أغنى، اضبط **Settings → General → Manuscript source fetch** (بريد Unpaywall) حتى يمكن جلب النص الكامل OA أثناء التدقيق.
+
+<Callout variant="info" title="لقطات الواجهة قيد الانتظار">
+ستُضاف لقطات شاشة لإجراء الإرسال إلى Bibliography ومفتاح **Audit from Bibliography library** في تحديث وثائق مستقبلي.
+</Callout>
+
+## صفحات ذات صلة
+
+- [دليل المستخدم](/docs/user-guide) — قسم المراجع أولاً
+- [دليل الإجراءات](/docs/how-to) — التحقق والتصدير في وضع Bibliography
+- [حلقة المخطوطة](/docs/manuscript)

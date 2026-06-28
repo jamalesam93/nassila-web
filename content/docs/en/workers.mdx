@@ -1,0 +1,59 @@
+---
+title: Workers glossary
+description: Ouroboros worker codenames, Arabic labels, loop stages, and current maturity.
+section: docs.sectionReference
+---
+
+Nassila's **Ouroboros** architecture uses seven **worker codenames** — each a loop stage and code module. They are **product vocabulary**, not seven equal app tabs. The user-facing journey is the [Manuscript loop](/docs/manuscript).
+
+## Worker table
+
+| Worker | Arabic | Loop stage | End-state role | Current status |
+|--------|--------|------------|----------------|----------------|
+| **Maktab** | مكتب | Ingest | Manuscript upload and segmentation | Stub — required for full Tier 3 loop |
+| **Masdar** | مصدر | Sources | Cited-paper text (user PDF or OA fetch) | Stub — user PDF attach planned |
+| **Sanad** | سند | Ground | Passage vs source excerpt → verdicts | **Live** — L3 when Passage grounding enabled |
+| **Shahid** | شاهد | Evidence | Tables and figures as evidence | Disabled — Tier 3+ |
+| **Raqim** | رقيم | Records | Import, verify L1/L2, export (citeproc) | **Live** — Bibliography mode + loop feed |
+| **Tasnif** | تصنيف | Risk | Dedupe, predatory flags, issue triage | **Live** — inline in loop + Bibliography |
+| **Sharh** | شرح | Explain | Issue and mismatch explanations | Partial — deterministic copy today |
+
+## Ouroboros vs Hydra
+
+| Ouroboros (ship) | Hydra (reject) |
+|------------------|----------------|
+| One manuscript audit journey | Seven peer tabs as the main product |
+| Workers complete each other as stages | User copies text between modules |
+| Upload → sources → audit → export | Pick a worker and hope the rest catches up |
+| Unfinished stages shown as pipeline gaps | Stubs that look like finished apps |
+
+## Where workers appear in the UI
+
+- **Raqim** — Bibliography mode (primary reference workspace)
+- **Sanad** — Manuscript Sanad bar and Passage grounding settings
+- **Tasnif / Sharh** — Inline in loop audit detail and bibliography drawer
+- **Maktab / Masdar / Shahid** — Honest stubs or pipeline labels until Tier 3 ships
+
+<Callout variant="info" title="Transitional nav">
+Some builds may still show a seven-item worker nav from early Ouroboros UI. Treat it as **transitional scaffolding**, not end-state information architecture.
+</Callout>
+
+## Task IDs (reference)
+
+Engineering task constants (for cross-reference with release notes):
+
+| Worker | Task id |
+|--------|---------|
+| Sanad | `l3_grounding` |
+| Maktab | `doc_extract` |
+| Masdar | `source_pdf_extract` |
+| Shahid | `table_figure_grounding` |
+| Raqim | `webpage_metadata` |
+| Tasnif | `webpage_classify` |
+| Sharh | `issue_explain` |
+
+## Related pages
+
+- [Manuscript loop](/docs/manuscript)
+- [Roadmap](/docs/roadmap)
+- [Local models](/docs/local-models) — Sanad tiers only

@@ -1,0 +1,103 @@
+---
+title: إعداد سند
+description: نزّل نماذج سند، اضبط LM Studio أو Ollama أو vLLM، وفعّل تثبيت المقتطفات.
+section: docs.sectionManuscript
+---
+
+**سند** (Sanad) هو عامل تثبيت المقتطفات في ناسيلا. يقارن الجمل في مسودتك بمقتطفات المصدر باستخدام نقطة نهاية LLM متوافقة مع OpenAI **محلية** تضبطها أنت.
+
+<Callout variant="warning" title="بمساعدة الذكاء الاصطناعي">
+مخرجات سند **بمساعدة الذكاء الاصطناعي**. تُحظر الاقتباسات غير الصالحة بحواجز أمان، لكن يجب التحقق من كل حكم يدوياً قبل التسليم.
+</Callout>
+
+## تنزيل النماذج
+
+ملفات Sanad GGUF **غير مضمّنة** في المثبّت. نزّل من Hugging Face (أحضر ملفك):
+
+| المستوى | Model ID | VRAM (تقريبي) | Hugging Face |
+|------|----------|----------------|--------------|
+| Default | `nassila-sanad-e4b` | ~8 GB (Q6_K) | [nassila-sanad-e4b](https://huggingface.co/QinEmPeRoR93/nassila-sanad-e4b) |
+| Quality | `nassila-sanad-12b` | ~12 GB+ (Q6_K) | [nassila-sanad-12b](https://huggingface.co/QinEmPeRoR93/nassila-sanad-12b) |
+
+في ناسيلا: **Settings → Passage grounding** — اختر رقاقة **E4B** أو **12B**؛ يُملأ حقل النموذج تلقائياً.
+
+## الإعداد في ناسيلا
+
+<Steps>
+<Step title="افتح إعدادات Passage grounding">
+**Settings → Passage grounding** (أو نافذة **Set up Sanad** عند أول استخدام).
+</Step>
+<Step title="اختر مشغّلاً">
+اختر **LM Studio** أو **Ollama** أو **vLLM** أو **Custom** (عنوان URL أساسي متوافق مع OpenAI).
+</Step>
+<Step title="اضبط عنوان URL الأساسي ومعرّف النموذج">
+يجب أن يطابق عنوان URL الأساسي مشغّلك. يجب أن يطابق معرّف النموذج ما يعرضه المشغّل (انظر علامات التبويب أدناه).
+</Step>
+<Step title="فعّل في المخطوطة">
+بدّل سند على **شريط سند** عند تشغيل تدقيق مخطوطة.
+</Step>
+</Steps>
+
+## إعداد المشغّل
+
+<Tabs>
+<Tab label="LM Studio (recommended)">
+
+1. ثبّت [LM Studio](https://lmstudio.ai/).
+2. نزّل Sanad GGUF من Hugging Face وحمله في LM Studio.
+3. شغّل **الخادم المحلي** (واجهة API افتراضية متوافقة مع OpenAI).
+4. في ناسيلا، الإعداد المسبق **LM Studio**، عنوان URL الأساسي:
+
+<CodeBlock>http://localhost:1234</CodeBlock>
+
+5. حقل النموذج: `nassila-sanad-e4b` (أو `nassila-sanad-12b` لمستوى الجودة).
+
+</Tab>
+<Tab label="Ollama">
+
+1. ثبّت [Ollama](https://ollama.com/).
+2. اسحب من Hugging Face Hub (تحقق من وسم `:Q6_K` مقابل تنزيلك):
+
+<CodeBlock>ollama pull huggingface.co/QinEmPeRoR93/nassila-sanad-e4b:Q6_K</CodeBlock>
+
+مستوى الجودة:
+
+<CodeBlock>ollama pull huggingface.co/QinEmPeRoR93/nassila-sanad-12b:Q6_K</CodeBlock>
+
+3. في ناسيلا، الإعداد المسبق **Ollama**، عنوان URL الأساسي:
+
+<CodeBlock>http://localhost:11434</CodeBlock>
+
+4. يجب أن يطابق حقل النموذج **`ollama list`** تماماً بعد السحب.
+
+إذا كان لديك `.gguf` على القرص، أنشئ Modelfile بـ `FROM ./your-file.gguf` ثم `ollama create`.
+
+</Tab>
+<Tab label="vLLM">
+
+1. راجع [وثائق vLLM](https://docs.vllm.ai/en/latest/) لإعداد الخادم.
+2. قدّم نموذج مستوى الجودة (`nassila-sanad-12b`) أو E4B GGUF حسب عتادك.
+3. في ناسيلا، الإعداد المسبق **vLLM** أو **Custom** مع عنوان URL الأساسي `/v1` لخادمك ومعرّف النموذج.
+
+</Tab>
+</Tabs>
+
+## Cloud API (اختياري)
+
+يمكنك توجيه Passage grounding إلى إعداد مسبق **Cloud API** بنقطة النهاية ومفتاح API الخاصين بك. يُرسل نص المخطوطة **فقط إلى نقطة النهاية التي تضبطها** — راجع سياسات الاحتفاظ لدى المزوّد للمسودات الحساسة.
+
+## الخصوصية
+
+- يعمل سند على **جهازك** عند استخدام المشغّلات المحلية — لا تُرسل مقتطفات المخطوطة إلى خوادم ناسيلا.
+- فحوصات السجل L1/L2 وجلب OA إجراءات شبكة منفصلة تشغّلها صراحة.
+
+## استكشاف الأخطاء
+
+| المشكلة | ما تجربه |
+|---------|-------------|
+| Connection refused | تأكد أن خادم المشغّل يعمل؛ تحقق من منفذ عنوان URL الأساسي |
+| Model not found | طابِق معرّف النموذج مع النموذج المحمّل في LM Studio أو `ollama list` |
+| بطء أو OOM | انتقل إلى مستوى **E4B**؛ أغلق تطبيقات GPU الأخرى |
+| تثبيت فارغ | فعّل مفتاح سند؛ تأكد أن مقتطف المصدر ليس `Unavailable` |
+
+المزيد: [استكشاف الأخطاء](/docs/troubleshooting) · [النماذج المحلية](/docs/local-models)

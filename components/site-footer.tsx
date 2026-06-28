@@ -16,7 +16,7 @@ export function SiteFooter() {
           <p className="mt-2 text-sm text-muted-foreground">{t('footer.tagline')}</p>
         </div>
         <div className="flex flex-col gap-2 text-sm">
-          <Link href="/docs/how-to" className="text-muted-foreground hover:text-foreground">
+          <Link href="/docs" className="text-muted-foreground hover:text-foreground">
             {nav('docs')}
           </Link>
           <Link href="/privacy" className="text-muted-foreground hover:text-foreground">
@@ -36,16 +36,7 @@ export function SiteFooter() {
         </div>
         <div className="text-sm text-muted-foreground">
           <p>{t('footer.license')}</p>
-          <p className="mt-2">
-            <a
-              href="https://github.com/jamalesam93/NassilaT"
-              className="underline-offset-2 hover:underline"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              {t('footer.training')}
-            </a>
-          </p>
+          <p className="mt-2">{t('footer.training')}</p>
         </div>
       </div>
     </footer>

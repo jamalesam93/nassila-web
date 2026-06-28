@@ -1,0 +1,71 @@
+---
+title: Local models
+description: Sanad model IDs, VRAM tiers, Hugging Face downloads, and inference behavior — no bundled weights.
+section: docs.sectionModelsRoadmap
+---
+
+Nassila ships **Sanad** passage grounding against **local** GGUF models you download yourself. Multi-GB weights are **not** bundled in the installer.
+
+<Callout variant="warning" title="AI-assisted">
+Local models power **AI-assisted** passage checks. They do not replace L1/L2 registry verification or manual review before submission.
+</Callout>
+
+## Available models
+
+| Artifact | Model ID | Base | Quant | VRAM (approx.) | Role |
+|----------|----------|------|-------|----------------|------|
+| Sanad default | `nassila-sanad-e4b` | Gemma 4 E4B | Q6_K ~8 GB | ~8 GB | Default tier in Settings |
+| Sanad quality | `nassila-sanad-12b` | Gemma 4 12B | Q6_K | ~12 GB+ | Quality tier chip |
+
+**Download (public Hugging Face):**
+
+- [nassila-sanad-e4b](https://huggingface.co/QinEmPeRoR93/nassila-sanad-e4b)
+- [nassila-sanad-12b](https://huggingface.co/QinEmPeRoR93/nassila-sanad-12b)
+
+Typical filenames: `nassila-sanad-e4b-q6_k.gguf`, `nassila-sanad-12b-q6_k.gguf`.
+
+## Tier behavior in the app
+
+| Tier | When to use |
+|------|-------------|
+| **E4B** | Default; laptop-friendly; recommended starting point |
+| **12B** | Higher-quality grounding when you have sufficient VRAM/RAM |
+
+Switch tiers from the **Sanad bar** tier chip or **Settings → Passage grounding**.
+
+## Runners
+
+Sanad talks to any **OpenAI-compatible** `/v1/chat/completions` endpoint:
+
+| Runner | Default base URL |
+|--------|------------------|
+| LM Studio | `http://localhost:1234` |
+| Ollama | `http://localhost:11434` |
+| vLLM | Your server URL |
+| Custom | User-defined |
+
+Setup walkthrough: [Sanad setup](/docs/sanad-setup).
+
+## What Sanad receives at inference
+
+- **Your passage** — text around the in-text citation (capped by engine limits)
+- **Source excerpt** — registry abstract or OA chunk (up to engine excerpt cap)
+- **Structured JSON** output — claims, verdicts, verbatim quotes when supported
+
+Excerpt type in current product builds is primarily **abstract-first**; OA full text is used when manuscript source fetch succeeds.
+
+## Distribution policy
+
+- **Bring your own GGUF** or use Ollama pull from Hugging Face Hub
+- No automatic download of model weights without your action
+- Cloud API preset optional — you supply endpoint and credentials
+
+## Future unified model
+
+A merged **`nassila-agent-*`** multi-worker bundle is planned for later Ouroboros releases. Today, ship path uses **Sanad-only** GGUFs above.
+
+## Related pages
+
+- [Sanad setup](/docs/sanad-setup)
+- [Verification](/docs/verification) — L3 layer
+- [Roadmap](/docs/roadmap)

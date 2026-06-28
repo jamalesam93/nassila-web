@@ -1,0 +1,75 @@
+---
+title: Roadmap
+description: Honest product gaps — worker maturity, webpage citations, and planned Masdar/Maktab work.
+section: docs.sectionModelsRoadmap
+---
+
+This page lists **user-visible** planned work and known gaps. It does not cover internal training or evaluation pipelines.
+
+## Worker maturity
+
+| Worker | Today | Target |
+|--------|-------|--------|
+| **Raqim** | Bibliography import, L1/L2, export, bibliography bridge | Continued citeproc and registry improvements |
+| **Sanad** | L3 in manuscript loop; E4B/12B tiers | Deeper Masdar integration for full-text excerpts |
+| **Tasnif / Sharh** | Inline deterministic copy | Richer explanations as Sharh matures |
+| **Maktab** | Stub | Automatic manuscript segmentation in loop |
+| **Masdar** | Stub | User PDF attach + cited-source chunk pipeline |
+| **Shahid** | Disabled | Table/figure evidence (Tier 3+) |
+
+## Manuscript loop (Tier 3 direction)
+
+**Today:** Upload/paste → parse References inline → L1/L2 → OA/abstract fetch → Sanad when enabled.
+
+**Target:** One upload; Maktab segments; Masdar ingests cited PDFs automatically; Sanad runs per cite without manual paste between modules; Shahid for tables/figures.
+
+<Callout variant="info" title="Honest stubs">
+Maktab, Masdar, and Shahid appear as pipeline gaps — not fake finished apps.
+</Callout>
+
+## Webpage and grey-web citations
+
+Planned improvements for messy webpage references (Raqim / Tasnif / Sharh modules):
+
+### Baseline and reliability
+
+- HTTP status, content-type, redirect logging
+- Dead-link visibility; paywall / archive hints
+- Host-specific parsers where stable (prefer code over model)
+- Feature flags for AI suggestions
+
+### App refinements (no model required)
+
+- OpenAlex consistency when `type` stays `webpage`
+- Locale-aware accessed-date copy
+- Batch re-fetch metadata suggestions
+
+### Model-assisted (future)
+
+When trained facets ship, they may help with:
+
+| Scenario | Notes |
+|----------|-------|
+| Suggest CSL fields from page signals | User confirms before apply |
+| Platform / grey-literature typing | YouTube, social, Substack, etc. |
+| Explain fetch failures | PDF URL, Cloudflare, dead link |
+
+<Callout variant="info" title="Registry authority">
+Registry verification and citeproc formatting stay in Raqim's **deterministic** core — not LLM-replaced.
+</Callout>
+
+## Bibliography bridge (shipped)
+
+v1.1.2+ sends manuscript References to Bibliography and supports **audit from Bibliography library** with `manuscript-ref:N` cite keys. See [Bibliography bridge](/docs/bibliography-bridge).
+
+## What we will not promise here
+
+- Full reference manager replacement
+- Cloud LLM as default (local Sanad remains the primary path)
+- Automatic paywall bypass via Unpaywall email
+
+## Related pages
+
+- [Workers glossary](/docs/workers)
+- [Manuscript loop](/docs/manuscript)
+- [Changelog](/changelog)

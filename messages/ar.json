@@ -102,16 +102,20 @@
   },
   "docs": {
     "title": "التوثيق",
-    "howTo": "دليل الاستخدام",
-    "userGuide": "دليل المستخدم",
-    "manuscript": "حلقة المخطوطة",
+    "indexIntro": "مرجع شامل لمستخدمي ناسيلا — سير عمل القائمة المرجعية، تدقيق المخطوطة، إعداد سند، مستويات التحقق، وخارطة الطريق.",
+    "sectionStartHere": "ابدأ هنا",
+    "sectionGuides": "أدلة",
+    "sectionManuscript": "المخطوطة",
+    "sectionReference": "مرجع",
+    "sectionModelsRoadmap": "النماذج وخارطة الطريق",
     "onThisPage": "في هذه الصفحة",
-    "editGithub": "تحرير على GitHub"
+    "changelogLink": "سجل الإصدارات:",
+    "changelogLinkLabel": "سجل التغييرات"
   },
   "footer": {
     "tagline": "تحقق من مراجعك. اربط ما تكتبه بالمصدر.",
     "license": "رخصة MIT",
-    "training": "تدريب النماذج في NassilaT"
+    "training": "النماذج المحلية موثّقة في التوثيق"
   },
   "parse": {
     "type": "النوع",

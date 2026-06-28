@@ -1,0 +1,77 @@
+---
+title: Getting started
+description: Install Nassila, choose Manuscript or Bibliography mode, and run your first quality pass.
+section: docs.sectionStartHere
+---
+
+# Getting started
+
+**Nassila** (ناسيلا) is a Windows desktop app for a **submit-ready bibliography**: import or paste references, validate offline, verify against scholarly registries, and export in thousands of CSL styles. Optional **Sanad** passage grounding compares sentences in your draft to cited sources using a **local** LLM you configure.
+
+*Verify your references. Ground your claims.*
+
+<Callout variant="info" title="Not a reference manager">
+Nassila is a **quality pass before submission** — not a Zotero or Mendeley replacement. Import from your manager, clean and verify here, then export.
+</Callout>
+
+## Download and install
+
+<Steps>
+<Step title="Download the installer">
+Get the latest Windows installer from [GitHub Releases](https://github.com/jamalesam93/Nassila/releases/latest). No account required.
+</Step>
+<Step title="Run setup">
+Run **Nassila Setup** and launch from the Start menu. The app works offline for editing, validation, and export.
+</Step>
+<Step title="Pick your mode">
+Use the header to switch between **Manuscript** (Ouroboros audit loop) and **Bibliography** (reference list only).
+</Step>
+</Steps>
+
+## System requirements
+
+| Requirement | Minimum | Recommended |
+|-------------|---------|-------------|
+| OS | Windows 10 64-bit | Windows 11 |
+| RAM | 4 GB | 8 GB+ |
+| Disk | ~200 MB for the app | Extra space for Sanad GGUF if using local LLM |
+| GPU | — | 8 GB VRAM (E4B) or 12 GB+ (12B) for Sanad |
+
+## Two modes
+
+### Manuscript (default)
+
+Upload or paste a draft with a **References** section. Nassila extracts in-text citations, runs **L1/L2** registry checks, fetches open-access source text where available, and optionally runs **Sanad** (L3) passage grounding.
+
+See [Manuscript loop](/docs/manuscript).
+
+### Bibliography
+
+Import `.bib`, RIS, CSL-JSON, plain text, DOCX, or PDF reference lists. Validate, autocorrect, dedupe, verify (L1+L2), and export — no manuscript required.
+
+See [How-to guide](/docs/how-to).
+
+## Recommended first session
+
+<Steps>
+<Step title="Add references">
+Paste or **Import** (Ctrl+I) your reference list in Bibliography mode.
+</Step>
+<Step title="Verify online">
+When connected, run **Verify references** (Ctrl+Shift+V). Fix mismatch cards in Issues.
+</Step>
+<Step title="Export or audit">
+Export a formatted bibliography, or switch to Manuscript and **Run audit** after your reference list is clean.
+</Step>
+</Steps>
+
+## Next steps
+
+- [How-to guide](/docs/how-to) — window layout, panels, and daily workflow
+- [User guide](/docs/user-guide) — Sanad, bibliography-first rule, loop detail
+- [Sanad setup](/docs/sanad-setup) — local LLM runners and model download
+- [Changelog](/changelog) — release notes
+
+## Language
+
+Nassila ships **English and Arabic** UI with RTL support. This documentation is available in both locales.

@@ -1,0 +1,55 @@
+---
+title: Bibliography bridge
+description: Send manuscript references to Bibliography, verify in Raqim, and audit from your curated library.
+section: docs.sectionManuscript
+---
+
+Manuscript audit parses the **embedded References section** in your draft. When that block is messy, L1 resolution and Sanad inherit bad cite→ref mapping. The **bibliography bridge** lets you curate references in Bibliography mode, then audit from your verified library.
+
+## When to use it
+
+<Callout variant="info" title="Bibliography-first rule">
+Use the bridge when references have wrong numbering, missing DOIs, duplicate rows, or never ran **Verify references**.
+</Callout>
+
+## Workflow
+
+<Steps>
+<Step title="Open Bibliography">
+Switch header mode to **Bibliography**.
+</Step>
+<Step title="Import or send references">
+Import `.bib` / RIS / DOCX / PDF, paste a list, or **send manuscript References to Bibliography** from Manuscript mode.
+</Step>
+<Step title="Verify and fix">
+Run **Verify references** (Ctrl+Shift+V). Fix mismatch cards, autocorrect, dedupe.
+</Step>
+<Step title="Return to Manuscript">
+Switch back to **Manuscript**. Enable **Audit from Bibliography library** when offered.
+</Step>
+<Step title="Run audit">
+**Run audit** — numeric cite keys are preserved via `manuscript-ref:N` ids.
+</Step>
+</Steps>
+
+## Cite-key preservation
+
+When you export references from the manuscript loop to Bibliography:
+
+- Numeric in-text cites map to stable **`manuscript-ref:N`** ids
+- Re-imported rows keep alignment with `[1]`, `[2]`, … style citations
+- Author–year cites can match manually imported rows without export
+
+## Unpaywall and source text
+
+Curating DOIs in Bibliography improves L1 before audit. For richer Sanad input, set **Settings → General → Manuscript source fetch** (Unpaywall email) so OA full text can be fetched during audit.
+
+<Callout variant="info" title="UI capture pending">
+Screenshots of the send-to-Bibliography action and **Audit from Bibliography library** toggle will be added in a future docs update.
+</Callout>
+
+## Related pages
+
+- [User guide](/docs/user-guide) — bibliography-first section
+- [How-to guide](/docs/how-to) — verify and export in Bibliography mode
+- [Manuscript loop](/docs/manuscript)

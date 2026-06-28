@@ -1,0 +1,103 @@
+---
+title: Sanad setup
+description: Download Sanad models, configure LM Studio, Ollama, or vLLM, and enable passage grounding.
+section: docs.sectionManuscript
+---
+
+**Sanad** (سند) is Nassila's passage-grounding worker. It compares sentences in your draft to source excerpts using a **local** OpenAI-compatible LLM endpoint you configure.
+
+<Callout variant="warning" title="AI-assisted">
+Sanad output is **AI-assisted**. Invalid quotes are blocked by guardrails, but you must verify every verdict manually before submission.
+</Callout>
+
+## Model downloads
+
+Sanad GGUF files are **not bundled** in the installer. Download from Hugging Face (bring your own file):
+
+| Tier | Model ID | VRAM (approx.) | Hugging Face |
+|------|----------|----------------|--------------|
+| Default | `nassila-sanad-e4b` | ~8 GB (Q6_K) | [nassila-sanad-e4b](https://huggingface.co/QinEmPeRoR93/nassila-sanad-e4b) |
+| Quality | `nassila-sanad-12b` | ~12 GB+ (Q6_K) | [nassila-sanad-12b](https://huggingface.co/QinEmPeRoR93/nassila-sanad-12b) |
+
+In Nassila: **Settings → Passage grounding** — pick **E4B** or **12B** tier chip; model field auto-fills.
+
+## Configure in Nassila
+
+<Steps>
+<Step title="Open Passage grounding settings">
+**Settings → Passage grounding** (or **Set up Sanad** modal on first use).
+</Step>
+<Step title="Choose a runner">
+Select **LM Studio**, **Ollama**, **vLLM**, or **Custom** (OpenAI-compatible base URL).
+</Step>
+<Step title="Set base URL and model ID">
+Base URL must match your runner. Model ID must match what the runner exposes (see tabs below).
+</Step>
+<Step title="Enable in Manuscript">
+Toggle Sanad on the **Sanad bar** when running a manuscript audit.
+</Step>
+</Steps>
+
+## Runner setup
+
+<Tabs>
+<Tab label="LM Studio (recommended)">
+
+1. Install [LM Studio](https://lmstudio.ai/).
+2. Download a Sanad GGUF from Hugging Face and load it in LM Studio.
+3. Start the **local server** (default OpenAI-compatible API).
+4. In Nassila, preset **LM Studio**, base URL:
+
+<CodeBlock>http://localhost:1234</CodeBlock>
+
+5. Model field: `nassila-sanad-e4b` (or `nassila-sanad-12b` for quality tier).
+
+</Tab>
+<Tab label="Ollama">
+
+1. Install [Ollama](https://ollama.com/).
+2. Pull from Hugging Face Hub (verify `:Q6_K` tag against your download):
+
+<CodeBlock>ollama pull huggingface.co/QinEmPeRoR93/nassila-sanad-e4b:Q6_K</CodeBlock>
+
+Quality tier:
+
+<CodeBlock>ollama pull huggingface.co/QinEmPeRoR93/nassila-sanad-12b:Q6_K</CodeBlock>
+
+3. In Nassila, preset **Ollama**, base URL:
+
+<CodeBlock>http://localhost:11434</CodeBlock>
+
+4. Model field must match **`ollama list`** exactly after pull.
+
+If you have a `.gguf` on disk, create a Modelfile with `FROM ./your-file.gguf` then `ollama create`.
+
+</Tab>
+<Tab label="vLLM">
+
+1. See [vLLM docs](https://docs.vllm.ai/en/latest/) for server setup.
+2. Serve the quality-tier model (`nassila-sanad-12b`) or E4B GGUF per your hardware.
+3. In Nassila, preset **vLLM** or **Custom** with your server's `/v1` base URL and model id.
+
+</Tab>
+</Tabs>
+
+## Cloud API (optional)
+
+You may point Passage grounding at a **Cloud API** preset with your own endpoint and API key. Manuscript text is sent **only to the endpoint you configure** — review provider retention policies for sensitive drafts.
+
+## Privacy
+
+- Sanad runs on **your machine** when using local runners — manuscript excerpts are not sent to Nassila servers.
+- L1/L2 registry checks and OA fetch are separate network actions you trigger explicitly.
+
+## Troubleshooting
+
+| Problem | What to try |
+|---------|-------------|
+| Connection refused | Confirm runner server is running; check base URL port |
+| Model not found | Match model id to LM Studio loaded model or `ollama list` |
+| Slow or OOM | Switch to **E4B** tier; close other GPU apps |
+| Empty grounding | Enable Sanad toggle; confirm source excerpt is not `Unavailable` |
+
+More: [Troubleshooting](/docs/troubleshooting) · [Local models](/docs/local-models)

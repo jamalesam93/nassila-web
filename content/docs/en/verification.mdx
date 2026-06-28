@@ -1,0 +1,82 @@
+---
+title: Verification
+description: L1 registry resolution, L2 metadata alignment, L3 Sanad grounding, and the 200-row cap.
+section: docs.sectionReference
+---
+
+Nassila verification is layered: **L1** anchors each reference to a registry; **L2** compares your fields to the canonical record; **L3** (Manuscript only) grounds passages against source excerpts via Sanad.
+
+## Tier summary
+
+| Tier | Name | Where it runs | What it checks |
+|------|------|---------------|----------------|
+| **L1** | Registry resolution | Bibliography + Manuscript | DOI/PMID/URL anchor to Crossref, PubMed, OpenAlex, or explicit grey/insufficient outcome |
+| **L2** | Metadata alignment | Bibliography + Manuscript | Title, year, journal, volume, pages, authors vs canonical record when L1 succeeded |
+| **L3** | Passage grounding | Manuscript loop only | Claims in your draft vs source excerpt (abstract or OA text) via Sanad |
+
+## L1 — Registry resolution
+
+L1 answers: *Can this row be tied to a trusted catalog entry?*
+
+Resolution order (simplified):
+
+- **DOI** — Crossref/DataCite → OpenAlex → PubMed where applicable
+- **PMID** — PubMed → OpenAlex
+- **No identifier** — OpenAlex title/author search or grey-web heuristics
+
+Outcomes include resolved DOI/PMID, OpenAlex work match, or explicit insufficient-data flags.
+
+## L2 — Metadata alignment
+
+When L1 finds a canonical record, L2 compares your CSL fields. Crossref/PubMed rows may receive **safe auto-patches** when the registry clearly disagrees. Remaining differences appear as **yellow mismatch cards** in Issues — click to jump to the row.
+
+<Callout variant="info" title="Packaged builds">
+In release builds, unified L1+L2 runs in the **main process** (IPC) so Verify works even when production CSP blocks renderer network calls.
+</Callout>
+
+## L3 — Passage grounding (Sanad)
+
+L3 runs only when:
+
+1. You are in **Manuscript** mode
+2. **Passage grounding** is enabled (Sanad bar toggle)
+3. A source excerpt exists (abstract or OA text)
+
+Sanad returns structured verdicts: `supported`, `weak`, `contradicted`, `not_in_source`, `insufficient_evidence`, with verbatim `sourceQuotes` when supported. Guardrails block quotes not found in the excerpt.
+
+<Callout variant="warning" title="AI-assisted">
+L3 is advisory. L1/L2 registry results remain authoritative for bibliography metadata.
+</Callout>
+
+## Batch limits
+
+| Limit | Value |
+|-------|-------|
+| Rows per **Verify references** run | **200** (prioritized: DOI/PMID rows first) |
+| Network | Required for L1/L2 verify and Resolve |
+
+## Mismatch cards
+
+After verify, mismatch cards show:
+
+- Reference title / authors (for context)
+- Field name (e.g. volume, year)
+- Your value vs registry value
+
+Fix manually in Output or accept patches already applied.
+
+## Offline behavior
+
+| Action | Offline |
+|--------|---------|
+| Parse, edit, validate, export loaded data | Yes |
+| Verify references (L1/L2) | No |
+| Resolve DOI/PMID/URL | No |
+| Manuscript OA fetch | No |
+| Sanad (local LLM) | Yes, if runner is local |
+
+## Related pages
+
+- [How-to guide](/docs/how-to) — verify workflow
+- [Sanad setup](/docs/sanad-setup)
+- [Troubleshooting](/docs/troubleshooting)

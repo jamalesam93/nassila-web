@@ -102,16 +102,20 @@
   },
   "docs": {
     "title": "Documentation",
-    "howTo": "How-to guide",
-    "userGuide": "User guide",
-    "manuscript": "Manuscript loop",
+    "indexIntro": "Exhaustive user-facing reference for Nassila — bibliography workflows, manuscript audit, Sanad setup, verification tiers, and roadmap.",
+    "sectionStartHere": "Start here",
+    "sectionGuides": "Guides",
+    "sectionManuscript": "Manuscript",
+    "sectionReference": "Reference",
+    "sectionModelsRoadmap": "Models & roadmap",
     "onThisPage": "On this page",
-    "editGithub": "Edit on GitHub"
+    "changelogLink": "Release history:",
+    "changelogLinkLabel": "Changelog"
   },
   "footer": {
     "tagline": "Verify your references. Ground your claims.",
     "license": "MIT License",
-    "training": "Model training lives in NassilaT"
+    "training": "Local models documented in Docs"
   },
   "parse": {
     "type": "Type",
