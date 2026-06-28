@@ -1,10 +1,10 @@
 ---
 title: إعداد سند
-description: نزّل نماذج سند، اضبط LM Studio أو Ollama أو vLLM، وفعّل تثبيت المقتطفات.
+description: نزّل نماذج سند، اضبط LM Studio أو Ollama أو vLLM أو Custom أو Cloud API، وفعّل تثبيت المقتطفات.
 section: docs.sectionManuscript
 ---
 
-**سند** (Sanad) هو عامل تثبيت المقتطفات في ناسيلا. يقارن الجمل في مسودتك بمقتطفات المصدر باستخدام نقطة نهاية LLM متوافقة مع OpenAI **محلية** تضبطها أنت.
+**سند** (Sanad) هو عامل تثبيت المقتطفات في ناسيلا. يقارن الجمل في مسودتك بمقتطفات المصدر عبر نقطة نهاية LLM متوافقة مع OpenAI تضبطها أنت — **محلياً افتراضياً**، والسحابة اختيارية.
 
 <Callout variant="warning" title="بمساعدة الذكاء الاصطناعي">
 مخرجات سند **بمساعدة الذكاء الاصطناعي**. تُحظر الاقتباسات غير الصالحة بحواجز أمان، لكن يجب التحقق من كل حكم يدوياً قبل التسليم.
@@ -19,44 +19,63 @@ section: docs.sectionManuscript
 | Default | `nassila-sanad-e4b` | ~8 GB (Q6_K) | [nassila-sanad-e4b](https://huggingface.co/QinEmPeRoR93/nassila-sanad-e4b) |
 | Quality | `nassila-sanad-12b` | ~12 GB+ (Q6_K) | [nassila-sanad-12b](https://huggingface.co/QinEmPeRoR93/nassila-sanad-12b) |
 
-في ناسيلا: **Settings → Passage grounding** — اختر رقاقة **E4B** أو **12B**؛ يُملأ حقل النموذج تلقائياً.
+في ناسيلا: **Settings → Passage grounding** — اختر رقاقة **E4B** أو **12B**؛ يُملأ حقل النموذج تلقائياً عند استخدام GGUF سند **محلي**.
 
 ## الإعداد في ناسيلا
 
 <Steps>
 <Step title="افتح إعدادات Passage grounding">
-**Settings → Passage grounding** (أو نافذة **Set up Sanad** عند أول استخدام).
+**Settings → Passage grounding** (أو رابط **Set up Sanad** داخل التطبيق — التفاصيل الكاملة هنا على الموقع).
 </Step>
-<Step title="اختر مشغّلاً">
-اختر **LM Studio** أو **Ollama** أو **vLLM** أو **Custom** (عنوان URL أساسي متوافق مع OpenAI).
+<Step title="اختر محلياً أو سحابة">
+تح **Provider**، اختر مشغّلاً **محلياً** (LM Studio، Ollama، vLLM، Custom) لـ GGUF سند، أو **Cloud API** لنموذج طرف ثالث تجريبي.
 </Step>
 <Step title="اضبط عنوان URL الأساسي ومعرّف النموذج">
-يجب أن يطابق عنوان URL الأساسي مشغّلك. يجب أن يطابق معرّف النموذج ما يعرضه المشغّل (انظر علامات التبويب أدناه).
+يجب أن يطابق عنوان URL الأساسي مشغّلك أو واجهة API. يجب أن يطابق معرّف النموذج ما يعرضه الخادم (`ollama list`، النموذج المحمّل في LM Studio، أو اسم نموذج السحابة).
+</Step>
+<Step title="اختبر الاتصال">
+استخدم **Test connection** في الإعدادات قبل أول تدقيق. صحّح عنوان URL أو معرّف النموذج أو مفتاح API حتى ينجح.
 </Step>
 <Step title="فعّل في المخطوطة">
 بدّل سند على **شريط سند** عند تشغيل تدقيق مخطوطة.
 </Step>
 </Steps>
 
-## إعداد المشغّل
+## إعداد المشغّل والسحابة
+
+اختر علامة التبويب التي تناسب مزوّدك. التبويبات المحلية تستخدم نماذج سند المدرّبة؛ **Cloud API** يستخدم أي نموذج يوفّره البائع (الجودة غير مضمونة).
 
 <Tabs>
 <Tab label="LM Studio (recommended)">
 
-1. ثبّت [LM Studio](https://lmstudio.ai/).
-2. نزّل Sanad GGUF من Hugging Face وحمله في LM Studio.
-3. شغّل **الخادم المحلي** (واجهة API افتراضية متوافقة مع OpenAI).
-4. في ناسيلا، الإعداد المسبق **LM Studio**، عنوان URL الأساسي:
+<Steps>
+<Step title="ثبّت LM Studio">
+نزّل من [lmstudio.ai](https://lmstudio.ai/).
+</Step>
+<Step title="حمّل Sanad GGUF">
+نزّل **nassila-sanad-e4b** أو **nassila-sanad-12b** من Hugging Face (الجدول أعلاه) وحمل الملف في LM Studio.
+</Step>
+<Step title="شغّل Local Server">
+في LM Studio، شغّل **Local Server** (واجهة API متوافقة مع OpenAI على المنفذ 1234 افتراضياً).
+</Step>
+<Step title="طابِق إعدادات ناسيلا">
+الإعداد المسبق **LM Studio**. عنوان URL الأساسي:
 
 <CodeBlock>http://localhost:1234</CodeBlock>
 
-5. حقل النموذج: `nassila-sanad-e4b` (أو `nassila-sanad-12b` لمستوى الجودة).
+حقل النموذج: `nassila-sanad-e4b` أو المعرف الدقيق الذي يظهر في LM Studio للـ GGUF المحمّل.
+</Step>
+</Steps>
 
 </Tab>
 <Tab label="Ollama">
 
-1. ثبّت [Ollama](https://ollama.com/).
-2. اسحب من Hugging Face Hub (تحقق من وسم `:Q6_K` مقابل تنزيلك):
+<Steps>
+<Step title="ثبّت Ollama">
+نزّل من [ollama.com](https://ollama.com/).
+</Step>
+<Step title="اسحب من Hugging Face">
+المستوى الافتراضي:
 
 <CodeBlock>ollama pull huggingface.co/QinEmPeRoR93/nassila-sanad-e4b:Q6_K</CodeBlock>
 
@@ -64,40 +83,100 @@ section: docs.sectionManuscript
 
 <CodeBlock>ollama pull huggingface.co/QinEmPeRoR93/nassila-sanad-12b:Q6_K</CodeBlock>
 
-3. في ناسيلا، الإعداد المسبق **Ollama**، عنوان URL الأساسي:
+تحقق أن وسم `:Q6_K` يطابق اسم الملف على بطاقة النموذج.
+</Step>
+<Step title="طابِق إعدادات ناسيلا">
+الإعداد المسبق **Ollama**. عنوان URL الأساسي:
 
 <CodeBlock>http://localhost:11434</CodeBlock>
 
-4. يجب أن يطابق حقل النموذج **`ollama list`** تماماً بعد السحب.
-
-إذا كان لديك `.gguf` على القرص، أنشئ Modelfile بـ `FROM ./your-file.gguf` ثم `ollama create`.
+يجب أن يطابق حقل النموذج **`ollama list`** تماماً بعد السحب.
+</Step>
+<Step title="لديك .gguf على القرص؟">
+أنشئ Modelfile بـ `FROM ./your-file.gguf`، ثم `ollama create` باسم تستخدمه في حقل النموذج في ناسيلا.
+</Step>
+</Steps>
 
 </Tab>
 <Tab label="vLLM">
 
-1. راجع [وثائق vLLM](https://docs.vllm.ai/en/latest/) لإعداد الخادم.
-2. قدّم نموذج مستوى الجودة (`nassila-sanad-12b`) أو E4B GGUF حسب عتادك.
-3. في ناسيلا، الإعداد المسبق **vLLM** أو **Custom** مع عنوان URL الأساسي `/v1` لخادمك ومعرّف النموذج.
+<Steps>
+<Step title="قدّم Sanad GGUF">
+اتبع [وثائق vLLM](https://docs.vllm.ai/en/latest/) (أو خادماً متوافقاً مع OpenAI) لتقديم **nassila-sanad-e4b** أو **nassila-sanad-12b** حسب GPU/RAM.
+</Step>
+<Step title="سجّل معرّف النموذج">
+يُظهر الخادم معرّفاً في `/v1/models` — انسخه حرفياً.
+</Step>
+<Step title="طابِق إعدادات ناسيلا">
+الإعداد المسبق **vLLM** أو **Custom**. عنوان URL الأساسي لجذر الخادم (غالباً `http://localhost:8000`). حقل النموذج = المعرف من الخادم.
+</Step>
+</Steps>
+
+</Tab>
+<Tab label="Custom endpoint">
+
+لأي خادم **محلي** متوافق مع OpenAI (llama.cpp server، text-generation-webui، إلخ):
+
+<Steps>
+<Step title="شغّل الخادم">
+تأكد أن `/v1/chat/completions` متاح على عنوان URL الأساسي.
+</Step>
+<Step title="حمّل Sanad GGUF">
+استخدم أحد تنزيلات Hugging Face أعلاه — Custom ليس بديلاً عن أوزان سند.
+</Step>
+<Step title="طابِق إعدادات ناسيلا">
+الإعداد المسبق **Custom**. أدخل عنوان URL الأساسي ومعرّف النموذج الذي يُبلغ عنه الخادم. لـ **localhost**، أي مفتاح API placeholder غير فارغ مقبول.
+</Step>
+</Steps>
+
+</Tab>
+<Tab label="Cloud API">
+
+<Callout variant="warning" title="تجريبي — ليس Nassila Sanad">
+نماذج السحابة **ليست** نقاط تفتيش سند المدرّبة. جودة التثبيت **تجريبية**. فضّل GGUF محلية E4B/12B للعمل الحساس قبل التسليم.
+</Callout>
+
+<Steps>
+<Step title="اختر مزوّد سحابة">
+تقبل ناسيلا أي نقطة HTTPS متوافقة مع OpenAI. خيارات شائعة: [OpenAI](https://platform.openai.com/) أو [OpenRouter](https://openrouter.ai/) — قد يكتشف التطبيقها من عنوان URL.
+</Step>
+<Step title="اختر Cloud API في الإعدادات">
+**Settings → Passage grounding → Provider → Cloud API**.
+</Step>
+<Step title="الصق مفتاح API">
+يُخزَّن **على هذا الجهاز فقط** ويُرسَل **فقط إلى نقطة النهاية التي تضبطها** — لا إلى خوادم ناسيلا.
+</Step>
+<Step title="اضبط URL الأساسي والنموذج">
+إن لم يُملأ تلقائياً، أمثلة:
+
+<CodeBlock>https://api.openai.com/v1</CodeBlock>
+
+<CodeBlock>https://openrouter.ai/api/v1</CodeBlock>
+
+حقل النموذج = اسم النموذج لدى المزوّد. **رقائق E4B/12B للسند المحلي فقط** — السحابة تستخدم النموذج الذي تختاره كما هو.
+</Step>
+<Step title="راجع الخصوصية قبل التدقيق">
+يُرسَل نص المقتطف إلى **بائع السحابة** عند التثبيت. اقرأ سياسات الاحتفاظ والتدريب للمسودات الحساسة.
+</Step>
+</Steps>
 
 </Tab>
 </Tabs>
 
-## Cloud API (اختياري)
-
-يمكنك توجيه Passage grounding إلى إعداد مسبق **Cloud API** بنقطة النهاية ومفتاح API الخاصين بك. يُرسل نص المخطوطة **فقط إلى نقطة النهاية التي تضبطها** — راجع سياسات الاحتفاظ لدى المزوّد للمسودات الحساسة.
-
 ## الخصوصية
 
-- يعمل سند على **جهازك** عند استخدام المشغّلات المحلية — لا تُرسل مقتطفات المخطوطة إلى خوادم ناسيلا.
-- فحوصات السجل L1/L2 وجلب OA إجراءات شبكة منفصلة تشغّلها صراحة.
+- **المشغّلات المحلية** — النص يذهب إلى جهازك فقط (localhost أو خادم LAN).
+- **Cloud API** — النص يذهب إلى البائع الذي تضبطه.
+- **ناسيلا** لا تستقبل نص المخطوطة للتثبيت؛ فحوصات L1/L2 وجلب OA إجراءات منفصلة تشغّلها أنت.
 
 ## استكشاف الأخطاء
 
 | المشكلة | ما تجربه |
 |---------|-------------|
-| Connection refused | تأكد أن خادم المشغّل يعمل؛ تحقق من منفذ عنوان URL الأساسي |
-| Model not found | طابِق معرّف النموذج مع النموذج المحمّل في LM Studio أو `ollama list` |
-| بطء أو OOM | انتقل إلى مستوى **E4B**؛ أغلق تطبيقات GPU الأخرى |
-| تثبيت فارغ | فعّل مفتاح سند؛ تأكد أن مقتطف المصدر ليس `Unavailable` |
+| Connection refused | تأكد أن خادم المشغّل يعمل؛ تحقق من المنفذ |
+| Model not found | طابِق معرّف النموذج مع LM Studio أو `ollama list` |
+| بطء أو OOM | انتقل إلى **E4B**؛ أغلق تطبيقات GPU |
+| تثبيت فارغ | فعّل سند؛ تأكد أن المقتطف ليس `Unavailable` |
+| فشل اختبار السحابة | تحقق من مفتاح API ولواحقة `/v1` واسم النموذج |
 
 المزيد: [استكشاف الأخطاء](/docs/troubleshooting) · [النماذج المحلية](/docs/local-models)
