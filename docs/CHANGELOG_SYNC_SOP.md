@@ -35,7 +35,9 @@ Remove or rewrite bullets that are:
 - Headings: `## [version] — YYYY-MM-DD · Codename` for releases with a worker-themed subtitle (e.g. `## [1.1.2] — 2026-06-27 · Raqim Bridge`). Patch releases without a codename may omit the subtitle.
 - Use `### Added`, `### Fixed`, `### Changed` subsections
 - End with link: `[Full history on GitHub](https://github.com/jamalesam93/Nassila/blob/main/CHANGELOG.md)`
-- Arabic file: same structure, translated prose; version numbers, codenames, and product names unchanged
+- Arabic file: same structure, translated prose; version numbers unchanged
+- **Arabic release codenames** use product-layer names from `lib/release-train.ts` (`codenameAr`), e.g. **مِعبر رقيم** (1.1.2), **المَراجع أولاً** (1.1.1), **سَنَد** (1.1.0), **تهذيب** (1.1.3), **موجز مصدر** (1.2.0). English codenames stay in `en.md` headings.
+- **Worker terms** in Arabic prose follow the fixed glossary (سند، رقيم، …) — do not conflate worker names with release codenames or manuscript mode (**المخطوطة**).
 - When syncing, update `lib/release-train.ts` `CURRENT_RELEASE` if the latest shipped version changed
 
 ## Example strip

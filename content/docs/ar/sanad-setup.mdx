@@ -4,7 +4,7 @@ description: نزّل نماذج سند، اضبط LM Studio أو Ollama أو vL
 section: docs.sectionManuscript
 ---
 
-**سند** (Sanad) هو عامل تثبيت المقتطفات في ناسيلا. يقارن الجمل في مسودتك بمقتطفات المصدر عبر نقطة نهاية LLM متوافقة مع OpenAI تضبطها أنت — **محلياً افتراضياً**، والسحابة اختيارية.
+**سند** (Sanad) هو عامل توثيق الادعاءات بالمصدر في ناسيلا. يقارن الجمل في مسودتك بمقتطفات المصدر عبر خادم LLM متوافق مع OpenAI تضبطه أنت — **محلياً افتراضياً**، والسحابة اختيارية.
 
 <Callout variant="warning" title="بمساعدة الذكاء الاصطناعي">
 مخرجات سند **بمساعدة الذكاء الاصطناعي**. تُحظر الاقتباسات غير الصالحة بحواجز أمان، لكن يجب التحقق من كل حكم يدوياً قبل التسليم.
@@ -19,7 +19,7 @@ section: docs.sectionManuscript
 | Default | `nassila-sanad-e4b` | ~8 GB (Q6_K) | [nassila-sanad-e4b](https://huggingface.co/QinEmPeRoR93/nassila-sanad-e4b) |
 | Quality | `nassila-sanad-12b` | ~12 GB+ (Q6_K) | [nassila-sanad-12b](https://huggingface.co/QinEmPeRoR93/nassila-sanad-12b) |
 
-في ناسيلا: **Settings → Passage grounding** — اختر رقاقة **E4B (S12)** أو **12B (S14)**؛ يُملأ حقل النموذج تلقائياً عند استخدام GGUF سند **محلي**.
+في ناسيلا: **الإعدادات → توثيق الادعاءات بالمصدر** — اختر رقاقة **E4B (S12)** أو **12B (S14)**؛ يُملأ حقل النموذج تلقائياً عند استخدام GGUF سند **محلي**.
 
 <Callout variant="info" title="S = نقطة تفتيش Sanad">
 **S12** و**S14** تسميان أجيال نماذج Sanad على Hugging Face — منفصلة عن إصدار التطبيق (مثل **1.1.2**). التفاصيل: [النماذج المحلية](/docs/local-models).
@@ -28,8 +28,8 @@ section: docs.sectionManuscript
 ## الإعداد في ناسيلا
 
 <Steps>
-<Step title="افتح إعدادات Passage grounding">
-**Settings → Passage grounding** (أو رابط **Set up Sanad** داخل التطبيق — التفاصيل الكاملة هنا على الموقع).
+<Step title="افتح إعدادات توثيق الادعاءات">
+**الإعدادات → توثيق الادعاءات بالمصدر** (أو رابط **إعداد Sanad** داخل التطبيق — التفاصيل الكاملة هنا على الموقع).
 </Step>
 <Step title="اختر محلياً أو سحابة">
 تح **Provider**، اختر مشغّلاً **محلياً** (LM Studio، Ollama، vLLM، Custom) لـ GGUF سند، أو **Cloud API** لنموذج طرف ثالث تجريبي.
@@ -145,10 +145,10 @@ section: docs.sectionManuscript
 تقبل ناسيلا أي نقطة HTTPS متوافقة مع OpenAI. خيارات شائعة: [OpenAI](https://platform.openai.com/) أو [OpenRouter](https://openrouter.ai/) — قد يكتشف التطبيقها من عنوان URL.
 </Step>
 <Step title="اختر Cloud API في الإعدادات">
-**Settings → Passage grounding → Provider → Cloud API**.
+**الإعدادات → توثيق الادعاءات بالمصدر → المزوّد → API سحابي**.
 </Step>
 <Step title="الصق مفتاح API">
-يُخزَّن **على هذا الجهاز فقط** ويُرسَل **فقط إلى نقطة النهاية التي تضبطها** — لا إلى خوادم ناسيلا.
+يُخزَّن **على هذا الجهاز فقط** ويُرسَل **فقط إلى عنوان الخادم الذي تضبطه** — لا إلى خوادم ناسيلا.
 </Step>
 <Step title="اضبط URL الأساسي والنموذج">
 إن لم يُملأ تلقائياً، أمثلة:

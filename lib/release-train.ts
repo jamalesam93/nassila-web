@@ -3,7 +3,7 @@
 export const CURRENT_RELEASE = {
   version: '1.1.2',
   codenameEn: 'Raqim Bridge',
-  codenameAr: 'جسر Raqim',
+  codenameAr: 'مِعبر رقيم',
   date: '2026-06-27',
 } as const
 
@@ -20,7 +20,7 @@ export const RELEASE_TRAIN: ReleaseTrainEntry[] = [
   {
     version: '1.1.3',
     codenameEn: 'Polish',
-    codenameAr: 'Polish',
+    codenameAr: 'تهذيب',
     status: 'planned',
     summaryEn: 'Audit/export notifications; lighter in-app Sanad setup (full guide on this website).',
     summaryAr: 'إشعارات التدقيق/التصدير؛ إعداد سند أخف داخل التطبيق (الدليل الكامل على الموقع).',
@@ -28,7 +28,7 @@ export const RELEASE_TRAIN: ReleaseTrainEntry[] = [
   {
     version: '1.2.0',
     codenameEn: 'Masdar-lite',
-    codenameAr: 'Masdar-lite',
+    codenameAr: 'موجز مصدر',
     status: 'planned',
     summaryEn: 'Open-access PDF text in grounding; live N/M audit progress during long runs.',
     summaryAr: 'نص PDF مفتوح الوصول في التثبيت؛ تقدم تدقيق N/M مباشر أثناء التشغيلات الطويلة.',
@@ -36,7 +36,7 @@ export const RELEASE_TRAIN: ReleaseTrainEntry[] = [
   {
     version: '1.2.1',
     codenameEn: 'Masdar UX',
-    codenameAr: 'Masdar UX',
+    codenameAr: 'تفاعل مصدر',
     status: 'planned',
     summaryEn: 'Attach your own PDF per reference; quote-verification chips; more audit shortcuts.',
     summaryAr: 'إرفاق PDF خاص بك لكل مرجع؛ رقائق التحقق من الاقتباس؛ اختصارات تدقيق إضافية.',
@@ -44,7 +44,7 @@ export const RELEASE_TRAIN: ReleaseTrainEntry[] = [
   {
     version: '1.2.2',
     codenameEn: 'Throughput',
-    codenameAr: 'Throughput',
+    codenameAr: 'معدل الإنجاز',
     status: 'planned',
     summaryEn: 'Faster manuscript audits with sensible limits for registry vs local LLM work.',
     summaryAr: 'تدقيق مخطوطة أسرع مع حدود معقولة لعمل السجل مقابل LLM المحلي.',
@@ -52,7 +52,7 @@ export const RELEASE_TRAIN: ReleaseTrainEntry[] = [
   {
     version: '1.3.0',
     codenameEn: 'Sharh-lite',
-    codenameAr: 'Sharh-lite',
+    codenameAr: 'موجز شرح',
     status: 'planned',
     summaryEn: 'Clearer deterministic explanations; Help menu deep links to documentation.',
     summaryAr: 'شروح حتمية أوضح؛ روابط Help إلى التوثيق.',
@@ -63,15 +63,15 @@ export const SHIPPED_CODENAMES: ReleaseTrainEntry[] = [
   {
     version: '1.1.2',
     codenameEn: 'Raqim Bridge',
-    codenameAr: 'جسر Raqim',
+    codenameAr: 'مِعبر رقيم',
     status: 'shipped',
     summaryEn: 'Send manuscript references to Bibliography; audit from curated library.',
-    summaryAr: 'إرسال مراجع المخطوطة إلى Bibliography؛ التدقيق من مكتبة منسّقة.',
+    summaryAr: 'نقل مراجع المخطوطة إلى رقيم؛ التدقيق من مكتبة منسّقة.',
   },
   {
     version: '1.1.1',
     codenameEn: 'Bibliography-first',
-    codenameAr: 'Bibliography-first',
+    codenameAr: 'المَراجع أولاً',
     status: 'shipped',
     summaryEn: 'Loop hints to curate references before audit; DOCX import parity.',
     summaryAr: 'تلميحات لتنظيم المراجع قبل التدقيق؛ استيراد DOCX.',
@@ -79,10 +79,10 @@ export const SHIPPED_CODENAMES: ReleaseTrainEntry[] = [
   {
     version: '1.1.0',
     codenameEn: 'Sanad',
-    codenameAr: 'Sanad',
+    codenameAr: 'سَنَد',
     status: 'shipped',
     summaryEn: 'Manuscript loop with L3 passage grounding and Sanad setup.',
-    summaryAr: 'حلقة مخطوطة مع تثبيت المقتطفات L3 وإعداد Sanad.',
+    summaryAr: 'حلقة مخطوطة مع توثيق سند L3 وإعداد سند.',
   },
 ]
 
