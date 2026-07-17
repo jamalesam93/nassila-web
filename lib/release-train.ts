@@ -1,10 +1,10 @@
 /** Public release train — user-facing only. App semver ≠ Sanad SNN checkpoints. */
 
 export const CURRENT_RELEASE = {
-  version: '1.1.2',
-  codenameEn: 'Raqim Bridge',
-  codenameAr: 'مِعبر رقيم',
-  date: '2026-06-27',
+  version: '1.2.1',
+  codenameEn: 'Masdar UX',
+  codenameAr: 'تفاعل مصدر',
+  date: '2026-07-17',
 } as const
 
 export type ReleaseTrainEntry = {
@@ -16,38 +16,17 @@ export type ReleaseTrainEntry = {
   summaryAr: string
 }
 
+/** Upcoming / not yet shipped — user-visible focus only. */
 export const RELEASE_TRAIN: ReleaseTrainEntry[] = [
-  {
-    version: '1.1.3',
-    codenameEn: 'Polish',
-    codenameAr: 'تهذيب',
-    status: 'planned',
-    summaryEn: 'Audit/export notifications; lighter in-app Sanad setup (full guide on this website).',
-    summaryAr: 'إشعارات التدقيق/التصدير؛ إعداد سند أخف داخل التطبيق (الدليل الكامل على الموقع).',
-  },
-  {
-    version: '1.2.0',
-    codenameEn: 'Masdar-lite',
-    codenameAr: 'موجز مصدر',
-    status: 'planned',
-    summaryEn: 'Open-access PDF text in grounding; live N/M audit progress during long runs.',
-    summaryAr: 'نص PDF مفتوح الوصول في التثبيت؛ تقدم تدقيق N/M مباشر أثناء التشغيلات الطويلة.',
-  },
-  {
-    version: '1.2.1',
-    codenameEn: 'Masdar UX',
-    codenameAr: 'تفاعل مصدر',
-    status: 'planned',
-    summaryEn: 'Attach your own PDF per reference; quote-verification chips; more audit shortcuts.',
-    summaryAr: 'إرفاق PDF خاص بك لكل مرجع؛ رقائق التحقق من الاقتباس؛ اختصارات تدقيق إضافية.',
-  },
   {
     version: '1.2.2',
     codenameEn: 'Throughput',
     codenameAr: 'معدل الإنجاز',
     status: 'planned',
-    summaryEn: 'Faster manuscript audits with sensible limits for registry vs local LLM work.',
-    summaryAr: 'تدقيق مخطوطة أسرع مع حدود معقولة لعمل السجل مقابل LLM المحلي.',
+    summaryEn:
+      'Faster manuscript audits with sensible limits for registry vs local LLM work. May include per-reference PDF attach and quote-verification chips.',
+    summaryAr:
+      'تدقيق مخطوطة أسرع مع حدود معقولة لعمل السجل مقابل LLM المحلي. قد يشمل إرفاق PDF لكل مرجع ورقائق التحقق من الاقتباس.',
   },
   {
     version: '1.3.0',
@@ -60,6 +39,32 @@ export const RELEASE_TRAIN: ReleaseTrainEntry[] = [
 ]
 
 export const SHIPPED_CODENAMES: ReleaseTrainEntry[] = [
+  {
+    version: '1.2.1',
+    codenameEn: 'Masdar UX',
+    codenameAr: 'تفاعل مصدر',
+    status: 'shipped',
+    summaryEn:
+      'Audit in-progress panel; DOI↔title conflict manual-only; Copy evidence and Jump to Bibliography; icon polish (I2). Attach PDF and quote chips deferred.',
+    summaryAr:
+      'لوحة تدقيق أثناء التشغيل؛ تعارض DOI↔العنوان يدوياً فقط؛ نسخ الأدلة والانتقال إلى المراجع؛ تحسين الأيقونات. إرفاق PDF ورقائق الاقتباس مؤجلة.',
+  },
+  {
+    version: '1.2.0',
+    codenameEn: 'Masdar-lite',
+    codenameAr: 'موجز مصدر',
+    status: 'shipped',
+    summaryEn: 'Open-access PDF text in grounding; live N/M audit progress during long runs.',
+    summaryAr: 'نص PDF مفتوح الوصول في التثبيت؛ تقدم تدقيق N/M مباشر أثناء التشغيلات الطويلة.',
+  },
+  {
+    version: '1.1.3',
+    codenameEn: 'Polish',
+    codenameAr: 'تهذيب',
+    status: 'shipped',
+    summaryEn: 'Audit/export notifications; lighter in-app Sanad setup (full guide on this website).',
+    summaryAr: 'إشعارات التدقيق/التصدير؛ إعداد سند أخف داخل التطبيق (الدليل الكامل على الموقع).',
+  },
   {
     version: '1.1.2',
     codenameEn: 'Raqim Bridge',

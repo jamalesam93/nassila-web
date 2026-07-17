@@ -8,7 +8,7 @@ This page lists **user-visible** planned work and known gaps. It does not cover 
 
 ## Current release
 
-**Nassila 1.1.2 · Raqim Bridge** — bibliography bridge, packaged-app verify, PDF import parity. See [Changelog](/changelog).
+**Nassila 1.2.1 · Masdar UX** — audit in-progress panel; DOI↔title conflict manual-only; Copy evidence / Jump to Bibliography; icon polish. See [Changelog](/changelog).
 
 ## Release train (planned)
 
@@ -16,23 +16,23 @@ App versions use **worker-themed codenames**. These are **planned** — not prom
 
 | Version | Codename | User-visible focus |
 |---------|----------|------------------|
-| **1.1.3** | **Polish** | Notifications when audit/export finish; lighter in-app Sanad setup (full guide on [Sanad setup](/docs/sanad-setup)) |
-| **1.2.0** | **Masdar-lite** | Open-access **PDF text** in grounding (not just abstract); live **N/M progress** during long audits |
-| **1.2.1** | **Masdar UX** | Attach your own PDF per reference; quote-verification chips; more audit shortcuts |
-| **1.2.2** | **Throughput** | Faster audits with sensible limits for registry work vs local Sanad LLM |
+| **1.2.2** | **Throughput** | Faster audits with sensible limits for registry vs local Sanad LLM; may include per-reference PDF attach and quote-verification chips |
 | **1.3.0** | **Sharh-lite** | Clearer deterministic explanations; **Help menu → documentation** deep links |
 
 <Callout variant="info" title="Masdar-lite is not a new AI model">
-**1.2.0 Masdar-lite** uses deterministic PDF text extraction in the app — it does **not** require downloading a new Sanad GGUF. Your existing **S12** or **S14** checkpoint stays the same.
+**1.2.0 Masdar-lite** (shipped) uses deterministic PDF text extraction in the app — it does **not** require downloading a new Sanad GGUF. Your existing **S12** or **S14** checkpoint stays the same.
 </Callout>
 
 ## Shipped milestones (recent)
 
 | Version | Codename | Highlight |
 |---------|----------|-----------|
-| **1.1.0** | **Sanad** | Manuscript loop + L3 passage grounding |
-| **1.1.1** | **Bibliography-first** | Curate references before audit |
+| **1.2.1** | **Masdar UX** | In-progress audit panel; DOI↔title manual resolve; shortcuts; icon I2 |
+| **1.2.0** | **Masdar-lite** | OA PDF text in grounding; live N/M audit progress |
+| **1.1.3** | **Polish** | Notifications; lighter Sanad setup |
 | **1.1.2** | **Raqim Bridge** | Send refs to Bibliography; audit from library |
+| **1.1.1** | **Bibliography-first** | Curate references before audit |
+| **1.1.0** | **Sanad** | Manuscript loop + L3 passage grounding |
 
 ## Worker maturity
 
@@ -41,8 +41,8 @@ App versions use **worker-themed codenames**. These are **planned** — not prom
 | **Raqim** | Bibliography import, L1/L2, export, bibliography bridge | Continued citeproc and registry improvements |
 | **Sanad** | L3 in manuscript loop; S12/S14 tiers | Deeper Masdar integration for full-text excerpts |
 | **Tasnif / Sharh** | Inline deterministic copy | Richer explanations as Sharh matures |
-| **Maktab** | Stub | Automatic manuscript segmentation in loop |
-| **Masdar** | Stub | User PDF attach + cited-source chunk pipeline |
+| **Maktab** | pdf.js + OCR (O1) in loop | Broader scan coverage / fixtures |
+| **Masdar** | OA PDF text in grounding (**1.2.0**); UX polish (**1.2.1**) | User PDF attach per reference (#5) |
 | **Shahid** | Disabled | Table/figure evidence (Tier 3+) |
 
 ## Manuscript loop (Tier 3 direction)
