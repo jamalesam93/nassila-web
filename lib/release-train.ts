@@ -23,10 +23,41 @@ export const RELEASE_TRAIN: ReleaseTrainEntry[] = [
     codenameEn: 'Throughput',
     codenameAr: 'معدل الإنجاز',
     status: 'planned',
+    summaryEn: 'Faster manuscript audits with sensible limits for registry vs local LLM work.',
+    summaryAr: 'تدقيق مخطوطة أسرع مع حدود معقولة لعمل السجل مقابل LLM المحلي.',
+  },
+  {
+    version: '1.2.3',
+    codenameEn: 'Quote chip',
+    codenameAr: 'رقاقة اقتباس',
+    status: 'planned',
     summaryEn:
-      'Faster manuscript audits with sensible limits for registry vs local LLM work. May include per-reference PDF attach and quote-verification chips.',
-    summaryAr:
-      'تدقيق مخطوطة أسرع مع حدود معقولة لعمل السجل مقابل LLM المحلي. قد يشمل إرفاق PDF لكل مرجع ورقائق التحقق من الاقتباس.',
+      'Inline quote-verification chips on claim rows; cleaner header (no redundant product wordmark).',
+    summaryAr: 'رقائق التحقق من الاقتباس على صفوف الادعاءات؛ رأس أوضح بدون اسم المنتج المكرر.',
+  },
+  {
+    version: '1.2.4',
+    codenameEn: 'Masdar attach',
+    codenameAr: 'إرفاق مصدر',
+    status: 'planned',
+    summaryEn: 'Attach your own PDF per cited reference and re-ground that source.',
+    summaryAr: 'إرفاق PDF خاص بك لكل مرجع مستشهَد وإعادة تثبيت ذلك المصدر.',
+  },
+  {
+    version: '1.2.5',
+    codenameEn: 'Raqim Repair',
+    codenameAr: 'إصلاح رقيم',
+    status: 'planned',
+    summaryEn: 'Stronger bibliography verify/repair for PMCID, arXiv, publisher URLs, and parser edge cases.',
+    summaryAr: 'تحقق وإصلاح أقوى للقائمة المرجعية لـ PMCID وarXiv وروابط الناشرين وحالات التحليل الخاصة.',
+  },
+  {
+    version: '1.2.6',
+    codenameEn: 'Raqim Resolve',
+    codenameAr: 'حل رقيم',
+    status: 'planned',
+    summaryEn: 'Suggested matches and manual lookup when registry resolve fails; gray-lit hosts (HF Hub, Kaggle).',
+    summaryAr: 'اقتراحات ومبحث يدوي عند فشل ربط السجل؛ مضيفون رماديون (Hugging Face، Kaggle).',
   },
   {
     version: '1.3.0',
@@ -45,9 +76,9 @@ export const SHIPPED_CODENAMES: ReleaseTrainEntry[] = [
     codenameAr: 'تفاعل مصدر',
     status: 'shipped',
     summaryEn:
-      'Audit in-progress panel; DOI↔title conflict manual-only; Copy evidence and Jump to Bibliography; icon polish (I2). Attach PDF and quote chips deferred.',
+      'Audit in-progress panel; DOI↔title conflict manual-only; Copy evidence and Jump to Bibliography; icon polish (I2).',
     summaryAr:
-      'لوحة تدقيق أثناء التشغيل؛ تعارض DOI↔العنوان يدوياً فقط؛ نسخ الأدلة والانتقال إلى المراجع؛ تحسين الأيقونات. إرفاق PDF ورقائق الاقتباس مؤجلة.',
+      'لوحة تدقيق أثناء التشغيل؛ تعارض DOI↔العنوان يدوياً فقط؛ نسخ الأدلة والانتقال إلى المراجع؛ تحسين الأيقونات.',
   },
   {
     version: '1.2.0',

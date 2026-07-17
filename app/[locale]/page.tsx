@@ -1,8 +1,6 @@
-import { Suspense } from 'react'
 import { getTranslations, setRequestLocale } from 'next-intl/server'
 import { AppShowreel } from '@/components/home/app-showreel'
 import { FeatureStrip } from '@/components/home/feature-strip'
-import { LiveReleaseBadge } from '@/components/home/live-release-badge'
 import { OuroborosScroll } from '@/components/home/ouroboros-scroll'
 import { TryCitationDemo } from '@/components/home/try-citation-demo'
 import { RELEASES_LATEST } from '@/lib/github-release'
@@ -14,7 +12,6 @@ export default async function HomePage({ params }: Props) {
   const { locale } = await params
   setRequestLocale(locale)
   const t = await getTranslations({ locale, namespace: 'home' })
-  const release = await getTranslations({ locale, namespace: 'release' })
 
   return (
     <>
@@ -39,11 +36,6 @@ export default async function HomePage({ params }: Props) {
               >
                 {t('seeHow')}
               </a>
-            </div>
-            <div className="mt-6">
-              <Suspense fallback={<span className="text-sm text-muted-foreground">{release('loading')}</span>}>
-                <LiveReleaseBadge unavailableLabel={release('unavailable')} />
-              </Suspense>
             </div>
           </div>
           <AppShowreel />
