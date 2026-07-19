@@ -1,3 +1,21 @@
+## [1.3.0] — 2026-07-20 · Sharh-lite
+
+### Added
+
+- **Faster manuscript audits** — main-process scheduling with live progress and reliable cancel.
+- **Quote-verification chips** — see whether a supporting quote was found, separately from the Sanad claim verdict.
+- **Raqim Repair** — stronger verify for PMCID, arXiv, publisher URLs, and common parser edge cases; safer handling when DOI and title disagree.
+- **Raqim Resolve** — repair panel: search by title, DOI, PMID, PMCID, or URL; ranked suggestions from scholarly registries plus Hugging Face, Kaggle, and GitHub (you choose what to apply).
+- **Masdar attach** — attach your own PDF for a cited reference and re-ground that source offline.
+- **Projects + Help** — save/open `.nassila` projects; first-run bibliography tip; Help menu links to this website.
+- **OCR language packs** — bundled English, French, and Arabic for scanned PDFs.
+- **Sharh-lite** — deterministic evidence summary (claim counts and suggested next actions).
+
+### Fixed
+
+- Windows installer / taskbar / shortcut icons show Nassila branding correctly.
+- DOCX and PDF bibliography import counts align more closely with paste (fewer merged or false-split references).
+
 ## [1.2.1] — 2026-07-17 · Masdar UX
 
 ### Added
@@ -9,7 +27,7 @@
 
 ### Deferred
 
-- Per-reference **attach PDF** and **quote-verification chips** → a later 1.2.x release.
+- Per-reference **attach PDF** and **quote-verification chips** → shipped in **1.3.0**.
 
 ## [1.2.0] — 2026-07-15 · Masdar-lite
 

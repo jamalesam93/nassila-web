@@ -8,23 +8,13 @@ This page lists **user-visible** planned work and known gaps. It does not cover 
 
 ## Current release
 
-**Nassila 1.2.1 · Masdar UX** — audit in-progress panel; DOI↔title conflict manual-only; Copy evidence / Jump to Bibliography; icon polish. See [Changelog](/changelog).
+**Nassila 1.3.0 · Sharh-lite** — audit scheduler and quote chips; Raqim Repair/Resolve; Masdar PDF attach; projects; OCR packs; deterministic evidence summary. See [Changelog](/changelog).
 
 ## Release train (planned)
 
-App versions use **worker-themed codenames**. These are **planned** — not promises with dates.
+App versions use **worker-themed codenames**. Nothing is currently scheduled beyond **1.3.0** on this page — check [Changelog](/changelog) for what shipped.
 
-| Version | Codename | User-visible focus |
-|---------|----------|------------------|
-| **1.2.2** | **Throughput** | Faster audits with sensible limits for registry vs local Sanad LLM |
-| **1.2.3** | **Quote chip** | Inline quote-verification chips; cleaner header chrome |
-| **1.2.4** | **Masdar attach** | Attach your own PDF per cited reference and re-ground it |
-| **1.2.5** | **Raqim Repair** | Stronger bibliography verify/repair (PMCID, arXiv, publisher URLs, parser edge cases) |
-| **1.2.6** | **Raqim Resolve** | Suggested matches + manual lookup; gray-lit hosts (HF Hub, Kaggle) |
-| **1.2.7–1.2.9** | *(TBD)* | Further polish — not yet scoped |
-| **1.3.0** | **Sharh-lite** | Clearer deterministic explanations; **Help menu → documentation** deep links |
-
-**Parallel (not a numbered release):** scanned-PDF OCR hardening (Maktab O2 fixtures/smoke); Sanad **S15+** training when corpus is ready.
+**Parallel (not a numbered release):** further Maktab OCR hardening; Sanad **S15+** training when corpus is ready.
 
 <Callout variant="info" title="Masdar-lite is not a new AI model">
 **1.2.0 Masdar-lite** (shipped) uses deterministic PDF text extraction in the app — it does **not** require downloading a new Sanad GGUF. Your existing **S12** or **S14** checkpoint stays the same.
@@ -34,6 +24,7 @@ App versions use **worker-themed codenames**. These are **planned** — not prom
 
 | Version | Codename | Highlight |
 |---------|----------|-----------|
+| **1.3.0** | **Sharh-lite** | Full Ouroboros train through evidence summary; Repair/Resolve; attach; projects; OCR |
 | **1.2.1** | **Masdar UX** | In-progress audit panel; DOI↔title manual resolve; shortcuts; icon I2 |
 | **1.2.0** | **Masdar-lite** | OA PDF text in grounding; live N/M audit progress |
 | **1.1.3** | **Polish** | Notifications; lighter Sanad setup |
@@ -49,7 +40,7 @@ App versions use **worker-themed codenames**. These are **planned** — not prom
 | **Sanad** | L3 in manuscript loop; S12/S14 tiers | Deeper Masdar integration for full-text excerpts |
 | **Tasnif / Sharh** | Inline deterministic copy | Richer explanations as Sharh matures |
 | **Maktab** | pdf.js + OCR (O1) in loop | Broader scan coverage / fixtures |
-| **Masdar** | OA PDF text in grounding (**1.2.0**); UX polish (**1.2.1**) | User PDF attach (**1.2.4**) |
+| **Masdar** | OA PDF text (**1.2.0**); UX polish (**1.2.1**); user PDF attach (**1.3.0**) | Further source-fetch polish |
 | **Shahid** | Disabled | Table/figure evidence (Tier 3+) |
 
 ## Manuscript loop (Tier 3 direction)

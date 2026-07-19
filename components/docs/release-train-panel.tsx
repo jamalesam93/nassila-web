@@ -22,18 +22,22 @@ export async function ReleaseTrainPanel({ locale }: { locale: Locale }) {
         </span>
       </p>
 
-      <h3 className="mt-5 text-sm font-semibold text-foreground">{t('plannedReleases')}</h3>
-      <ul className="mt-2 space-y-2 text-sm">
-        {RELEASE_TRAIN.map((entry) => (
-          <li key={entry.version} className="flex flex-wrap gap-x-2 gap-y-0.5">
-            <span className="font-mono font-medium text-foreground">{entry.version}</span>
-            <span className="text-muted-foreground">
-              {isAr ? entry.codenameAr : entry.codenameEn} —{' '}
-              {isAr ? entry.summaryAr : entry.summaryEn}
-            </span>
-          </li>
-        ))}
-      </ul>
+      {RELEASE_TRAIN.length > 0 ? (
+        <>
+          <h3 className="mt-5 text-sm font-semibold text-foreground">{t('plannedReleases')}</h3>
+          <ul className="mt-2 space-y-2 text-sm">
+            {RELEASE_TRAIN.map((entry) => (
+              <li key={entry.version} className="flex flex-wrap gap-x-2 gap-y-0.5">
+                <span className="font-mono font-medium text-foreground">{entry.version}</span>
+                <span className="text-muted-foreground">
+                  {isAr ? entry.codenameAr : entry.codenameEn} —{' '}
+                  {isAr ? entry.summaryAr : entry.summaryEn}
+                </span>
+              </li>
+            ))}
+          </ul>
+        </>
+      ) : null}
 
       <p className="mt-4 text-sm text-muted-foreground">
         {t('releaseTrainDetail')}{' '}
