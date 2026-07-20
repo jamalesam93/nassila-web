@@ -8,13 +8,62 @@ This page lists **user-visible** planned work and known gaps. It does not cover 
 
 ## Current release
 
-**Nassila 1.3.0 · Sharh-lite** — audit scheduler and quote chips; Raqim Repair/Resolve; Masdar PDF attach; projects; OCR packs; deterministic evidence summary. See [Changelog](/changelog).
+**Nassila 1.3.1 · Maktab OCR hardening** — packaging fixes for on-device OCR; Arabic Tesseract deferred (prefer **DOCX** for broken-encoding theses); Latin Enhanced OCR uses bundled **eng/fra**; smaller installer. Builds on **1.3.0 · Sharh-lite**. See [Changelog](/changelog).
 
 ## Release train (planned)
 
-App versions use **worker-themed codenames**. Nothing is currently scheduled beyond **1.3.0** on this page — check [Changelog](/changelog) for what shipped.
+App versions use **worker-themed codenames**. Suggested near-term cuts (not dated — announced when ready). Detail aligns with Nassila `docs/Nassila-Ouroboros-Future.md` §5.
 
-**Parallel (not a numbered release):** further Maktab OCR hardening; Sanad **S15+** training when corpus is ready.
+| Version | Codename | Focus |
+|---------|----------|--------|
+| **1.4.0** | **Raqim Statute** | Legislation Resolve beyond EU ELI; US/UK official URL patterns; legal-ref parser hardening |
+| **1.5.0** | **Raqim Web** | Webpage and grey-web citations; dead links; host parsers |
+| **1.6.0** | **Maktab Loop** | OCR fixtures; one-upload loop; source chunking; vision/LLM path for hard Arabic PDFs |
+| **1.7.0** | **Integrity Bundle** | Preflight+; submission export; trust and packaged parity |
+| **1.8.0** | **Shahid** | Tier 3+ gate; tables/figures; confirm-before-apply grey lit |
+
+**Recommended cut order:** 1.4.0 → 1.5.0 → 1.6.0 → 1.7.0 → (NassilaT eval gate) → 1.8.0.
+
+### 1.4.0 — Raqim Statute
+
+- Official catalogue URLs for **US** (`congress.gov`, `govinfo.gov`, …) and **UK** (`legislation.gov.uk`)
+- Generic allowlisted `.gov` / parliamentary URLs as identity
+- Resolve UX copy: legal instruments vs scholarly Crossref
+- Parser: statute numbers split across PDF/DOCX lines
+- Fixtures: EU AI Act + ≥1 US + ≥1 UK bibliography cases  
+**Non-goals:** one API per country; auto-apply fuzzy legal matches.
+
+### 1.5.0 — Raqim Web
+
+- HTTP status, content-type, redirect logging; dead-link visibility; paywall/archive hints
+- Stable host-specific extractors (code over model)
+- OpenAlex consistency when type stays `webpage`; locale-aware accessed-date
+- Batch re-fetch suggestions  
+Registry verify and citeproc stay **deterministic**.
+
+### 1.6.0 — Maktab Loop
+
+- Golden OCR fixtures; scan coverage; page provenance; cache controls
+- Less module hopping: upload → segment → cited sources → grounding
+- Masdar source-fetch + chunking polish
+- Richer **deterministic** Sharh summaries
+- A11y: loop table keyboard nav; RTL pass
+- Vision/LLM Arabic OCR when ready (Tesseract Arabic remains deferred)
+
+### 1.7.0 — Integrity Bundle
+
+- Stronger preflight / unresolved-identity gates
+- Submission integrity export (audit + bibliography + provenance)
+- Projects: action log; save/reopen fidelity
+- Mid-LLM abort; packaged parity; release-train CI smoke
+
+### 1.8.0 — Shahid
+
+- Table/figure evidence path (gated on Tier 3 holdout)
+- Model-assisted grey lit: suggest CSL fields — **user confirms before apply**
+- Sanad **S15** only if NassilaT go/no-go after 1.4–1.7 measurements
+
+**Parallel (not a numbered release):** NassilaT field-note / Tier 3 curation; Sanad **S15+** when the corpus is ready.
 
 <Callout variant="info" title="Masdar-lite is not a new AI model">
 **1.2.0 Masdar-lite** (shipped) uses deterministic PDF text extraction in the app — it does **not** require downloading a new Sanad GGUF. Your existing **S12** or **S14** checkpoint stays the same.
@@ -24,7 +73,8 @@ App versions use **worker-themed codenames**. Nothing is currently scheduled bey
 
 | Version | Codename | Highlight |
 |---------|----------|-----------|
-| **1.3.0** | **Sharh-lite** | Full Ouroboros train through evidence summary; Repair/Resolve; attach; projects; OCR |
+| **1.3.1** | **Maktab OCR hardening** | OCR packaging; Arabic OCR deferred; eng/fra only; installer size trim |
+| **1.3.0** | **Sharh-lite** | Full Ouroboros train through evidence summary; Repair/Resolve; attach; projects |
 | **1.2.1** | **Masdar UX** | In-progress audit panel; DOI↔title manual resolve; shortcuts; icon I2 |
 | **1.2.0** | **Masdar-lite** | OA PDF text in grounding; live N/M audit progress |
 | **1.1.3** | **Polish** | Notifications; lighter Sanad setup |
@@ -36,16 +86,16 @@ App versions use **worker-themed codenames**. Nothing is currently scheduled bey
 
 | Worker | Today | Target |
 |--------|-------|--------|
-| **Raqim** | Bibliography import, L1/L2, export, bibliography bridge | Continued citeproc and registry improvements |
-| **Sanad** | L3 in manuscript loop; S12/S14 tiers | Deeper Masdar integration for full-text excerpts |
-| **Tasnif / Sharh** | Inline deterministic copy | Richer explanations as Sharh matures |
-| **Maktab** | pdf.js + OCR (O1) in loop | Broader scan coverage / fixtures |
-| **Masdar** | OA PDF text (**1.2.0**); UX polish (**1.2.1**); user PDF attach (**1.3.0**) | Further source-fetch polish |
-| **Shahid** | Disabled | Table/figure evidence (Tier 3+) |
+| **Raqim** | Bibliography import, L1/L2, Resolve (partial EU ELI), export, bridge | **1.4–1.5** statute + web gray lit |
+| **Sanad** | L3 in manuscript loop; S12/S14 tiers | Deeper Masdar integration; S15 if gated |
+| **Tasnif / Sharh** | Inline deterministic copy; Sharh-lite summary | Richer explanations as Sharh matures |
+| **Maktab** | DOCX/pdf.js; Latin Enhanced OCR; Arabic → DOCX | **1.6** fixtures + vision OCR |
+| **Masdar** | OA PDF text; UX polish; user PDF attach | Source-fetch / chunking polish |
+| **Shahid** | Disabled | **1.8** table/figure evidence (Tier 3+) |
 
 ## Manuscript loop (Tier 3 direction)
 
-**Today:** Upload/paste → parse References inline → L1/L2 → OA/abstract fetch → Sanad when enabled.
+**Today:** Upload/paste → parse References inline → L1/L2 → OA/abstract/attach → Sanad when enabled.
 
 **Target:** One upload; Maktab segments; Masdar ingests cited PDFs automatically; Sanad runs per cite without manual paste between modules; Shahid for tables/figures.
 
@@ -55,7 +105,7 @@ Maktab, Masdar, and Shahid appear as pipeline gaps — not fake finished apps.
 
 ## Webpage and grey-web citations
 
-Planned improvements for messy webpage references (Raqim / Tasnif / Sharh modules):
+Planned improvements for messy webpage references (primarily **1.5.0 Raqim Web**, with model-assisted follow-ons in **1.8.0**):
 
 ### Baseline and reliability
 
@@ -88,12 +138,27 @@ Registry verification and citeproc formatting stay in Raqim's **deterministic** 
 
 v1.1.2 sends manuscript References to Bibliography and supports **audit from Bibliography library** with `manuscript-ref:N` cite keys. See [Bibliography bridge](/docs/bibliography-bridge).
 
+## Long-term (not scheduled)
+
+After **1.4–1.8** — without version numbers or dates until a later cut is decided.
+
+| Item | Notes |
+|------|-------|
+| **Unified seven-worker GGUF pack** | Prefer independent checkpoints over one huge pack |
+| **Full multimodal Shahid** | Beyond the gated **1.8.0** table/figure slice |
+| **Embedded browser for institutional login** | Last resort after OA, attach, open DOI in browser, library proxy |
+| **Default cloud LLM** | Local Sanad (S12/S14) stays the primary path |
+| **Cloud collaboration / sync** | Needs project model and privacy beyond local `.nassila` files |
+| **Open-ended drafting / cover letters** | Out of scope — integrity workflow, not authorship |
+| **Notification center** | Not planned — light toasts only |
+| **Fuzzy auto-apply on grey lit** | Near-term path: **confirm before apply** |
+
 ## What we will not promise here
 
-- Full reference manager replacement
-- Cloud LLM as default (local Sanad remains the primary path)
+- A full reference-manager replacement
+- Default cloud LLM (local Sanad remains primary)
 - Automatic paywall bypass via Unpaywall email
-- Training schedules, eval scores, or internal checkpoint gates
+- In-app training tables, eval scores, or internal checkpoint gates
 
 ## Related pages
 

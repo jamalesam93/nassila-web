@@ -1,9 +1,9 @@
 /** Public release train — user-facing only. App semver ≠ Sanad SNN checkpoints. */
 
 export const CURRENT_RELEASE = {
-  version: '1.3.0',
-  codenameEn: 'Sharh-lite',
-  codenameAr: 'موجز شرح',
+  version: '1.3.1',
+  codenameEn: 'Maktab OCR hardening',
+  codenameAr: 'تقوية OCR مكتب',
   date: '2026-07-20',
 } as const
 
@@ -17,18 +17,69 @@ export type ReleaseTrainEntry = {
 }
 
 /** Upcoming / not yet shipped — user-visible focus only. */
-export const RELEASE_TRAIN: ReleaseTrainEntry[] = []
+export const RELEASE_TRAIN: ReleaseTrainEntry[] = [
+  {
+    version: '1.4.0',
+    codenameEn: 'Raqim Statute',
+    codenameAr: 'رقيم تشريع',
+    status: 'planned',
+    summaryEn: 'Legislation Resolve beyond EU ELI; US/UK official URL patterns; legal-ref parser hardening.',
+    summaryAr: 'حل تشريعات أبعد من EU ELI؛ أنماط URL أمريكية/بريطانية؛ تقوية محلل المراجع القانونية.',
+  },
+  {
+    version: '1.5.0',
+    codenameEn: 'Raqim Web',
+    codenameAr: 'رقيم ويب',
+    status: 'planned',
+    summaryEn: 'Webpage and grey-web citations; dead links; host parsers.',
+    summaryAr: 'استشهادات صفحات الويب والويب الرمادي؛ روابط ميتة؛ محلّلات مضيف.',
+  },
+  {
+    version: '1.6.0',
+    codenameEn: 'Maktab Loop',
+    codenameAr: 'حلقة مكتب',
+    status: 'planned',
+    summaryEn: 'OCR fixtures; one-upload loop; source chunking; vision/LLM path for hard Arabic PDFs.',
+    summaryAr: 'fixtures OCR؛ حلقة برفع واحد؛ تقطيع المصادر؛ مسار رؤية/نموذج لـ PDF العربي الصعب.',
+  },
+  {
+    version: '1.7.0',
+    codenameEn: 'Integrity Bundle',
+    codenameAr: 'حزمة النزاهة',
+    status: 'planned',
+    summaryEn: 'Preflight+; submission export; trust and packaged parity.',
+    summaryAr: 'ما قبل الإرسال+؛ تصدير حزمة التقديم؛ ثقة وتكافؤ الإنتاج.',
+  },
+  {
+    version: '1.8.0',
+    codenameEn: 'Shahid',
+    codenameAr: 'شاهد',
+    status: 'planned',
+    summaryEn: 'Tier 3+ gate; tables/figures; confirm-before-apply grey lit.',
+    summaryAr: 'بوابة Tier 3+؛ جداول/أشكال؛ أدب رمادي بموافقة المستخدم.',
+  },
+]
 
 export const SHIPPED_CODENAMES: ReleaseTrainEntry[] = [
+  {
+    version: '1.3.1',
+    codenameEn: 'Maktab OCR hardening',
+    codenameAr: 'تقوية OCR مكتب',
+    status: 'shipped',
+    summaryEn:
+      'OCR packaging; Arabic Tesseract deferred (prefer DOCX); eng/fra packs only; smaller installer.',
+    summaryAr:
+      'تغليف OCR؛ تأجيل Tesseract العربي (يُفضَّل DOCX)؛ حزم eng/fra فقط؛ مثبّت أصغر.',
+  },
   {
     version: '1.3.0',
     codenameEn: 'Sharh-lite',
     codenameAr: 'موجز شرح',
     status: 'shipped',
     summaryEn:
-      'Ouroboros train through Sharh-lite: audit scheduler, quote chips, Raqim Repair/Resolve, Masdar attach, projects, OCR packs, evidence summary.',
+      'Ouroboros train through Sharh-lite: audit scheduler, quote chips, Raqim Repair/Resolve, Masdar attach, projects, evidence summary.',
     summaryAr:
-      'قطار أوروبوروس حتى موجز شرح: جدولة التدقيق، رقائق الاقتباس، إصلاح/حل رقيم، إرفاق مصدر، المشاريع، حزم OCR، ملخص الأدلة.',
+      'قطار أوروبوروس حتى موجز شرح: جدولة التدقيق، رقائق الاقتباس، إصلاح/حل رقيم، إرفاق مصدر، المشاريع، ملخص الأدلة.',
   },
   {
     version: '1.2.1',

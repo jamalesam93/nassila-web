@@ -1,3 +1,15 @@
+## [1.3.1] — 2026-07-20 · Maktab OCR hardening
+
+### Fixed
+
+- **OCR packaging** — on-device Enhanced OCR works reliably in Windows installers (canvas / Tesseract natives).
+- **Character-reversed Arabic PDFs** — detect broken ToUnicode encoding; prefer **DOCX** instead of OCR.
+
+### Changed
+
+- **Arabic Tesseract deferred** — Arabic-heavy PDFs keep embedded text and warn to use **DOCX**. Enhanced OCR runs **eng/fra** only for Latin scans until vision/LLM OCR.
+- **Installer size** — unused Arabic tessdata pack removed (~12 MB); Latin packs remain.
+
 ## [1.3.0] — 2026-07-20 · Sharh-lite
 
 ### Added
@@ -8,7 +20,7 @@
 - **Raqim Resolve** — repair panel: search by title, DOI, PMID, PMCID, or URL; ranked suggestions from scholarly registries plus Hugging Face, Kaggle, and GitHub (you choose what to apply).
 - **Masdar attach** — attach your own PDF for a cited reference and re-ground that source offline.
 - **Projects + Help** — save/open `.nassila` projects; first-run bibliography tip; Help menu links to this website.
-- **OCR language packs** — bundled English, French, and Arabic for scanned PDFs.
+- **OCR language packs** — bundled English and French for scanned Latin PDFs (Arabic pack later deferred in **1.3.1**).
 - **Sharh-lite** — deterministic evidence summary (claim counts and suggested next actions).
 
 ### Fixed
@@ -35,7 +47,7 @@
 
 - **Open-access PDF text in grounding** — when Unpaywall finds a PDF, Nassila extracts text for passage grounding (not abstract-only).
 - **Incremental audit progress** — cited-sources table fills as each reference completes; live **N / M** progress.
-- **Scanned-PDF OCR (O1)** — on-device OCR fallback for hard-to-extract PDFs (English / French / Arabic).
+- **Scanned-PDF OCR (O1)** — on-device OCR fallback for hard-to-extract PDFs (English / French; Arabic later deferred in **1.3.1**).
 - **Icon system** — consistent Lucide icons for issue severity and common controls.
 
 ### Fixed
