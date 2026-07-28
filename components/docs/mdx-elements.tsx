@@ -1,4 +1,5 @@
 import type { MDXComponents } from 'mdx/types'
+import { Link } from '@/i18n/navigation'
 import { Callout } from './callout'
 import { childrenToText } from './children-to-text'
 import { CodeBlock } from './code-block'
@@ -35,9 +36,27 @@ export const mdxComponents: MDXComponents = {
     <ol className="mb-4 ms-5 list-decimal space-y-1 text-muted-foreground" {...props} />
   ),
   li: (props) => <li className="leading-relaxed" {...props} />,
-  a: (props) => (
-    <a className="font-medium text-primary underline-offset-2 hover:underline" {...props} />
-  ),
+  a: ({ href, children, ...props }) => {
+    const hrefString = typeof href === 'string' ? href : ''
+    if (hrefString.startsWith('/')) {
+      return (
+        <Link href={hrefString as any} className="font-medium text-primary underline-offset-2 hover:underline" {...props}>
+          {children}
+        </Link>
+      )
+    }
+    const isExternal = hrefString.startsWith('http://') || hrefString.startsWith('https://')
+    return (
+      <a
+        href={href}
+        className="font-medium text-primary underline-offset-2 hover:underline"
+        {...(isExternal ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
+        {...props}
+      >
+        {children}
+      </a>
+    )
+  },
   code: ({ children, className, ...props }) => {
     const text = childrenToText(children)
     if (className?.includes('language-') || text.includes('\n')) {

@@ -8,7 +8,7 @@ This page lists **user-visible** planned work and known gaps. It does not cover 
 
 ## Current release
 
-**Nassila 1.3.1 · Maktab OCR hardening** — packaging fixes for on-device OCR; Arabic Tesseract deferred (prefer **DOCX** for broken-encoding theses); Latin Enhanced OCR uses bundled **eng/fra**; smaller installer. Builds on **1.3.0 · Sharh-lite**. See [Changelog](/changelog).
+**Nassila 1.4.0 · Raqim Statute** — legislation Resolve for US federal, UK `legislation.gov.uk`, and `.gov` official catalogues; statute line-merge on import; Sharh-lite submission integrity bundle. Builds on **1.3.1 · Maktab OCR hardening**. See [Changelog](/changelog).
 
 ## Release train (planned)
 
@@ -16,22 +16,21 @@ App versions use **worker-themed codenames**. Suggested near-term cuts (not date
 
 | Version | Codename | Focus |
 |---------|----------|--------|
-| **1.4.0** | **Raqim Statute** | Legislation Resolve beyond EU ELI; US/UK official URL patterns; legal-ref parser hardening |
 | **1.5.0** | **Raqim Web** | Webpage and grey-web citations; dead links; host parsers |
 | **1.6.0** | **Maktab Loop** | OCR fixtures; one-upload loop; source chunking; vision/LLM path for hard Arabic PDFs |
 | **1.7.0** | **Integrity Bundle** | Preflight+; submission export; trust and packaged parity |
 | **1.8.0** | **Shahid** | Tier 3+ gate; tables/figures; confirm-before-apply grey lit |
 
-**Recommended cut order:** 1.4.0 → 1.5.0 → 1.6.0 → 1.7.0 → (NassilaT eval gate) → 1.8.0.
+**Recommended cut order:** 1.5.0 → 1.6.0 → 1.7.0 → (NassilaT eval gate) → 1.8.0.
 
-### 1.4.0 — Raqim Statute
+### Shipped — 1.4.0 Raqim Statute
 
 - Official catalogue URLs for **US** (`congress.gov`, `govinfo.gov`, …) and **UK** (`legislation.gov.uk`)
 - Generic allowlisted `.gov` / parliamentary URLs as identity
 - Resolve UX copy: legal instruments vs scholarly Crossref
 - Parser: statute numbers split across PDF/DOCX lines
-- Fixtures: EU AI Act + ≥1 US + ≥1 UK bibliography cases  
-**Non-goals:** one API per country; auto-apply fuzzy legal matches.
+- Sharh-lite: citation-mapping coverage + submission integrity bundle export
+- Masdar: page-aware source excerpts during grounding
 
 ### 1.5.0 — Raqim Web
 
@@ -73,6 +72,7 @@ Registry verify and citeproc stay **deterministic**.
 
 | Version | Codename | Highlight |
 |---------|----------|-----------|
+| **1.4.0** | **Raqim Statute** | Legislation Resolve US/UK/.gov; integrity bundle; Masdar page hints |
 | **1.3.1** | **Maktab OCR hardening** | OCR packaging; Arabic OCR deferred; eng/fra only; installer size trim |
 | **1.3.0** | **Sharh-lite** | Full Ouroboros train through evidence summary; Repair/Resolve; attach; projects |
 | **1.2.1** | **Masdar UX** | In-progress audit panel; DOI↔title manual resolve; shortcuts; icon I2 |

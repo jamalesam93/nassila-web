@@ -1,5 +1,6 @@
 import ReactMarkdown from 'react-markdown'
 import remarkGfm from 'remark-gfm'
+import { Link } from '@/i18n/navigation'
 
 const components = {
   h1: (props: React.HTMLAttributes<HTMLHeadingElement>) => (
@@ -21,9 +22,27 @@ const components = {
     <ol className="mb-4 ms-5 list-decimal space-y-1 text-muted-foreground" {...props} />
   ),
   li: (props: React.HTMLAttributes<HTMLLIElement>) => <li className="leading-relaxed" {...props} />,
-  a: (props: React.AnchorHTMLAttributes<HTMLAnchorElement>) => (
-    <a className="text-primary underline-offset-2 hover:underline" {...props} />
-  ),
+  a: ({ href, children, ...props }: React.AnchorHTMLAttributes<HTMLAnchorElement>) => {
+    const hrefString = typeof href === 'string' ? href : ''
+    if (hrefString.startsWith('/')) {
+      return (
+        <Link href={hrefString as any} className="text-primary underline-offset-2 hover:underline">
+          {children}
+        </Link>
+      )
+    }
+    const isExternal = hrefString.startsWith('http://') || hrefString.startsWith('https://')
+    return (
+      <a
+        href={href}
+        className="text-primary underline-offset-2 hover:underline"
+        {...(isExternal ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
+        {...props}
+      >
+        {children}
+      </a>
+    )
+  },
   code: (props: React.HTMLAttributes<HTMLElement>) => (
     <code className="rounded bg-muted px-1 py-0.5 font-mono text-sm text-foreground" {...props} />
   ),

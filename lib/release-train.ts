@@ -1,10 +1,10 @@
 /** Public release train — user-facing only. App semver ≠ Sanad SNN checkpoints. */
 
 export const CURRENT_RELEASE = {
-  version: '1.3.1',
-  codenameEn: 'Maktab OCR hardening',
-  codenameAr: 'تقوية OCR مكتب',
-  date: '2026-07-20',
+  version: '1.4.0',
+  codenameEn: 'Raqim Statute',
+  codenameAr: 'رقيم تشريع',
+  date: '2026-07-21',
 } as const
 
 export type ReleaseTrainEntry = {
@@ -18,14 +18,6 @@ export type ReleaseTrainEntry = {
 
 /** Upcoming / not yet shipped — user-visible focus only. */
 export const RELEASE_TRAIN: ReleaseTrainEntry[] = [
-  {
-    version: '1.4.0',
-    codenameEn: 'Raqim Statute',
-    codenameAr: 'رقيم تشريع',
-    status: 'planned',
-    summaryEn: 'Legislation Resolve beyond EU ELI; US/UK official URL patterns; legal-ref parser hardening.',
-    summaryAr: 'حل تشريعات أبعد من EU ELI؛ أنماط URL أمريكية/بريطانية؛ تقوية محلل المراجع القانونية.',
-  },
   {
     version: '1.5.0',
     codenameEn: 'Raqim Web',
@@ -61,6 +53,16 @@ export const RELEASE_TRAIN: ReleaseTrainEntry[] = [
 ]
 
 export const SHIPPED_CODENAMES: ReleaseTrainEntry[] = [
+  {
+    version: '1.4.0',
+    codenameEn: 'Raqim Statute',
+    codenameAr: 'رقيم تشريع',
+    status: 'shipped',
+    summaryEn:
+      'Legislation Resolve (US/UK/.gov); statute line-merge; Masdar page hints; preflight mapping coverage; submission integrity bundle export.',
+    summaryAr:
+      'حل تشريعات (أمريكا/بريطانيا/.gov)؛ دمج أرقام التشريع؛ تلميحات صفحة مصدر؛ تغطية ربط الاقتباسات؛ تصدير حزمة نزاهة التقديم.',
+  },
   {
     version: '1.3.1',
     codenameEn: 'Maktab OCR hardening',

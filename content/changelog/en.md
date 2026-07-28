@@ -1,3 +1,14 @@
+## [1.4.0] — 2026-07-21 · Raqim Statute
+
+### Added
+
+- **Legislation Resolve** — US federal (`congress.gov`, `govinfo.gov`, `uscode.house.gov`), UK `legislation.gov.uk`, and generic `.gov` official catalogue URLs; EU ELI from 1.3.x retained.
+- **Raqim Resolve UX** — legislation-specific panel hint; provider labels for US federal, UK legislation, official catalogue, and grey-web stubs.
+- **Statute import** — merge statute numbers split across PDF/DOCX lines when importing bibliography plain text.
+- **Masdar chunking** — paragraph/page-aware excerpt selection with page hints on cite sites.
+- **Preflight+** — citation-mapping coverage warnings; abstract-only and no-source flags.
+- **Submission integrity bundle** — export JSON from Sharh-lite (preflight + evidence summary + provenance index; no manuscript body).
+
 ## [1.3.1] — 2026-07-20 · Maktab OCR hardening
 
 ### Fixed
