@@ -16,13 +16,17 @@ Sanad GGUF files are **not bundled** in the installer. Download from Hugging Fac
 
 | Tier | Model ID | VRAM (approx.) | Hugging Face |
 |------|----------|----------------|--------------|
-| Default | `nassila-sanad-e4b` | ~8 GB (Q6_K) | [nassila-sanad-e4b](https://huggingface.co/QinEmPeRoR93/nassila-sanad-e4b) |
-| Quality | `nassila-sanad-12b` | ~12 GB+ (Q6_K) | [nassila-sanad-12b](https://huggingface.co/QinEmPeRoR93/nassila-sanad-12b) |
+| Default | `nassila-sanad-4b` | ~3.3 GB (Q6_K) | [nassila-sanad-4b](https://huggingface.co/QinEmPeRoR93/nassila-sanad-4b) |
+| Quality | `nassila-sanad-12b` | ~9.1 GB (Q6_K) | [nassila-sanad-12b](https://huggingface.co/QinEmPeRoR93/nassila-sanad-12b) |
 
-In Nassila: **Settings → Passage grounding** — pick **E4B (S12)** or **12B (S14)** tier chip; model field auto-fills when using a **local** Nassila GGUF.
+<Callout variant="info" title="Note: E4B Model Retired">
+The legacy **`nassila-sanad-e4b`** (S12) model has been **retired** and replaced by **`nassila-sanad-4b`** (S15), which delivers superior reasoning, 4x faster execution, and a ~3.3 GB footprint while meeting our strict false-supported safety gate (< 5%).
+</Callout>
+
+In Nassila: **Settings → Passage grounding** — pick **4B (S15)** or **12B (S14)** tier chip; model field auto-fills when using a **local** Nassila GGUF.
 
 <Callout variant="info" title="S = Sanad checkpoint">
-**S12** and **S14** label Sanad model generations on Hugging Face — separate from app version (e.g. Nassila **1.4.0**). Details: [Local models](/docs/local-models).
+**S15** (4B default) and **S14** (12B quality) label Sanad model generations on Hugging Face — separate from app version. Details: [Local models](/docs/local-models).
 </Callout>
 
 ## Configure in Nassila
