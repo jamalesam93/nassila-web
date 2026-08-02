@@ -110,7 +110,7 @@ section: docs.sectionManuscript
 
 <Steps>
 <Step title="قدّم Sanad GGUF">
-اتبع [وثائق vLLM](https://docs.vllm.ai/en/latest/) (أو خادماً متوافقاً مع OpenAI) لتقديم **nassila-sanad-e4b** أو **nassila-sanad-12b** حسب GPU/RAM.
+اتبع [وثائق vLLM](https://docs.vllm.ai/en/latest/) (أو خادماً متوافقاً مع OpenAI) لتقديم **nassila-sanad-4b** أو **nassila-sanad-12b** حسب GPU/RAM.
 </Step>
 <Step title="سجّل معرّف النموذج">
 يُظهر الخادم معرّفاً في `/v1/models` — انسخه حرفياً.
@@ -141,7 +141,7 @@ section: docs.sectionManuscript
 <Tab label="Cloud API">
 
 <Callout variant="warning" title="تجريبي — ليس Nassila Sanad">
-نماذج السحابة **ليست** نقاط تفتيش سند المدرّبة. جودة التثبيت **تجريبية**. فضّل GGUF محلية E4B/12B للعمل الحساس قبل التسليم.
+نماذج السحابة **ليست** نقاط تفتيش سند المدرّبة. جودة التثبيت **تجريبية**. فضّل GGUF محلية 4B/12B للعمل الحساس قبل التسليم.
 </Callout>
 
 <Steps>
@@ -161,7 +161,7 @@ section: docs.sectionManuscript
 
 <CodeBlock>https://openrouter.ai/api/v1</CodeBlock>
 
-حقل النموذج = اسم النموذج لدى المزوّد. **رقائق E4B/12B للسند المحلي فقط** — السحابة تستخدم النموذج الذي تختاره كما هو.
+حقل النموذج = اسم النموذج لدى المزوّد. **رقائق 4B/12B للسند المحلي فقط** — السحابة تستخدم النموذج الذي تختاره كما هو.
 </Step>
 <Step title="راجع الخصوصية قبل التدقيق">
 يُرسَل نص المقتطف إلى **بائع السحابة** عند التثبيت. اقرأ سياسات الاحتفاظ والتدريب للمسودات الحساسة.
@@ -183,7 +183,7 @@ section: docs.sectionManuscript
 |---------|-------------|
 | Connection refused | تأكد أن خادم المشغّل يعمل؛ تحقق من المنفذ |
 | Model not found | طابِق معرّف النموذج مع LM Studio أو `ollama list` |
-| بطء أو OOM | انتقل إلى **E4B**؛ أغلق تطبيقات GPU |
+| بطء أو OOM | انتقل إلى **4B**؛ أغلق تطبيقات GPU |
 | تثبيت فارغ | فعّل سند؛ تأكد أن المقتطف ليس `Unavailable` |
 | فشل اختبار السحابة | تحقق من مفتاح API ولواحقة `/v1` واسم النموذج |
 

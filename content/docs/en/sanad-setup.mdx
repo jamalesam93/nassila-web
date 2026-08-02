@@ -110,7 +110,7 @@ Create a Modelfile with `FROM ./your-file.gguf`, then run `ollama create` with a
 
 <Steps>
 <Step title="Serve a Sanad GGUF">
-Follow [vLLM docs](https://docs.vllm.ai/en/latest/) (or another OpenAI-compatible server) to serve **nassila-sanad-e4b** or **nassila-sanad-12b** for your GPU/RAM.
+Follow [vLLM docs](https://docs.vllm.ai/en/latest/) (or another OpenAI-compatible server) to serve **nassila-sanad-4b** or **nassila-sanad-12b** for your GPU/RAM.
 </Step>
 <Step title="Note the model id">
 Your server exposes a model id string in its `/v1/models` response — copy that exactly.
@@ -141,7 +141,7 @@ Preset **Custom**. Enter your base URL and the model id your server reports. For
 <Tab label="Cloud API">
 
 <Callout variant="warning" title="Experimental — not Nassila Sanad">
-Cloud models are **not** Nassila-trained Sanad checkpoints. Grounding quality is **experimental**. Prefer local E4B/12B GGUFs for submission-critical work.
+Cloud models are **not** Nassila-trained Sanad checkpoints. Grounding quality is **experimental**. Prefer local 4B/12B GGUFs for submission-critical work.
 </Callout>
 
 <Steps>
@@ -161,7 +161,7 @@ If not auto-filled: base URL examples:
 
 <CodeBlock>https://openrouter.ai/api/v1</CodeBlock>
 
-Model field = the provider's model name (e.g. a chat model your account can access). **Tier chips (E4B/12B) apply to local Sanad only** — cloud uses your chosen model as-is.
+Model field = the provider's model name (e.g. a chat model your account can access). **Tier chips (4B/12B) apply to local Sanad only** — cloud uses your chosen model as-is.
 </Step>
 <Step title="Review privacy before auditing">
 Manuscript passage text is sent to **your cloud vendor** when grounding runs. Read their retention and training policies for sensitive drafts.
@@ -183,7 +183,7 @@ Manuscript passage text is sent to **your cloud vendor** when grounding runs. Re
 |---------|-------------|
 | Connection refused | Confirm runner server is running; check base URL port |
 | Model not found | Match model id to LM Studio loaded model or `ollama list` |
-| Slow or OOM | Switch to **E4B** tier; close other GPU apps |
+| Slow or OOM | Switch to **4B** tier; close other GPU apps |
 | Empty grounding | Enable Sanad toggle; confirm source excerpt is not `Unavailable` |
 | Cloud test fails | Verify API key, `/v1` suffix on base URL, and model name with provider |
 
