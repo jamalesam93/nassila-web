@@ -18,12 +18,13 @@ Local models power **AI-assisted** passage checks. They do not replace L1/L2 reg
 
 | Checkpoint | Model ID | Tier | VRAM (approx.) | Hugging Face |
 |------------|----------|------|----------------|--------------|
-| **S12** | `nassila-sanad-e4b` | E4B default | ~8 GB | [nassila-sanad-e4b](https://huggingface.co/QinEmPeRoR93/nassila-sanad-e4b) |
-| **S14** | `nassila-sanad-12b` | 12B quality | ~12 GB+ | [nassila-sanad-12b](https://huggingface.co/QinEmPeRoR93/nassila-sanad-12b) |
+| **S15** | `nassila-sanad-4b` | 4B default (Qwen 3.5) | ~3.3 GB | [nassila-sanad-4b](https://huggingface.co/QinEmPeRoR93/nassila-sanad-4b) |
+| **S14** | `nassila-sanad-12b` | 12B quality (Gemma 4) | ~9.1 GB | [nassila-sanad-12b](https://huggingface.co/QinEmPeRoR93/nassila-sanad-12b) |
+| **S12** | `nassila-sanad-e4b` | *(Retired)* | ~5.8 GB | [nassila-sanad-e4b](https://huggingface.co/QinEmPeRoR93/nassila-sanad-e4b) |
 
-Typical GGUF filenames: `nassila-sanad-e4b-q6_k.gguf`, `nassila-sanad-12b-q6_k.gguf`.
+Typical GGUF filenames: `nassila-sanad-4b-q6_k.gguf`, `nassila-sanad-12b-q6_k.gguf`.
 
-S12 and S14 label **separate ship artifacts** (default E4B vs quality 12B) — not a single linear counter on one file.
+S15 (4B default) and S14 (12B quality) label **separate ship artifacts** — `nassila-sanad-e4b` (S12) is officially retired.
 
 ## Tier behavior in the app
 

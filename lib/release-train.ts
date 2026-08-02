@@ -149,14 +149,14 @@ export type SanadCheckpoint = {
 /** S = Sanad checkpoint generation. Independent of app semver (e.g. app 1.1.2 ≠ S12). */
 export const SANAD_CHECKPOINTS: SanadCheckpoint[] = [
   {
-    id: 'S12',
-    tierEn: 'E4B default',
-    tierAr: 'E4B افتراضي',
-    modelId: 'nassila-sanad-e4b',
-    hfUrl: 'https://huggingface.co/QinEmPeRoR93/nassila-sanad-e4b',
-    vram: '~8 GB',
-    roleEn: 'Default tier in Settings; laptop-friendly',
-    roleAr: 'المستوى الافتراضي في الإعدادات؛ مناسب للحاسوب المحمول',
+    id: 'S15',
+    tierEn: '4B default',
+    tierAr: '4B افتراضي',
+    modelId: 'nassila-sanad-4b',
+    hfUrl: 'https://huggingface.co/QinEmPeRoR93/nassila-sanad-4b',
+    vram: '~3.3 GB',
+    roleEn: 'Default tier in Settings; fast and laptop-friendly',
+    roleAr: 'المستوى الافتراضي في الإعدادات؛ سريع ومناسب للحاسوب المحمول',
   },
   {
     id: 'S14',
@@ -164,8 +164,18 @@ export const SANAD_CHECKPOINTS: SanadCheckpoint[] = [
     tierAr: '12B جودة',
     modelId: 'nassila-sanad-12b',
     hfUrl: 'https://huggingface.co/QinEmPeRoR93/nassila-sanad-12b',
-    vram: '~12 GB+',
+    vram: '~9.1 GB',
     roleEn: 'Quality tier chip when you have sufficient VRAM',
     roleAr: 'رقاقة مستوى الجودة عند توفر VRAM كافٍ',
+  },
+  {
+    id: 'S12',
+    tierEn: 'E4B (Retired)',
+    tierAr: 'E4B (متقاعد)',
+    modelId: 'nassila-sanad-e4b',
+    hfUrl: 'https://huggingface.co/QinEmPeRoR93/nassila-sanad-e4b',
+    vram: '~5.8 GB',
+    roleEn: 'Legacy default tier model (Retired)',
+    roleAr: 'نموذج المستوى الافتراضي القديم (متقاعد)',
   },
 ]

@@ -16,13 +16,17 @@ section: docs.sectionManuscript
 
 | المستوى | Model ID | VRAM (تقريبي) | Hugging Face |
 |------|----------|----------------|--------------|
-| Default | `nassila-sanad-e4b` | ~8 GB (Q6_K) | [nassila-sanad-e4b](https://huggingface.co/QinEmPeRoR93/nassila-sanad-e4b) |
-| Quality | `nassila-sanad-12b` | ~12 GB+ (Q6_K) | [nassila-sanad-12b](https://huggingface.co/QinEmPeRoR93/nassila-sanad-12b) |
+| Default | `nassila-sanad-4b` | ~3.3 GB (Q6_K) | [nassila-sanad-4b](https://huggingface.co/QinEmPeRoR93/nassila-sanad-4b) |
+| Quality | `nassila-sanad-12b` | ~9.1 GB (Q6_K) | [nassila-sanad-12b](https://huggingface.co/QinEmPeRoR93/nassila-sanad-12b) |
 
-في ناسيلا: **الإعدادات → توثيق الادعاءات بالمصدر** — اختر رقاقة **E4B (S12)** أو **12B (S14)**؛ يُملأ حقل النموذج تلقائياً عند استخدام GGUF سند **محلي**.
+<Callout variant="info" title="ملاحظة: تم إحالة نموذج E4B للتقاعد">
+تم **إحالة النموذج القديم `nassila-sanad-e4b` (S12) للتقاعد** واستبداله بالنموذج الجديد **`nassila-sanad-4b`** (S15)، والذي يقدّم استدلالاً متفوقاً، وسرعة تنفيذ أسرع بـ 4 أضعاف، وبحجم 3.3 جيجابايت فقط مع تحقيق بوابة الأمان (< 5%).
+</Callout>
+
+في ناسيلا: **الإعدادات → توثيق الادعاءات بالمصدر** — اختر رقاقة **4B (S15)** أو **12B (S14)**؛ يُملأ حقل النموذج تلقائياً عند استخدام GGUF سند **محلي**.
 
 <Callout variant="info" title="S = نقطة تفتيش Sanad">
-**S12** و**S14** تسميان أجيال نماذج Sanad على Hugging Face — منفصلة عن إصدار التطبيق (مثل **1.4.0**). التفاصيل: [النماذج المحلية](/docs/local-models).
+**S15** (الافتراضي 4B) و**S14** (الجودة 12B) تسميان أجيال نماذج Sanad على Hugging Face — منفصلة عن إصدار التطبيق. التفاصيل: [النماذج المحلية](/docs/local-models).
 </Callout>
 
 ## الإعداد في ناسيلا
@@ -57,7 +61,7 @@ section: docs.sectionManuscript
 نزّل من [lmstudio.ai](https://lmstudio.ai/).
 </Step>
 <Step title="حمّل Sanad GGUF">
-نزّل **nassila-sanad-e4b** أو **nassila-sanad-12b** من Hugging Face (الجدول أعلاه) وحمل الملف في LM Studio.
+نزّل **nassila-sanad-4b** أو **nassila-sanad-12b** من Hugging Face (الجدول أعلاه) وحمل الملف في LM Studio.
 </Step>
 <Step title="شغّل Local Server">
 في LM Studio، شغّل **Local Server** (واجهة API متوافقة مع OpenAI على المنفذ 1234 افتراضياً).
@@ -67,7 +71,7 @@ section: docs.sectionManuscript
 
 <CodeBlock>http://localhost:1234</CodeBlock>
 
-حقل النموذج: `nassila-sanad-e4b` أو المعرف الدقيق الذي يظهر في LM Studio للـ GGUF المحمّل.
+حقل النموذج: `nassila-sanad-4b` أو المعرف الدقيق الذي يظهر في LM Studio للـ GGUF المحمّل.
 </Step>
 </Steps>
 
@@ -81,7 +85,7 @@ section: docs.sectionManuscript
 <Step title="اسحب من Hugging Face">
 المستوى الافتراضي:
 
-<CodeBlock>ollama pull huggingface.co/QinEmPeRoR93/nassila-sanad-e4b:Q6_K</CodeBlock>
+<CodeBlock>ollama pull huggingface.co/QinEmPeRoR93/nassila-sanad-4b:Q6_K</CodeBlock>
 
 مستوى الجودة:
 
