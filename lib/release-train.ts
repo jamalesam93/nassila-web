@@ -1,10 +1,10 @@
 /** Public release train — user-facing only. App semver ≠ Sanad SNN checkpoints. */
 
 export const CURRENT_RELEASE = {
-  version: '1.4.0',
-  codenameEn: 'Raqim Statute',
-  codenameAr: 'رقيم تشريع',
-  date: '2026-07-21',
+  version: '1.5.0',
+  codenameEn: 'Raqim Web',
+  codenameAr: 'رقيم ويب',
+  date: '2026-07-29',
 } as const
 
 export type ReleaseTrainEntry = {
@@ -18,14 +18,6 @@ export type ReleaseTrainEntry = {
 
 /** Upcoming / not yet shipped — user-visible focus only. */
 export const RELEASE_TRAIN: ReleaseTrainEntry[] = [
-  {
-    version: '1.5.0',
-    codenameEn: 'Raqim Web',
-    codenameAr: 'رقيم ويب',
-    status: 'planned',
-    summaryEn: 'Webpage and grey-web citations; dead links; host parsers.',
-    summaryAr: 'استشهادات صفحات الويب والويب الرمادي؛ روابط ميتة؛ محلّلات مضيف.',
-  },
   {
     version: '1.6.0',
     codenameEn: 'Maktab Loop',
@@ -53,6 +45,16 @@ export const RELEASE_TRAIN: ReleaseTrainEntry[] = [
 ]
 
 export const SHIPPED_CODENAMES: ReleaseTrainEntry[] = [
+  {
+    version: '1.5.0',
+    codenameEn: 'Raqim Web',
+    codenameAr: 'رقيم ويب',
+    status: 'shipped',
+    summaryEn:
+      'Webpage metadata resolver (OG, DC, Schema.org); host extractors (GitHub, Kaggle, HF, YouTube, Substack); Wayback Machine archive; Tier A Rust WASM engine.',
+    summaryAr:
+      'محلّل البيانات الوصفية لصفحات الويب (OG, DC, Schema.org)؛ مستخرجات المضيفين (GitHub, Kaggle, HF, YouTube, Substack)؛ أرشيف وFormat Wayback Machine؛ محرك Rust WASM Tier A.',
+  },
   {
     version: '1.4.0',
     codenameEn: 'Raqim Statute',

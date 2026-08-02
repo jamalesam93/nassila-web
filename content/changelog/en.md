@@ -1,3 +1,15 @@
+## [1.5.0] — 2026-07-29 · Raqim Web
+
+### Added
+
+- **Maktab Tier A Rust WASM Engine** — integrated `@firecrawl/pdf-inspector-wasm` into PDF manuscript extraction. Accelerates text-based PDF ingest by 10–20× (~10–50ms execution), extracts Markdown headings (`# Intro`) and vector/heuristic Markdown tables (`| ... |`), with fallback to `pdfjs-dist` and Tesseract OCR.
+- **Raqim Web metadata resolver** — deterministic webpage metadata resolution (`webpage-metadata.ts`) extracting Open Graph (`og:*`), Dublin Core (`dc.*`), Schema.org JSON-LD, and HTML meta tags.
+- **Host-specific platform extractors** — structured title/publisher extraction for GitHub repositories (`owner/repo`), Kaggle datasets, Hugging Face models/datasets, Substack, Medium, and YouTube videos.
+- **Wayback Machine archive integration** — automatic fallback link generation (`web.archive.org/web/*/${url}`) and `[Wayback ↗]` action on webpage URL citations.
+- **IPC bridge** — `registry:resolveWebpageMetadata` exposed via `window.api` for packaged Electron app parity (bypasses renderer CORS).
+- **Raqim Resolve UX** — "Fetch webpage metadata" button and inline Wayback Machine archive link.
+- **Parser & access date support** — plain-text parser extracts `accessed` dates and auto-classifies URL-only references as `type: 'webpage'`.
+
 ## [1.4.0] — 2026-07-21 · Raqim Statute
 
 ### Added

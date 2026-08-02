@@ -14,10 +14,10 @@ For a step-by-step walkthrough with panel detail, see the [How-to guide](/docs/h
 
 <Steps>
 <Step title="Add references">
-Paste plain text, BibTeX, RIS, or CSL-JSON in the **Input** panel, or use **Import** (toolbar or Ctrl+I) for `.bib`, `.ris`, `.json`, `.docx`, or `.pdf` (DOCX/PDF extract reference lists where possible).
+Paste plain text, BibTeX, RIS, or CSL-JSON in the **Input** panel, or use **Import** (toolbar or Ctrl+I) for `.bib`, `.ris`, `.json`, `.docx`, or `.pdf` (PDF ingest is accelerated 10–20× using the **Maktab Tier A Rust WASM Engine**).
 </Step>
-<Step title="Resolve identifiers">
-Use the top row in Input to paste a DOI, PMID, URL, or one identifier per line, then **Resolve**.
+<Step title="Resolve identifiers and webpage metadata">
+Use the top row in Input to paste a DOI, PMID, URL, or platform link (GitHub, Kaggle, Hugging Face, Substack, Medium, YouTube), then **Resolve** or click **Fetch webpage metadata** in Raqim Resolve to extract Open Graph, Dublin Core, and Schema.org metadata plus Wayback Machine archive fallbacks.
 </Step>
 <Step title="Fix local issues">
 The **Issues** sidebar lists validation problems, duplicate groups, and (after you verify) registry field mismatches. Use **Autocorrect** and per-row actions in **Output**.

@@ -40,11 +40,21 @@ Paste **plain-text references**, **BibTeX**, **RIS**, or **CSL-JSON** into the I
 
 ### Resolve identifiers
 
-Use the **top row** in Input for identifiers: paste a **DOI**, **PMID**, **URL**, or **one identifier per line**, then **Resolve**. The app fetches metadata from Crossref, PubMed/NCBI, or Open Library as appropriate and adds or updates rows.
+Use the **top row** in Input for identifiers: paste a **DOI**, **PMID**, **URL**, or **one identifier per line**, then **Resolve**. The app fetches metadata from Crossref, PubMed/NCBI, Open Library, or deterministic webpage metadata resolvers as appropriate.
+
+### Webpage & platform citations (Raqim Web)
+
+Nassila 1.5.0 includes a deterministic webpage resolver for web sources, preprints, and platform artifacts:
+
+- **Supported platform extractors:** GitHub repositories (`owner/repo`), Kaggle datasets, Hugging Face models and datasets, Substack articles, Medium posts, and YouTube videos.
+- **Metadata extraction:** Extracts Open Graph (`og:*`), Dublin Core (`dc.*`), Schema.org JSON-LD, and standard HTML metadata into structured CSL items (`type: 'webpage'`).
+- **Fetch webpage metadata:** Select a webpage citation row in Output, open **Raqim Resolve**, and click **Fetch webpage metadata** to automatically populate title, author/publisher, container name, and access dates (`accessed`).
+- **Wayback Machine archive integration:** Nassila automatically generates fallback web archive links (`web.archive.org/web/*/...`) and surfaces an inline `[Wayback ↗]` action for link preservation and dead-link protection.
 
 ### Import files
 
-Click **Import** in the toolbar or press **Ctrl+I**. Supported types include **`.bib`**, **`.ris`**, **`.json`** (CSL-JSON), **`.docx`**, and **`.pdf`**. For DOCX and PDF, the app attempts to extract reference-list-like regions where possible.
+Click **Import** in the toolbar or press **Ctrl+I**. Supported types include **`.bib`**, **`.ris`**, **`.json`** (CSL-JSON), **`.docx`**, and **`.pdf`**. For DOCX and PDF:
+- **Maktab Tier A Rust WASM Engine:** PDF ingest utilizes `@firecrawl/pdf-inspector-wasm` for 10–20× faster text extraction, structured Markdown headings (`# Intro`), and vector/heuristic tables (`| ... |`), with seamless fallback to `pdfjs-dist` and Tesseract OCR when needed.
 
 ## Reading the Output panel
 

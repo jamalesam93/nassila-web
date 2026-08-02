@@ -1,3 +1,15 @@
+## [1.5.0] — 2026-07-29 · رقيم ويب
+
+### المضاف
+
+- **محرك مكتب Tier A بلغة Rust WASM** — دمج `@firecrawl/pdf-inspector-wasm` في استخراج مراجع المخطوطات من PDF. تسريع استخراج النص 10–20 ضعفاً (~10–50ms)، واستخراج عناوين الجداول والمستندات بتنسيق Markdown (`# Intro` و `| ... |`) مع التراجع التلقائي إلى `pdfjs-dist` و Tesseract OCR.
+- **محلّل البيانات الوصفية لصفحات الويب** — حل حتمي لصفحات الويب (`webpage-metadata.ts`) يستخرج Open Graph (`og:*`)، Dublin Core (`dc.*`)، Schema.org JSON-LD، ووسوم HTML الوصفية.
+- **مستخرجات المنصات المحددة** — استخراج العنوان والناشر لمنصات GitHub، Kaggle، Hugging Face، Substack، Medium، و YouTube.
+- **تكامل أرشيف Wayback Machine** — توليد تلقائي لرابط الأرشيف البديل (`web.archive.org/web/*/${url}`) وإجراء `[Wayback ↗]` عند استشهاد رابط ويب.
+- **جسر IPC** — تعريض `registry:resolveWebpageMetadata` عبر `window.api` لتكافؤ الإنتاج في تطبيق Electron التجميعي.
+- **تفاعل حل رقيم (Raqim Resolve UX)** — زر "جلب البيانات الوصفية لصفحة الويب" ورابط مباشر لأرشيف Wayback Machine.
+- **استخراج تاريخ الوصول** — استخراج تاريخ الوصول تلقائياً وتصنيف المراجع الحاوية على رابط فقط إلى `type: 'webpage'`.
+
 ## [1.4.0] — 2026-07-21 · رقيم تشريع
 
 ### Added

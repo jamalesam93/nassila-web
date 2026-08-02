@@ -8,7 +8,7 @@ This page lists **user-visible** planned work and known gaps. It does not cover 
 
 ## Current release
 
-**Nassila 1.4.0 · Raqim Statute** — legislation Resolve for US federal, UK `legislation.gov.uk`, and `.gov` official catalogues; statute line-merge on import; Sharh-lite submission integrity bundle. Builds on **1.3.1 · Maktab OCR hardening**. See [Changelog](/changelog).
+**Nassila 1.5.0 · Raqim Web** — webpage metadata resolver for Open Graph, Dublin Core, Schema.org JSON-LD; platform extractors (GitHub, Kaggle, HuggingFace, Substack, Medium, YouTube); Wayback Machine archive fallback; Maktab Tier A Rust WASM engine. Builds on **1.4.0 · Raqim Statute**. See [Changelog](/changelog).
 
 ## Release train (planned)
 
@@ -16,29 +16,19 @@ App versions use **worker-themed codenames**. Suggested near-term cuts (not date
 
 | Version | Codename | Focus |
 |---------|----------|--------|
-| **1.5.0** | **Raqim Web** | Webpage and grey-web citations; dead links; host parsers |
 | **1.6.0** | **Maktab Loop** | OCR fixtures; one-upload loop; source chunking; vision/LLM path for hard Arabic PDFs |
 | **1.7.0** | **Integrity Bundle** | Preflight+; submission export; trust and packaged parity |
 | **1.8.0** | **Shahid** | Tier 3+ gate; tables/figures; confirm-before-apply grey lit |
 
-**Recommended cut order:** 1.5.0 → 1.6.0 → 1.7.0 → (NassilaT eval gate) → 1.8.0.
+**Recommended cut order:** 1.6.0 → 1.7.0 → (NassilaT eval gate) → 1.8.0.
 
-### Shipped — 1.4.0 Raqim Statute
+### Shipped — 1.5.0 Raqim Web
 
-- Official catalogue URLs for **US** (`congress.gov`, `govinfo.gov`, …) and **UK** (`legislation.gov.uk`)
-- Generic allowlisted `.gov` / parliamentary URLs as identity
-- Resolve UX copy: legal instruments vs scholarly Crossref
-- Parser: statute numbers split across PDF/DOCX lines
-- Sharh-lite: citation-mapping coverage + submission integrity bundle export
-- Masdar: page-aware source excerpts during grounding
-
-### 1.5.0 — Raqim Web
-
-- HTTP status, content-type, redirect logging; dead-link visibility; paywall/archive hints
-- Stable host-specific extractors (code over model)
-- OpenAlex consistency when type stays `webpage`; locale-aware accessed-date
-- Batch re-fetch suggestions  
-Registry verify and citeproc stay **deterministic**.
+- Deterministic webpage metadata resolution (`webpage-metadata.ts`) extracting Open Graph (`og:*`), Dublin Core (`dc.*`), Schema.org JSON-LD, and HTML meta tags
+- Host-specific platform extractors for GitHub (`owner/repo`), Kaggle, Hugging Face, Substack, Medium, and YouTube
+- Wayback Machine archive fallback links (`web.archive.org/web/*/${url}`) and `[Wayback ↗]` action on webpage URL citations
+- Maktab Tier A Rust WASM engine (`@firecrawl/pdf-inspector-wasm`) delivering 10–20× faster PDF text, Markdown headings, and tables extraction
+- IPC bridge `registry:resolveWebpageMetadata` for packaged Electron app parity
 
 ### 1.6.0 — Maktab Loop
 
@@ -60,18 +50,13 @@ Registry verify and citeproc stay **deterministic**.
 
 - Table/figure evidence path (gated on Tier 3 holdout)
 - Model-assisted grey lit: suggest CSL fields — **user confirms before apply**
-- Sanad **S15** only if NassilaT go/no-go after 1.4–1.7 measurements
-
-**Parallel (not a numbered release):** NassilaT field-note / Tier 3 curation; Sanad **S15+** when the corpus is ready.
-
-<Callout variant="info" title="Masdar-lite is not a new AI model">
-**1.2.0 Masdar-lite** (shipped) uses deterministic PDF text extraction in the app — it does **not** require downloading a new Sanad GGUF. Your existing **S12** or **S14** checkpoint stays the same.
-</Callout>
+- Sanad **S15** live (Qwen 3.5 4B)
 
 ## Shipped milestones (recent)
 
 | Version | Codename | Highlight |
 |---------|----------|-----------|
+| **1.5.0** | **Raqim Web** | Metadata resolver (OG/DC/Schema.org); host extractors; Wayback archive; Rust WASM PDF engine |
 | **1.4.0** | **Raqim Statute** | Legislation Resolve US/UK/.gov; integrity bundle; Masdar page hints |
 | **1.3.1** | **Maktab OCR hardening** | OCR packaging; Arabic OCR deferred; eng/fra only; installer size trim |
 | **1.3.0** | **Sharh-lite** | Full Ouroboros train through evidence summary; Repair/Resolve; attach; projects |
