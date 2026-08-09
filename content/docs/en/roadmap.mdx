@@ -8,7 +8,7 @@ This page lists **user-visible** planned work and known gaps. It does not cover 
 
 ## Current release
 
-**Nassila 1.5.0 · Raqim Web** — webpage metadata resolver for Open Graph, Dublin Core, Schema.org JSON-LD; platform extractors (GitHub, Kaggle, HuggingFace, Substack, Medium, YouTube); Wayback Machine archive fallback; Maktab Tier A Rust WASM engine. Builds on **1.4.0 · Raqim Statute**. See [Changelog](/changelog).
+**Nassila 1.7.0 · Integrity Bundle** — structured DOCX manuscript import, dirty-close warning, preflight mapping breakdown, and trust/packaging hardening (audit rate limiting, mid-LLM cancel, release-train CI smoke). Builds on **1.6.0 · Maktab Loop** (OCR golden fixtures, cache controls, deterministic Sharh summaries, source-PDF attach). See [Changelog](/changelog).
 
 ## Release train (planned)
 
@@ -16,21 +16,18 @@ App versions use **worker-themed codenames**. Suggested near-term cuts (not date
 
 | Version | Codename | Focus |
 |---------|----------|--------|
-| **1.6.0** | **Maktab Loop** | OCR fixtures; one-upload loop; source chunking; vision/LLM path for hard Arabic PDFs |
-| **1.7.0** | **Integrity Bundle** | Preflight+; submission export; trust and packaged parity |
 | **1.8.0** | **Shahid** | Tier 3+ gate; tables/figures; confirm-before-apply grey lit |
 
-**Recommended cut order:** 1.6.0 → 1.7.0 → (NassilaT eval gate) → 1.8.0.
+**Recommended cut order:** 1.7.0 (shipped) → (NassilaT eval gate) → 1.8.0.
 
-### Shipped — 1.5.0 Raqim Web
+### Shipped — 1.7.0 Integrity Bundle
 
-- Deterministic webpage metadata resolution (`webpage-metadata.ts`) extracting Open Graph (`og:*`), Dublin Core (`dc.*`), Schema.org JSON-LD, and HTML meta tags
-- Host-specific platform extractors for GitHub (`owner/repo`), Kaggle, Hugging Face, Substack, Medium, and YouTube
-- Wayback Machine archive fallback links (`web.archive.org/web/*/${url}`) and `[Wayback ↗]` action on webpage URL citations
-- Maktab Tier A Rust WASM engine (`@firecrawl/pdf-inspector-wasm`) delivering 10–20× faster PDF text, Markdown headings, and tables extraction
-- IPC bridge `registry:resolveWebpageMetadata` for packaged Electron app parity
+- Structured DOCX manuscript import (real Word headings as a segmentation side-channel)
+- Dirty-close warning before losing unsaved work
+- Preflight+ matched / ambiguous / unmatched mapping breakdown in Sharh-lite
+- Trust & packaging hardening: audit rate limiting, mid-LLM cancel via `AbortSignal`, packaged smoke gates
 
-### 1.6.0 — Maktab Loop
+### Shipped — 1.6.0 Maktab Loop
 
 - Golden OCR fixtures; scan coverage; page provenance; cache controls
 - Less module hopping: upload → segment → cited sources → grounding
@@ -38,13 +35,6 @@ App versions use **worker-themed codenames**. Suggested near-term cuts (not date
 - Richer **deterministic** Sharh summaries
 - A11y: loop table keyboard nav; RTL pass
 - Vision/LLM Arabic OCR when ready (Tesseract Arabic remains deferred)
-
-### 1.7.0 — Integrity Bundle
-
-- Stronger preflight / unresolved-identity gates
-- Submission integrity export (audit + bibliography + provenance)
-- Projects: action log; save/reopen fidelity
-- Mid-LLM abort; packaged parity; release-train CI smoke
 
 ### 1.8.0 — Shahid
 
@@ -56,6 +46,8 @@ App versions use **worker-themed codenames**. Suggested near-term cuts (not date
 
 | Version | Codename | Highlight |
 |---------|----------|-----------|
+| **1.7.0** | **Integrity Bundle** | Structured DOCX import; dirty-close warning; preflight breakdown; trust & packaging hardening |
+| **1.6.0** | **Maktab Loop** | OCR golden fixtures; cache controls; deterministic Sharh; source-PDF attach |
 | **1.5.0** | **Raqim Web** | Metadata resolver (OG/DC/Schema.org); host extractors; Wayback archive; Rust WASM PDF engine |
 | **1.4.0** | **Raqim Statute** | Legislation Resolve US/UK/.gov; integrity bundle; Masdar page hints |
 | **1.3.1** | **Maktab OCR hardening** | OCR packaging; Arabic OCR deferred; eng/fra only; installer size trim |

@@ -1,3 +1,23 @@
+## [1.7.0] — 2026-08-10 · Integrity Bundle
+
+### Added
+
+- **Structured DOCX manuscript import** — Word documents now import with real structure preserved: paragraph blocks plus a heading side-channel (Heading1–6) for smarter segmentation. Bibliography DOCX parsing is unchanged.
+- **Dirty-close warning** — closing the window with unsaved work asks for confirmation before the session is lost.
+- **Preflight+ mapping breakdown** — Sharh-lite shows matched / ambiguous / unmatched citation counts alongside the coverage percentage.
+- **Trust & packaging hardening** — audit rate limiting under concurrency, mid-LLM cancel via `AbortSignal`, and packaged smoke gates on release trains.
+
+## [1.6.0] — 2026-08-05 · Maktab Loop
+
+### Added
+
+- **Maktab OCR golden fixtures** — generated PDF suite (text + scan pages) with byte-level goldens and a real-Tesseract OCR probe in the Windows CI packaging job.
+- **Cache controls** — Settings → Storage: inspect and clear the source-artifact and Maktab extraction caches.
+- **Review-after-import banner** — a dismissible notice in the loop when PDF import extraction needs human attention.
+- **Deterministic Sharh summaries** — richer aggregate coverage/passage/claim summaries with a localized headline and per-finding copy (EN/AR).
+- **Masdar source-PDF attach** — attach a local PDF for any cited source and re-ground just that reference (single-reference re-audit).
+- **RTL acceptance pass** — swept layout-direction strays to logical utilities across panels and settings.
+
 ## [1.5.0] — 2026-07-29 · Raqim Web
 
 ### Added

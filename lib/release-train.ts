@@ -1,10 +1,10 @@
 /** Public release train — user-facing only. App semver ≠ Sanad SNN checkpoints. */
 
 export const CURRENT_RELEASE = {
-  version: '1.5.0',
-  codenameEn: 'Raqim Web',
-  codenameAr: 'رقيم ويب',
-  date: '2026-07-29',
+  version: '1.7.0',
+  codenameEn: 'Integrity Bundle',
+  codenameAr: 'حزمة النزاهة',
+  date: '2026-08-10',
 } as const
 
 export type ReleaseTrainEntry = {
@@ -19,22 +19,6 @@ export type ReleaseTrainEntry = {
 /** Upcoming / not yet shipped — user-visible focus only. */
 export const RELEASE_TRAIN: ReleaseTrainEntry[] = [
   {
-    version: '1.6.0',
-    codenameEn: 'Maktab Loop',
-    codenameAr: 'حلقة مكتب',
-    status: 'planned',
-    summaryEn: 'OCR fixtures; one-upload loop; source chunking; vision/LLM path for hard Arabic PDFs.',
-    summaryAr: 'fixtures OCR؛ حلقة برفع واحد؛ تقطيع المصادر؛ مسار رؤية/نموذج لـ PDF العربي الصعب.',
-  },
-  {
-    version: '1.7.0',
-    codenameEn: 'Integrity Bundle',
-    codenameAr: 'حزمة النزاهة',
-    status: 'planned',
-    summaryEn: 'Preflight+; submission export; trust and packaged parity.',
-    summaryAr: 'ما قبل الإرسال+؛ تصدير حزمة التقديم؛ ثقة وتكافؤ الإنتاج.',
-  },
-  {
     version: '1.8.0',
     codenameEn: 'Shahid',
     codenameAr: 'شاهد',
@@ -45,6 +29,26 @@ export const RELEASE_TRAIN: ReleaseTrainEntry[] = [
 ]
 
 export const SHIPPED_CODENAMES: ReleaseTrainEntry[] = [
+  {
+    version: '1.7.0',
+    codenameEn: 'Integrity Bundle',
+    codenameAr: 'حزمة النزاهة',
+    status: 'shipped',
+    summaryEn:
+      'Structured DOCX manuscript import; dirty-close warning; preflight mapping breakdown; audit rate limiting and mid-LLM cancel.',
+    summaryAr:
+      'استيراد مخطوطة DOCX منظم؛ تحذير عند الإغلاق مع عمل غير محفوظ؛ تفصيل ربط الاقتباسات في مرحلة ما قبل الإرسال؛ تحديد معدل التدقيق وإلغاء LLM في منتصف التنفيذ.',
+  },
+  {
+    version: '1.6.0',
+    codenameEn: 'Maktab Loop',
+    codenameAr: 'حلقة مكتب',
+    status: 'shipped',
+    summaryEn:
+      'OCR golden fixtures; one-upload loop; source chunking; cache controls; deterministic Sharh summaries; source-PDF attach.',
+    summaryAr:
+      'نماذج OCR ذهبية؛ حلقة برفع واحد؛ تقطيع المصادر؛ ضوابط التخزين المؤقت؛ ملخصات شرح حتمية؛ إرفاق PDF المصدر.',
+  },
   {
     version: '1.5.0',
     codenameEn: 'Raqim Web',
