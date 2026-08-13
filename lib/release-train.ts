@@ -35,9 +35,9 @@ export const SHIPPED_CODENAMES: ReleaseTrainEntry[] = [
     codenameAr: 'سند 9B',
     status: 'shipped',
     summaryEn:
-      'Sole-tier Sanad registry (9B FT-5 default); Qwen3.5 thinking handling (bundled no-thinking template, token budget, in-app repair).',
+      'Sole-tier Sanad registry (9B FT-5 default); Qwen3.5 thinking handling (no-thinking template on the web, token budget, in-app repair).',
     summaryAr:
-      'سجل سند بمستوى واحد (الافتراضي 9B FT-5)؛ معالجة تفكير Qwen3.5 (قالب بلا تفكير مضمّن، ميزانية رموز، إصلاح داخل التطبيق).',
+      'سجل سند بمستوى واحد (الافتراضي 9B FT-5)؛ معالجة تفكير Qwen3.5 (قالب بلا تفكير على الويب، ميزانية رموز، إصلاح داخل التطبيق).',
   },
   {
     version: '1.7.0',

@@ -4,7 +4,7 @@
 
 - **Qwen3.5 thinking handling** — `stripQwenThinkingTraces` runs first in the grounding JSON repair pipeline, so thinking-wrapped model output (with braces/quotes inside the reasoning) parses identically to clean JSON, and clean output passes through byte-identical.
 - **Token budget** — `max_tokens: 2048` is sent for Sanad 9B grounding calls to prevent mid-JSON truncation from thinking traces.
-- **Bundled no-thinking template** — ships `resources/qwen3.5-no-thinking.jinja` (llama.cpp `--chat-template-file`) with an in-app helper card in Local Models settings: copy-template, llama.cpp command line, and an Ollama Modelfile snippet.
+- **No-thinking template on the web** — the `--chat-template-file` template for llama.cpp users lives in the [Sanad setup guide](/docs/sanad-setup); the Custom provider preset links there.
 - **Sole-tier Sanad registry** — `nassila-sanad-9b` (9B FT-5) is the only Sanad tier: single 9B tier chip; setup modal, presets, hints, and defaults all point at the 9B model. 4B S15 / 12B S14 / E4B S12 retired (abstract-era).
 
 ### Changed
