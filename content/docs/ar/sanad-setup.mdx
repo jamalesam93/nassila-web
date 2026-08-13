@@ -115,7 +115,8 @@ section: docs.sectionManuscript
 
 أنشئ ملف `qwen3.5-no-thinking.jinja` بالقالب أدناه، ثم مرّره مع `--chat-template-file` كما أعلاه:
 
-<CodeBlock language="jinja">{% set enable_thinking = false %}
+```jinja
+{% set enable_thinking = false %}
 {%- for message in messages %}
 {%- if message['role'] == 'system' %}
 {{- '<|im_start|>system\n' + message['content'] + '<|im_end|>\n' }}
@@ -127,7 +128,8 @@ section: docs.sectionManuscript
 {%- endfor %}
 {%- if add_generation_prompt %}
 {{- '<|im_start|>assistant\n' }}
-{%- endif %}</CodeBlock>
+{%- endif %}
+```
 
 <Steps>
 <Step title="طابِق إعدادات ناسيلا">
