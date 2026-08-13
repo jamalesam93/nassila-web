@@ -1,6 +1,6 @@
 ---
 title: Local models
-description: Sanad S12/S14 checkpoints, model IDs, VRAM tiers, and Hugging Face downloads.
+description: Sanad 9B checkpoint, GGUF quants, VRAM tiers, and Hugging Face downloads.
 section: docs.sectionModelsRoadmap
 ---
 
@@ -11,29 +11,26 @@ Local models power **AI-assisted** passage checks. They do not replace L1/L2 reg
 </Callout>
 
 <Callout variant="info" title="App version ≠ Sanad checkpoint">
-**Nassila 1.7.0** (app installer) is separate from **Sanad S15** (model checkpoint). **S** = **Sanad** generation label — not your app semver.
+**Nassila 1.8.0** (app installer) is separate from **Sanad 9B** (model checkpoint). **FT** = **full-text** checkpoint label — not your app semver.
 </Callout>
 
-## Sanad checkpoints (S = Sanad)
+## Sanad model (sole tier)
 
-| Checkpoint | Model ID | Tier | VRAM (approx.) | Hugging Face |
+| Model ID | Checkpoint | Tier | VRAM (approx.) | Hugging Face |
 |------------|----------|------|----------------|--------------|
-| **S15** | `nassila-sanad-4b` | 4B default (Qwen 3.5) | ~3.3 GB | [nassila-sanad-4b](https://huggingface.co/QinEmPeRoR93/nassila-sanad-4b) |
-| **S14** | `nassila-sanad-12b` | 12B quality (Gemma 4) | ~9.1 GB | [nassila-sanad-12b](https://huggingface.co/QinEmPeRoR93/nassila-sanad-12b) |
-| **S12** | `nassila-sanad-e4b` | *(Retired)* | ~5.8 GB | [nassila-sanad-e4b](https://huggingface.co/QinEmPeRoR93/nassila-sanad-e4b) |
+| `nassila-sanad-9b` | **FT-5** | Sole tier (Qwen 3.5) — pick your quant | Q2_K ~3.6 GB → Q8_0 ~8.9 GB | [nassila-sanad-9b](https://huggingface.co/QinEmPeRoR93/nassila-sanad-9b) |
 
-Typical GGUF filenames: `nassila-sanad-4b-q6_k.gguf`, `nassila-sanad-12b-q6_k.gguf`.
+Six GGUFs (**Q2_K / Q3_K_M / Q4_K_M / Q5_K_M / Q6_K / Q8_0**) share the same trained weights — pick the largest your memory allows. Typical filenames: `nassila-sanad-9b-q4_k_m.gguf`, `nassila-sanad-9b-q6_k.gguf`.
 
-S15 (4B default) and S14 (12B quality) label **separate ship artifacts** — `nassila-sanad-e4b` (S12) is officially retired.
+**Retired (abstract-era):** `nassila-sanad-4b` (S15), `nassila-sanad-12b` (S14), `nassila-sanad-e4b` (S12) — their cards stay on Hugging Face for legacy downloads only.
 
 ## Tier behavior in the app
 
 | Tier chip | Checkpoint | When to use |
 |-----------|------------|-------------|
-| **4B** | S15 | Default; laptop-friendly; recommended starting point |
-| **12B** | S14 | Higher-quality grounding when you have sufficient VRAM/RAM |
+| **9B** | FT-5 | Sole Sanad tier — you pick the quant |
 
-Switch tiers from the **Sanad bar** tier chip or **Settings → Passage grounding**.
+Switch from the **Sanad bar** tier chip or **Settings → Passage grounding**.
 
 ## Runners
 
@@ -51,10 +48,10 @@ Setup walkthrough: [Sanad setup](/docs/sanad-setup).
 ## What Sanad receives at inference
 
 - **Your passage** — text around the in-text citation (capped by engine limits)
-- **Source excerpt** — registry abstract or OA chunk (up to engine excerpt cap)
+- **Source excerpt** — full-text source content (registry abstract, OA full text, or attached source PDF)
 - **Structured JSON** output — claims, verdicts, verbatim quotes when supported
 
-Excerpt type in current product builds is primarily **abstract-first**; OA full text is used when manuscript source fetch succeeds. **Masdar-lite** (app **1.2.0**, shipped) adds open-access PDF text when Unpaywall finds a PDF — no new GGUF required.
+Sanad grounds against **full-text source excerpts**. **Masdar** adds open-access PDF text when Unpaywall finds a PDF — no new GGUF required.
 
 ## Distribution policy
 
@@ -64,7 +61,7 @@ Excerpt type in current product builds is primarily **abstract-first**; OA full 
 
 ## Future
 
-A merged multi-worker bundle may ship later. Today, production grounding uses **Sanad-only** S12 / S14 GGUFs above.
+A merged multi-worker bundle may ship later. Today, production grounding uses the **Sanad 9B** GGUF above.
 
 ## Related pages
 

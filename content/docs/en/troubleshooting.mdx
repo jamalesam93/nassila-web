@@ -30,7 +30,7 @@ section: docs.sectionReference
 |---------|-------------|
 | Connection refused | Start LM Studio server or `ollama serve`; verify base URL port. |
 | Model not found | Match Nassila model field to loaded GGUF name or `ollama list`. |
-| Out of memory | Use **4B** tier (~3.3 GB VRAM); close other GPU workloads. |
+| Out of memory | Use a smaller quant (Q2_K / Q4_K_M); close other GPU workloads. |
 | Nonsense JSON / empty claims | Update to latest app release; retry audit; verify manually regardless. |
 
 See [Sanad setup](/docs/sanad-setup) for runner-specific steps.

@@ -8,7 +8,7 @@ This page lists **user-visible** planned work and known gaps. It does not cover 
 
 ## Current release
 
-**Nassila 1.7.0 · Integrity Bundle** — structured DOCX manuscript import, dirty-close warning, preflight mapping breakdown, and trust/packaging hardening (audit rate limiting, mid-LLM cancel, release-train CI smoke). Builds on **1.6.0 · Maktab Loop** (OCR golden fixtures, cache controls, deterministic Sharh summaries, source-PDF attach). See [Changelog](/changelog).
+**Nassila 1.8.0 · Sanad 9B** — sole-tier Sanad registry (9B FT-5 default; 4B/12B retired) and Qwen3.5 thinking handling (bundled no-thinking template, token budget, in-app repair). Builds on **1.7.0 · Integrity Bundle** (structured DOCX manuscript import, dirty-close warning, preflight mapping breakdown, trust/packaging hardening). See [Changelog](/changelog).
 
 ## Release train (planned)
 
@@ -16,9 +16,14 @@ App versions use **worker-themed codenames**. Suggested near-term cuts (not date
 
 | Version | Codename | Focus |
 |---------|----------|--------|
-| **1.8.0** | **Shahid** | Tier 3+ gate; tables/figures; confirm-before-apply grey lit |
+| **1.9.0** | **Shahid** | Tier 3+ gate; tables/figures; confirm-before-apply grey lit |
 
-**Recommended cut order:** 1.7.0 (shipped) → (NassilaT eval gate) → 1.8.0.
+**Recommended cut order:** 1.8.0 (shipped) → (Tier 3 eval gate) → 1.9.0.
+
+### Shipped — 1.8.0 Sanad 9B
+
+- Sole-tier Sanad registry (9B FT-5 default; 4B/12B retired)
+- Qwen3.5 thinking handling (no-thinking template + repair)
 
 ### Shipped — 1.7.0 Integrity Bundle
 
@@ -36,16 +41,16 @@ App versions use **worker-themed codenames**. Suggested near-term cuts (not date
 - A11y: loop table keyboard nav; RTL pass
 - Vision/LLM Arabic OCR when ready (Tesseract Arabic remains deferred)
 
-### 1.8.0 — Shahid
+### 1.9.0 — Shahid
 
 - Table/figure evidence path (gated on Tier 3 holdout)
 - Model-assisted grey lit: suggest CSL fields — **user confirms before apply**
-- Sanad **S15** live (Qwen 3.5 4B)
 
 ## Shipped milestones (recent)
 
 | Version | Codename | Highlight |
 |---------|----------|-----------|
+| **1.8.0** | **Sanad 9B** | Sole-tier Sanad registry (9B FT-5); Qwen3.5 thinking handling; bundled no-thinking template |
 | **1.7.0** | **Integrity Bundle** | Structured DOCX import; dirty-close warning; preflight breakdown; trust & packaging hardening |
 | **1.6.0** | **Maktab Loop** | OCR golden fixtures; cache controls; deterministic Sharh; source-PDF attach |
 | **1.5.0** | **Raqim Web** | Metadata resolver (OG/DC/Schema.org); host extractors; Wayback archive; Rust WASM PDF engine |
@@ -64,11 +69,11 @@ App versions use **worker-themed codenames**. Suggested near-term cuts (not date
 | Worker | Today | Target |
 |--------|-------|--------|
 | **Raqim** | Bibliography import, L1/L2, Resolve (partial EU ELI), export, bridge | **1.4–1.5** statute + web gray lit |
-| **Sanad** | L3 in manuscript loop; S12/S14 tiers | Deeper Masdar integration; S15 if gated |
+| **Sanad** | L3 in manuscript loop; **9B sole tier (FT-5)** | Deeper Masdar integration; FT-6 gains (chunking/locators) |
 | **Tasnif / Sharh** | Inline deterministic copy; Sharh-lite summary | Richer explanations as Sharh matures |
 | **Maktab** | DOCX/pdf.js; Latin Enhanced OCR; Arabic → DOCX | **1.6** fixtures + vision OCR |
 | **Masdar** | OA PDF text; UX polish; user PDF attach | Source-fetch / chunking polish |
-| **Shahid** | Disabled | **1.8** table/figure evidence (Tier 3+) |
+| **Shahid** | Disabled | **1.9** table/figure evidence (Tier 3+) |
 
 ## Manuscript loop (Tier 3 direction)
 
@@ -82,7 +87,7 @@ Maktab, Masdar, and Shahid appear as pipeline gaps — not fake finished apps.
 
 ## Webpage and grey-web citations
 
-Planned improvements for messy webpage references (primarily **1.5.0 Raqim Web**, with model-assisted follow-ons in **1.8.0**):
+Planned improvements for messy webpage references (primarily **1.5.0 Raqim Web**, with model-assisted follow-ons in **1.9.0**):
 
 ### Baseline and reliability
 
@@ -122,9 +127,9 @@ After **1.4–1.8** — without version numbers or dates until a later cut is de
 | Item | Notes |
 |------|-------|
 | **Unified seven-worker GGUF pack** | Prefer independent checkpoints over one huge pack |
-| **Full multimodal Shahid** | Beyond the gated **1.8.0** table/figure slice |
+| **Full multimodal Shahid** | Beyond the gated **1.9.0** table/figure slice |
 | **Embedded browser for institutional login** | Last resort after OA, attach, open DOI in browser, library proxy |
-| **Default cloud LLM** | Local Sanad (S12/S14) stays the primary path |
+| **Default cloud LLM** | Local Sanad (9B) stays the primary path |
 | **Cloud collaboration / sync** | Needs project model and privacy beyond local `.nassila` files |
 | **Open-ended drafting / cover letters** | Out of scope — integrity workflow, not authorship |
 | **Notification center** | Not planned — light toasts only |
@@ -140,5 +145,5 @@ After **1.4–1.8** — without version numbers or dates until a later cut is de
 ## Related pages
 
 - [Workers glossary](/docs/workers)
-- [Local models](/docs/local-models) — Sanad S12 / S14
+- [Local models](/docs/local-models) — Sanad 9B (sole tier)
 - [Changelog](/changelog)

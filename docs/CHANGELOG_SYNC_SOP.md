@@ -46,7 +46,7 @@ Remove or rewrite bullets that are:
 |-------------|---------|
 | `Unit tests: bibliography-bridge` | Omit |
 | `Security (SEC-01–07): … see SECURITY-FIX-PLAN` | Omit or → "Security hardening for LLM and OA fetch paths" |
-| `Ship checkpoints: nassila-sanad-e4b v1.12 (NassilaT)` | Omit |
+| `Ship checkpoints: nassila-sanad-9b FT-5 (NassilaT)` | Omit |
 
 ## Checklist
 

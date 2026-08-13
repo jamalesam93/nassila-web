@@ -1,6 +1,6 @@
 ---
 title: Sanad setup
-description: Download Sanad models, configure LM Studio, Ollama, vLLM, Custom, or Cloud API, and enable passage grounding.
+description: Download the Sanad 9B model, configure LM Studio, Ollama, vLLM, Custom, or Cloud API, and enable passage grounding.
 section: docs.sectionManuscript
 ---
 
@@ -14,19 +14,20 @@ Sanad output is **AI-assisted**. Invalid quotes are blocked by guardrails, but y
 
 Sanad GGUF files are **not bundled** in the installer. Download from Hugging Face (bring your own file):
 
-| Tier | Model ID | VRAM (approx.) | Hugging Face |
-|------|----------|----------------|--------------|
-| Default | `nassila-sanad-4b` | ~3.3 GB (Q6_K) | [nassila-sanad-4b](https://huggingface.co/QinEmPeRoR93/nassila-sanad-4b) |
-| Quality | `nassila-sanad-12b` | ~9.1 GB (Q6_K) | [nassila-sanad-12b](https://huggingface.co/QinEmPeRoR93/nassila-sanad-12b) |
+| Model | Model ID | VRAM (approx.) | Hugging Face |
+|-------|----------|----------------|--------------|
+| **Sanad 9B** (sole tier) | `nassila-sanad-9b` | Q2_K ~3.6 GB → Q8_0 ~8.9 GB (Q6_K ~6.9 GB) | [nassila-sanad-9b](https://huggingface.co/QinEmPeRoR93/nassila-sanad-9b) |
 
-<Callout variant="info" title="Note: E4B Model Retired">
-The legacy **`nassila-sanad-e4b`** (S12) model has been **retired** and replaced by **`nassila-sanad-4b`** (S15), which delivers superior reasoning, 4x faster execution, and a ~3.3 GB footprint while meeting our strict false-supported safety gate (< 5%).
+Six GGUFs (Q2_K / Q3_K_M / Q4_K_M / Q5_K_M / Q6_K / Q8_0) share the same trained weights — pick the largest your memory allows.
+
+<Callout variant="info" title="Note: older models retired">
+The abstract-era checkpoints **`nassila-sanad-4b`** (S15), **`nassila-sanad-12b`** (S14), and **`nassila-sanad-e4b`** (S12) are **retired** — the app ships **Sanad 9B** as the only Sanad model. Their cards remain on Hugging Face for legacy downloads.
 </Callout>
 
-In Nassila: **Settings → Passage grounding** — pick **4B (S15)** or **12B (S14)** tier chip; model field auto-fills when using a **local** Nassila GGUF.
+In Nassila: **Settings → Passage grounding** — the Sanad bar shows a single **9B** tier; the model field auto-fills `nassila-sanad-9b` when using a **local** Nassila GGUF.
 
-<Callout variant="info" title="S = Sanad checkpoint">
-**S15** (4B default) and **S14** (12B quality) label Sanad model generations on Hugging Face — separate from app version. Details: [Local models](/docs/local-models).
+<Callout variant="info" title="FT = full-text checkpoint">
+**FT-5** labels the Sanad 9B model generation on Hugging Face — separate from app version. Details: [Local models](/docs/local-models).
 </Callout>
 
 ## Configure in Nassila
@@ -36,7 +37,7 @@ In Nassila: **Settings → Passage grounding** — pick **4B (S15)** or **12B (S
 **Settings → Passage grounding** (or the in-app **Set up Sanad** link — full detail lives here on the website).
 </Step>
 <Step title="Choose local or cloud">
-Under **Provider**, pick a **local** runner (LM Studio, Ollama, vLLM, Custom) for Nassila Sanad GGUFs, or **Cloud API** for an experimental third-party model.
+Under **Provider**, pick a **local** runner (LM Studio, Ollama, vLLM, Custom) for the Nassila Sanad GGUF, or **Cloud API** for an experimental third-party model.
 </Step>
 <Step title="Set base URL and model ID">
 Base URL must match your runner or API. Model ID must match what the server exposes (`ollama list`, LM Studio loaded model, or cloud model name).
@@ -51,7 +52,7 @@ Toggle Sanad on the **Sanad bar** when running a manuscript audit.
 
 ## Runner and cloud setup
 
-Pick the tab that matches your provider. Local tabs use Nassila-trained Sanad models; **Cloud API** uses whatever model your vendor exposes (quality not guaranteed).
+Pick the tab that matches your provider. Local tabs use the Nassila-trained Sanad model; **Cloud API** uses whatever model your vendor exposes (quality not guaranteed).
 
 <Tabs>
 <Tab label="LM Studio (recommended)">
@@ -61,7 +62,7 @@ Pick the tab that matches your provider. Local tabs use Nassila-trained Sanad mo
 Download from [lmstudio.ai](https://lmstudio.ai/).
 </Step>
 <Step title="Load a Sanad GGUF">
-Download **nassila-sanad-4b** or **nassila-sanad-12b** from Hugging Face (table above) and load the file in LM Studio.
+Download **nassila-sanad-9b** from Hugging Face (table above) and load the file in LM Studio.
 </Step>
 <Step title="Start Local Server">
 In LM Studio, start the **Local Server** (OpenAI-compatible API on port 1234 by default).
@@ -71,7 +72,7 @@ Preset **LM Studio**. Base URL:
 
 <CodeBlock>http://localhost:1234</CodeBlock>
 
-Model field: `nassila-sanad-4b` or the exact id LM Studio shows for the loaded GGUF.
+Model field: `nassila-sanad-9b` or the exact id LM Studio shows for the loaded GGUF.
 </Step>
 </Steps>
 
@@ -83,15 +84,9 @@ Model field: `nassila-sanad-4b` or the exact id LM Studio shows for the loaded G
 Download from [ollama.com](https://ollama.com/).
 </Step>
 <Step title="Pull from Hugging Face">
-Default tier:
+<CodeBlock>ollama pull huggingface.co/QinEmPeRoR93/nassila-sanad-9b:Q6_K</CodeBlock>
 
-<CodeBlock>ollama pull huggingface.co/QinEmPeRoR93/nassila-sanad-4b:Q6_K</CodeBlock>
-
-Quality tier:
-
-<CodeBlock>ollama pull huggingface.co/QinEmPeRoR93/nassila-sanad-12b:Q6_K</CodeBlock>
-
-Verify the `:Q6_K` tag matches the file name on the model card.
+Pick your quant tag (Q2_K–Q8_0) and verify it matches the file name on the model card.
 </Step>
 <Step title="Match Nassila settings">
 Preset **Ollama**. Base URL:
@@ -110,7 +105,7 @@ Create a Modelfile with `FROM ./your-file.gguf`, then run `ollama create` with a
 
 <Steps>
 <Step title="Serve a Sanad GGUF">
-Follow [vLLM docs](https://docs.vllm.ai/en/latest/) (or another OpenAI-compatible server) to serve **nassila-sanad-4b** or **nassila-sanad-12b** for your GPU/RAM.
+Follow [vLLM docs](https://docs.vllm.ai/en/latest/) (or another OpenAI-compatible server) to serve **nassila-sanad-9b** (e.g. `nassila-sanad-9b-q6_k.gguf`) for your GPU/RAM.
 </Step>
 <Step title="Note the model id">
 Your server exposes a model id string in its `/v1/models` response — copy that exactly.
@@ -141,7 +136,7 @@ Preset **Custom**. Enter your base URL and the model id your server reports. For
 <Tab label="Cloud API">
 
 <Callout variant="warning" title="Experimental — not Nassila Sanad">
-Cloud models are **not** Nassila-trained Sanad checkpoints. Grounding quality is **experimental**. Prefer local 4B/12B GGUFs for submission-critical work.
+Cloud models are **not** Nassila-trained Sanad checkpoints. Grounding quality is **experimental**. Prefer the local **Sanad 9B** GGUF for submission-critical work.
 </Callout>
 
 <Steps>
@@ -161,7 +156,7 @@ If not auto-filled: base URL examples:
 
 <CodeBlock>https://openrouter.ai/api/v1</CodeBlock>
 
-Model field = the provider's model name (e.g. a chat model your account can access). **Tier chips (4B/12B) apply to local Sanad only** — cloud uses your chosen model as-is.
+Model field = the provider's model name (e.g. a chat model your account can access). Local Sanad is a single **9B** model — cloud uses your chosen model as-is.
 </Step>
 <Step title="Review privacy before auditing">
 Manuscript passage text is sent to **your cloud vendor** when grounding runs. Read their retention and training policies for sensitive drafts.
@@ -183,7 +178,7 @@ Manuscript passage text is sent to **your cloud vendor** when grounding runs. Re
 |---------|-------------|
 | Connection refused | Confirm runner server is running; check base URL port |
 | Model not found | Match model id to LM Studio loaded model or `ollama list` |
-| Slow or OOM | Switch to **4B** tier; close other GPU apps |
+| Slow or OOM | Use a smaller quant (Q2_K / Q4_K_M); close other GPU apps |
 | Empty grounding | Enable Sanad toggle; confirm source excerpt is not `Unavailable` |
 | Cloud test fails | Verify API key, `/v1` suffix on base URL, and model name with provider |
 

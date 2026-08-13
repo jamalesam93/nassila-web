@@ -69,7 +69,7 @@ Grouped sidebar uses **5 i18n keys** for section headers only (docs.sectionStart
 
 **Allowed for local-models / sanad-setup (user setup only):**
 
-* Public model names/IDs (nassila-sanad-e4b).  
+* Public model names/IDs (nassila-sanad-9b).  
 * Hugging Face model card download links (BYO GGUF).  
 * VRAM/RAM inference tiers, Tier 2 vs 3 product behaviors.
 

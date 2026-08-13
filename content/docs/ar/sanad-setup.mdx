@@ -1,6 +1,6 @@
 ---
 title: إعداد سند
-description: نزّل نماذج سند، اضبط LM Studio أو Ollama أو vLLM أو Custom أو Cloud API، وفعّل تثبيت المقتطفات.
+description: نزّل نموذج سند 9B، اضبط LM Studio أو Ollama أو vLLM أو Custom أو Cloud API، وفعّل تثبيت المقتطفات.
 section: docs.sectionManuscript
 ---
 
@@ -14,19 +14,20 @@ section: docs.sectionManuscript
 
 ملفات Sanad GGUF **غير مضمّنة** في المثبّت. نزّل من Hugging Face (أحضر ملفك):
 
-| المستوى | Model ID | VRAM (تقريبي) | Hugging Face |
-|------|----------|----------------|--------------|
-| Default | `nassila-sanad-4b` | ~3.3 GB (Q6_K) | [nassila-sanad-4b](https://huggingface.co/QinEmPeRoR93/nassila-sanad-4b) |
-| Quality | `nassila-sanad-12b` | ~9.1 GB (Q6_K) | [nassila-sanad-12b](https://huggingface.co/QinEmPeRoR93/nassila-sanad-12b) |
+| النموذج | Model ID | VRAM (تقريبي) | Hugging Face |
+|-------|----------|----------------|--------------|
+| **سند 9B** (المستوى الوحيد) | `nassila-sanad-9b` | Q2_K ~3.6 GB → Q8_0 ~8.9 GB (Q6_K ~6.9 GB) | [nassila-sanad-9b](https://huggingface.co/QinEmPeRoR93/nassila-sanad-9b) |
 
-<Callout variant="info" title="ملاحظة: تم إحالة نموذج E4B للتقاعد">
-تم **إحالة النموذج القديم `nassila-sanad-e4b` (S12) للتقاعد** واستبداله بالنموذج الجديد **`nassila-sanad-4b`** (S15)، والذي يقدّم استدلالاً متفوقاً، وسرعة تنفيذ أسرع بـ 4 أضعاف، وبحجم 3.3 جيجابايت فقط مع تحقيق بوابة الأمان (< 5%).
+ست كمات GGUF (Q2_K / Q3_K_M / Q4_K_M / Q5_K_M / Q6_K / Q8_0) تشترك في نفس الأوزان المدرّبة — اختر الأكبر الذي تسمح به ذاكرتك.
+
+<Callout variant="info" title="ملاحظة: النماذج الأقدم متقاعدة">
+تم **إحالة نماذج عصر الملخصات** **`nassila-sanad-4b`** (S15) و**`nassila-sanad-12b`** (S14) و**`nassila-sanad-e4b`** (S12) **للتقاعد** — يوفّر التطبيق **سند 9B** بصفته النموذج الوحيد. بطاقاتهم بقيت على Hugging Face للتنزيلات القديمة.
 </Callout>
 
-في ناسيلا: **الإعدادات → توثيق الادعاءات بالمصدر** — اختر رقاقة **4B (S15)** أو **12B (S14)**؛ يُملأ حقل النموذج تلقائياً عند استخدام GGUF سند **محلي**.
+في ناسيلا: **الإعدادات → توثيق الادعاءات بالمصدر** — يعرض شريط سند رقاقة **9B** واحدة؛ يُملأ حقل النموذج تلقائياً بـ `nassila-sanad-9b` عند استخدام GGUF سند **محلي**.
 
-<Callout variant="info" title="S = نقطة تفتيش Sanad">
-**S15** (الافتراضي 4B) و**S14** (الجودة 12B) تسميان أجيال نماذج Sanad على Hugging Face — منفصلة عن إصدار التطبيق. التفاصيل: [النماذج المحلية](/docs/local-models).
+<Callout variant="info" title="FT = نقطة تفتيش النص الكامل">
+**FT-5** يسمّي جيل نموذج سند 9B على Hugging Face — منفصل عن إصدار التطبيق. التفاصيل: [النماذج المحلية](/docs/local-models).
 </Callout>
 
 ## الإعداد في ناسيلا
@@ -51,7 +52,7 @@ section: docs.sectionManuscript
 
 ## إعداد المشغّل والسحابة
 
-اختر علامة التبويب التي تناسب مزوّدك. التبويبات المحلية تستخدم نماذج سند المدرّبة؛ **Cloud API** يستخدم أي نموذج يوفّره البائع (الجودة غير مضمونة).
+اختر علامة التبويب التي تناسب مزوّدك. التبويبات المحلية تستخدم نموذج سند المدرّب؛ **Cloud API** يستخدم أي نموذج يوفّره البائع (الجودة غير مضمونة).
 
 <Tabs>
 <Tab label="LM Studio (recommended)">
@@ -61,7 +62,7 @@ section: docs.sectionManuscript
 نزّل من [lmstudio.ai](https://lmstudio.ai/).
 </Step>
 <Step title="حمّل Sanad GGUF">
-نزّل **nassila-sanad-4b** أو **nassila-sanad-12b** من Hugging Face (الجدول أعلاه) وحمل الملف في LM Studio.
+نزّل **nassila-sanad-9b** من Hugging Face (الجدول أعلاه) وحمل الملف في LM Studio.
 </Step>
 <Step title="شغّل Local Server">
 في LM Studio، شغّل **Local Server** (واجهة API متوافقة مع OpenAI على المنفذ 1234 افتراضياً).
@@ -71,7 +72,7 @@ section: docs.sectionManuscript
 
 <CodeBlock>http://localhost:1234</CodeBlock>
 
-حقل النموذج: `nassila-sanad-4b` أو المعرف الدقيق الذي يظهر في LM Studio للـ GGUF المحمّل.
+حقل النموذج: `nassila-sanad-9b` أو المعرف الدقيق الذي يظهر في LM Studio للـ GGUF المحمّل.
 </Step>
 </Steps>
 
@@ -83,15 +84,9 @@ section: docs.sectionManuscript
 نزّل من [ollama.com](https://ollama.com/).
 </Step>
 <Step title="اسحب من Hugging Face">
-المستوى الافتراضي:
+<CodeBlock>ollama pull huggingface.co/QinEmPeRoR93/nassila-sanad-9b:Q6_K</CodeBlock>
 
-<CodeBlock>ollama pull huggingface.co/QinEmPeRoR93/nassila-sanad-4b:Q6_K</CodeBlock>
-
-مستوى الجودة:
-
-<CodeBlock>ollama pull huggingface.co/QinEmPeRoR93/nassila-sanad-12b:Q6_K</CodeBlock>
-
-تحقق أن وسم `:Q6_K` يطابق اسم الملف على بطاقة النموذج.
+اختر وسم الكم الذي تريده (Q2_K–Q8_0) وتحقق أنه يطابق اسم الملف على بطاقة النموذج.
 </Step>
 <Step title="طابِق إعدادات ناسيلا">
 الإعداد المسبق **Ollama**. عنوان URL الأساسي:
@@ -110,7 +105,7 @@ section: docs.sectionManuscript
 
 <Steps>
 <Step title="قدّم Sanad GGUF">
-اتبع [وثائق vLLM](https://docs.vllm.ai/en/latest/) (أو خادماً متوافقاً مع OpenAI) لتقديم **nassila-sanad-4b** أو **nassila-sanad-12b** حسب GPU/RAM.
+اتبع [وثائق vLLM](https://docs.vllm.ai/en/latest/) (أو خادماً متوافقاً مع OpenAI) لتقديم **nassila-sanad-9b** (مثل `nassila-sanad-9b-q6_k.gguf`) حسب GPU/RAM.
 </Step>
 <Step title="سجّل معرّف النموذج">
 يُظهر الخادم معرّفاً في `/v1/models` — انسخه حرفياً.
@@ -141,7 +136,7 @@ section: docs.sectionManuscript
 <Tab label="Cloud API">
 
 <Callout variant="warning" title="تجريبي — ليس Nassila Sanad">
-نماذج السحابة **ليست** نقاط تفتيش سند المدرّبة. جودة التثبيت **تجريبية**. فضّل GGUF محلية 4B/12B للعمل الحساس قبل التسليم.
+نماذج السحابة **ليست** نقاط تفتيش سند المدرّبة. جودة التثبيت **تجريبية**. فضّل GGUF **سند 9B** المحلي للعمل الحساس قبل التسليم.
 </Callout>
 
 <Steps>
@@ -152,7 +147,7 @@ section: docs.sectionManuscript
 **الإعدادات → توثيق الادعاءات بالمصدر → المزوّد → API سحابي**.
 </Step>
 <Step title="الصق مفتاح API">
-يُخزَّن **على هذا الجهاز فقط** ويُرسَل **فقط إلى عنوان الخادم الذي تضبطه** — لا إلى خوادم ناسيلا.
+يُخزَّن **على هذا الجهاز فقط** ويُرسَل **فقط إلى عنوان الخادم الذي تضبطه** — لا إلى خوادم ناسيلا.
 </Step>
 <Step title="اضبط URL الأساسي والنموذج">
 إن لم يُملأ تلقائياً، أمثلة:
@@ -161,7 +156,7 @@ section: docs.sectionManuscript
 
 <CodeBlock>https://openrouter.ai/api/v1</CodeBlock>
 
-حقل النموذج = اسم النموذج لدى المزوّد. **رقائق 4B/12B للسند المحلي فقط** — السحابة تستخدم النموذج الذي تختاره كما هو.
+حقل النموذج = اسم النموذج لدى المزوّد. سند المحلي نموذج واحد **9B** — السحابة تستخدم النموذج الذي تختاره كما هو.
 </Step>
 <Step title="راجع الخصوصية قبل التدقيق">
 يُرسَل نص المقتطف إلى **بائع السحابة** عند التثبيت. اقرأ سياسات الاحتفاظ والتدريب للمسودات الحساسة.
@@ -183,7 +178,7 @@ section: docs.sectionManuscript
 |---------|-------------|
 | Connection refused | تأكد أن خادم المشغّل يعمل؛ تحقق من المنفذ |
 | Model not found | طابِق معرّف النموذج مع LM Studio أو `ollama list` |
-| بطء أو OOM | انتقل إلى **4B**؛ أغلق تطبيقات GPU |
+| بطء أو OOM | استخدم كم أصغر (Q2_K / Q4_K_M)؛ أغلق تطبيقات GPU |
 | تثبيت فارغ | فعّل سند؛ تأكد أن المقتطف ليس `Unavailable` |
 | فشل اختبار السحابة | تحقق من مفتاح API ولواحقة `/v1` واسم النموذج |
 

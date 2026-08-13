@@ -1,10 +1,10 @@
 /** Public release train — user-facing only. App semver ≠ Sanad SNN checkpoints. */
 
 export const CURRENT_RELEASE = {
-  version: '1.7.0',
-  codenameEn: 'Integrity Bundle',
-  codenameAr: 'حزمة النزاهة',
-  date: '2026-08-10',
+  version: '1.8.0',
+  codenameEn: 'Sanad 9B',
+  codenameAr: 'سند 9B',
+  date: '2026-08-13',
 } as const
 
 export type ReleaseTrainEntry = {
@@ -19,7 +19,7 @@ export type ReleaseTrainEntry = {
 /** Upcoming / not yet shipped — user-visible focus only. */
 export const RELEASE_TRAIN: ReleaseTrainEntry[] = [
   {
-    version: '1.8.0',
+    version: '1.9.0',
     codenameEn: 'Shahid',
     codenameAr: 'شاهد',
     status: 'planned',
@@ -29,6 +29,16 @@ export const RELEASE_TRAIN: ReleaseTrainEntry[] = [
 ]
 
 export const SHIPPED_CODENAMES: ReleaseTrainEntry[] = [
+  {
+    version: '1.8.0',
+    codenameEn: 'Sanad 9B',
+    codenameAr: 'سند 9B',
+    status: 'shipped',
+    summaryEn:
+      'Sole-tier Sanad registry (9B FT-5 default); Qwen3.5 thinking handling (bundled no-thinking template, token budget, in-app repair).',
+    summaryAr:
+      'سجل سند بمستوى واحد (الافتراضي 9B FT-5)؛ معالجة تفكير Qwen3.5 (قالب بلا تفكير مضمّن، ميزانية رموز، إصلاح داخل التطبيق).',
+  },
   {
     version: '1.7.0',
     codenameEn: 'Integrity Bundle',
@@ -152,27 +162,37 @@ export type SanadCheckpoint = {
   roleAr: string
 }
 
-/** S = Sanad checkpoint generation. Independent of app semver (e.g. app 1.1.2 ≠ S12). */
+/** S/FT = Sanad checkpoint labels. Independent of app semver (e.g. app 1.8.0 ≠ FT-5). */
 export const SANAD_CHECKPOINTS: SanadCheckpoint[] = [
   {
+    id: 'FT-5',
+    tierEn: 'Sole tier · 9B (Qwen 3.5)',
+    tierAr: 'المستوى الوحيد · 9B (Qwen 3.5)',
+    modelId: 'nassila-sanad-9b',
+    hfUrl: 'https://huggingface.co/QinEmPeRoR93/nassila-sanad-9b',
+    vram: '~6.9 GB (Q6_K)',
+    roleEn: 'Single Sanad model — you pick your quant (6 GGUFs Q2_K–Q8_0)',
+    roleAr: 'نموذج سند الوحيد — اختر الكم بنفسك (6 ملفات Q2_K–Q8_0)',
+  },
+  {
     id: 'S15',
-    tierEn: '4B default',
-    tierAr: '4B افتراضي',
+    tierEn: '4B (Retired)',
+    tierAr: '4B (متقاعد)',
     modelId: 'nassila-sanad-4b',
     hfUrl: 'https://huggingface.co/QinEmPeRoR93/nassila-sanad-4b',
     vram: '~3.3 GB',
-    roleEn: 'Default tier in Settings; fast and laptop-friendly',
-    roleAr: 'المستوى الافتراضي في الإعدادات؛ سريع ومناسب للحاسوب المحمول',
+    roleEn: 'Retired — abstract-era default tier',
+    roleAr: 'متقاعد — المستوى الافتراضي من عصر الملخصات',
   },
   {
     id: 'S14',
-    tierEn: '12B quality',
-    tierAr: '12B جودة',
+    tierEn: '12B (Retired)',
+    tierAr: '12B (متقاعد)',
     modelId: 'nassila-sanad-12b',
     hfUrl: 'https://huggingface.co/QinEmPeRoR93/nassila-sanad-12b',
     vram: '~9.1 GB',
-    roleEn: 'Quality tier chip when you have sufficient VRAM',
-    roleAr: 'رقاقة مستوى الجودة عند توفر VRAM كافٍ',
+    roleEn: 'Retired — abstract-era quality tier',
+    roleAr: 'متقاعد — مستوى الجودة من عصر الملخصات',
   },
   {
     id: 'S12',
@@ -181,7 +201,7 @@ export const SANAD_CHECKPOINTS: SanadCheckpoint[] = [
     modelId: 'nassila-sanad-e4b',
     hfUrl: 'https://huggingface.co/QinEmPeRoR93/nassila-sanad-e4b',
     vram: '~5.8 GB',
-    roleEn: 'Legacy default tier model (Retired)',
-    roleAr: 'نموذج المستوى الافتراضي القديم (متقاعد)',
+    roleEn: 'Retired — legacy default-tier model',
+    roleAr: 'متقاعد — نموذج المستوى الافتراضي القديم',
   },
 ]
