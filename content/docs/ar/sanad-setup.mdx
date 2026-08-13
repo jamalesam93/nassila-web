@@ -76,6 +76,8 @@ section: docs.sectionManuscript
 </Step>
 </Steps>
 
+لا حاجة لإعداد قالب — آثار تفكير Qwen3.5 تُزال تلقائياً في ناسيلا.
+
 </Tab>
 <Tab label="Ollama">
 
@@ -100,6 +102,29 @@ section: docs.sectionManuscript
 </Step>
 </Steps>
 
+لا حاجة لإعداد قالب — آثار تفكير Qwen3.5 تُزال تلقائياً في ناسيلا.
+
+</Tab>
+<Tab label="llama.cpp">
+
+شغّل GGUF سند مباشرة مع `llama-server`:
+
+<CodeBlock>llama-server -m nassila-sanad-9b-q6_k.gguf --host 127.0.0.1 --port 1234 --ctx-size 8192 --n-gpu-layers 99 --jinja --chat-template-file qwen3.5-no-thinking.jinja</CodeBlock>
+
+نموذج Qwen3.5 **يفكّر افتراضياً**؛ بدون قالب عدم التفكير يصدر أثر `thinking` قبل JSON وينقطع الناتج. تزيل ناسيلا 1.8.0 الآثار داخل التطبيق كاحتياط، لكن استخدام القالب مع الخادم يعطي أنقى مخرجات.
+
+انسخ القالب من **ناسيلا → الإعدادات → النماذج المحلية → قالب تفكير Qwen3.5 → نسخ القالب**، واحفظه كـ `qwen3.5-no-thinking.jinja`، ثم مرّره مع `--chat-template-file` كما أعلاه.
+
+<Steps>
+<Step title="طابِق إعدادات ناسيلا">
+الإعداد المسبق **Custom**. عنوان URL الأساسي:
+
+<CodeBlock>http://localhost:1234</CodeBlock>
+
+حقل النموذج: المعرف الذي يعرضه خادم `llama-server` لديك.
+</Step>
+</Steps>
+
 </Tab>
 <Tab label="vLLM">
 
@@ -118,7 +143,7 @@ section: docs.sectionManuscript
 </Tab>
 <Tab label="Custom endpoint">
 
-لأي خادم **محلي** متوافق مع OpenAI (llama.cpp server، text-generation-webui، إلخ):
+لأي خادم **محلي** متوافق مع OpenAI (llama.cpp server، text-generation-webui، إلخ — مستخدمو llama.cpp يراجعون [التبويب المخصص أعلاه](#llama-cpp)):
 
 <Steps>
 <Step title="شغّل الخادم">
