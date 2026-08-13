@@ -113,7 +113,21 @@ Serve the Sanad GGUF directly with `llama-server`:
 
 Qwen3.5 **thinks by default**; without the no-thinking template it emits a `thinking` trace before the JSON and the output gets cut off. Nassila 1.8.0 strips traces in-app as a backup, but serving with the template gives the cleanest output.
 
-Copy the template from **Nassila → Settings → Local Models → Qwen3.5 thinking template → Copy template**, save it as `qwen3.5-no-thinking.jinja`, and pass it with `--chat-template-file` as above.
+Create `qwen3.5-no-thinking.jinja` with the template below, then pass it with `--chat-template-file` as above:
+
+<CodeBlock language="jinja">{% set enable_thinking = false %}
+{%- for message in messages %}
+{%- if message['role'] == 'system' %}
+{{- '<|im_start|>system\n' + message['content'] + '<|im_end|>\n' }}
+{%- elif message['role'] == 'user' %}
+{{- '<|im_start|>user\n' + message['content'] + '<|im_end|>\n' }}
+{%- elif message['role'] == 'assistant' %}
+{{- '<|im_start|>assistant\n' + message['content'] + '<|im_end|>\n' }}
+{%- endif %}
+{%- endfor %}
+{%- if add_generation_prompt %}
+{{- '<|im_start|>assistant\n' }}
+{%- endif %}</CodeBlock>
 
 <Steps>
 <Step title="Match Nassila settings">

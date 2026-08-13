@@ -113,7 +113,21 @@ section: docs.sectionManuscript
 
 نموذج Qwen3.5 **يفكّر افتراضياً**؛ بدون قالب عدم التفكير يصدر أثر `thinking` قبل JSON وينقطع الناتج. تزيل ناسيلا 1.8.0 الآثار داخل التطبيق كاحتياط، لكن استخدام القالب مع الخادم يعطي أنقى مخرجات.
 
-انسخ القالب من **ناسيلا → الإعدادات → النماذج المحلية → قالب تفكير Qwen3.5 → نسخ القالب**، واحفظه كـ `qwen3.5-no-thinking.jinja`، ثم مرّره مع `--chat-template-file` كما أعلاه.
+أنشئ ملف `qwen3.5-no-thinking.jinja` بالقالب أدناه، ثم مرّره مع `--chat-template-file` كما أعلاه:
+
+<CodeBlock language="jinja">{% set enable_thinking = false %}
+{%- for message in messages %}
+{%- if message['role'] == 'system' %}
+{{- '<|im_start|>system\n' + message['content'] + '<|im_end|>\n' }}
+{%- elif message['role'] == 'user' %}
+{{- '<|im_start|>user\n' + message['content'] + '<|im_end|>\n' }}
+{%- elif message['role'] == 'assistant' %}
+{{- '<|im_start|>assistant\n' + message['content'] + '<|im_end|>\n' }}
+{%- endif %}
+{%- endfor %}
+{%- if add_generation_prompt %}
+{{- '<|im_start|>assistant\n' }}
+{%- endif %}</CodeBlock>
 
 <Steps>
 <Step title="طابِق إعدادات ناسيلا">
