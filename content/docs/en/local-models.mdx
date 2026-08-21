@@ -18,9 +18,13 @@ Local models power **AI-assisted** passage checks. They do not replace L1/L2 reg
 
 | Model ID | Checkpoint | Tier | VRAM (approx.) | Hugging Face |
 |------------|----------|------|----------------|--------------|
-| `nassila-sanad-9b` | **FT-5** | Sole tier (Qwen 3.5) — pick your quant | Q2_K ~3.6 GB → Q8_0 ~8.9 GB | [nassila-sanad-9b](https://huggingface.co/QinEmPeRoR93/nassila-sanad-9b) |
+| `nassila-sanad-9b` | **FT-6** | Sole tier (Qwen 3.5) — pick your quant | Q2_K ~3.6 GB → Q8_0 ~8.9 GB (+ MTP variants) | [nassila-sanad-9b](https://huggingface.co/QinEmPeRoR93/nassila-sanad-9b) |
 
-Six GGUFs (**Q2_K / Q3_K_M / Q4_K_M / Q5_K_M / Q6_K / Q8_0**) share the same trained weights — pick the largest your memory allows. Typical filenames: `nassila-sanad-9b-q4_k_m.gguf`, `nassila-sanad-9b-q6_k.gguf`.
+Six default GGUFs (**Q2_K / Q3_K_M / Q4_K_M / Q5_K_M / Q6_K / Q8_0**) share the same FT-6 trunk (converted with `--no-mtp`). Matching **MTP** files (`nassila-sanad-9b-mtp-*.gguf`) are for `llama-server` speculative decode. Typical filenames: `nassila-sanad-9b-q4_k_m.gguf`, `nassila-sanad-9b-q6_k.gguf`.
+
+<Callout variant="info" title="Language">
+Nassila's **UI** is bilingual (English and Arabic). Sanad was fine-tuned on **English** full-text only; **Arabic L3 grounding is unvalidated** until **FT-7** (planned app **2.1.0**). Always verify verdicts manually.
+</Callout>
 
 **Retired (abstract-era):** `nassila-sanad-4b` (S15), `nassila-sanad-12b` (S14), `nassila-sanad-e4b` (S12) — their cards stay on Hugging Face for legacy downloads only.
 
@@ -28,7 +32,7 @@ Six GGUFs (**Q2_K / Q3_K_M / Q4_K_M / Q5_K_M / Q6_K / Q8_0**) share the same tra
 
 | Tier chip | Checkpoint | When to use |
 |-----------|------------|-------------|
-| **9B** | FT-5 | Sole Sanad tier — you pick the quant |
+| **9B** | FT-6 | Sole Sanad tier — you pick the quant |
 
 Switch from the **Sanad bar** tier chip or **Settings → Passage grounding**.
 

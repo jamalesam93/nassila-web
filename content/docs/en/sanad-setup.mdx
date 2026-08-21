@@ -20,6 +20,10 @@ Sanad GGUF files are **not bundled** in the installer. Download from Hugging Fac
 
 Six GGUFs (Q2_K / Q3_K_M / Q4_K_M / Q5_K_M / Q6_K / Q8_0) share the same trained weights — pick the largest your memory allows.
 
+<Callout variant="info" title="Language">
+Nassila's **UI** is bilingual (English and Arabic). Sanad was fine-tuned on **English** full-text only; **Arabic L3 grounding is unvalidated** until **FT-7** (planned app **2.1.0**). Always verify verdicts manually.
+</Callout>
+
 <Callout variant="info" title="Note: older models retired">
 The abstract-era checkpoints **`nassila-sanad-4b`** (S15), **`nassila-sanad-12b`** (S14), and **`nassila-sanad-e4b`** (S12) are **retired** — the app ships **Sanad 9B** as the only Sanad model. Their cards remain on Hugging Face for legacy downloads.
 </Callout>
@@ -27,7 +31,7 @@ The abstract-era checkpoints **`nassila-sanad-4b`** (S15), **`nassila-sanad-12b`
 In Nassila: **Settings → Passage grounding** — the Sanad bar shows a single **9B** tier; the model field auto-fills `nassila-sanad-9b` when using a **local** Nassila GGUF.
 
 <Callout variant="info" title="FT = full-text checkpoint">
-**FT-5** labels the Sanad 9B model generation on Hugging Face — separate from app version. Details: [Local models](/docs/local-models).
+**FT-6** labels the Sanad 9B model generation on Hugging Face (v119) — separate from app version. Details: [Local models](/docs/local-models).
 </Callout>
 
 ## Configure in Nassila

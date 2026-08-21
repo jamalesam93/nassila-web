@@ -19,12 +19,32 @@ export type ReleaseTrainEntry = {
 /** Upcoming / not yet shipped — user-visible focus only. */
 export const RELEASE_TRAIN: ReleaseTrainEntry[] = [
   {
-    version: '1.9.0',
-    codenameEn: 'Shahid',
-    codenameAr: 'شاهد',
+    version: '1.10.0',
+    codenameEn: 'Masdar Papers',
+    codenameAr: 'أوراق مصدر',
     status: 'planned',
-    summaryEn: 'Tier 3+ gate; tables/figures; confirm-before-apply grey lit.',
-    summaryAr: 'بوابة Tier 3+؛ جداول/أشكال؛ أدب رمادي بموافقة المستخدم.',
+    summaryEn:
+      'Wayback availability-gated archive links; bibliography dedupe; folder-scan PDF attach + targeted re-audit. (Sanad FT-6 is Hub-only — no separate 1.9.0 installer.)',
+    summaryAr:
+      'روابط أرشيف Wayback عند توفر لقطة؛ دمج المراجع المكررة؛ إرفاق PDF من مجلد + إعادة تدقيق موجّه. (سند FT-6 على Hub فقط — بلا مثبّت 1.9.0 منفصل.)',
+  },
+  {
+    version: '2.0.0',
+    codenameEn: 'MaktabOCR + Shahid',
+    codenameAr: 'مكتب OCR + شاهد',
+    status: 'planned',
+    summaryEn:
+      'Arabic/vision OCR for scan PDFs + table/figure evidence — gated on Tier 3 + multimodal eval.',
+    summaryAr:
+      'OCR عربي/رؤية لملفات PDF الممسوحة + أدلة الجداول/الأشكال — بوابة Tier 3 + تقييم متعدد الوسائط.',
+  },
+  {
+    version: '2.1.0',
+    codenameEn: 'Sanad Arabic',
+    codenameAr: 'سند عربي',
+    status: 'planned',
+    summaryEn: 'FT-7 Arabic train slice + holdout; Arabic-aware mapping; separate AR metrics.',
+    summaryAr: 'شريحة تدريب عربية FT-7 + holdout؛ ربط عربي؛ مقاييس AR منفصلة.',
   },
 ]
 
@@ -162,17 +182,17 @@ export type SanadCheckpoint = {
   roleAr: string
 }
 
-/** S/FT = Sanad checkpoint labels. Independent of app semver (e.g. app 1.8.0 ≠ FT-5). */
+/** S/FT = Sanad checkpoint labels. Independent of app semver (e.g. app 1.8.0 ≠ FT-6). */
 export const SANAD_CHECKPOINTS: SanadCheckpoint[] = [
   {
-    id: 'FT-5',
+    id: 'FT-6',
     tierEn: 'Sole tier · 9B (Qwen 3.5)',
     tierAr: 'المستوى الوحيد · 9B (Qwen 3.5)',
     modelId: 'nassila-sanad-9b',
     hfUrl: 'https://huggingface.co/QinEmPeRoR93/nassila-sanad-9b',
     vram: '~6.9 GB (Q6_K)',
-    roleEn: 'Single Sanad model — you pick your quant (6 GGUFs Q2_K–Q8_0)',
-    roleAr: 'نموذج سند الوحيد — اختر الكم بنفسك (6 ملفات Q2_K–Q8_0)',
+    roleEn: 'Single Sanad model — FT-6 / v119; pick your quant (6 default + 6 MTP GGUFs)',
+    roleAr: 'نموذج سند الوحيد — FT-6 / v119؛ اختر الكم بنفسك (6 افتراضي + 6 MTP)',
   },
   {
     id: 'S15',

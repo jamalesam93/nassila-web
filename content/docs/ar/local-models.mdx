@@ -18,9 +18,13 @@ section: docs.sectionModelsRoadmap
 
 | Model ID | نقطة التفتيش | المستوى | VRAM (تقريبي) | Hugging Face |
 |------------|----------|------|----------------|--------------|
-| `nassila-sanad-9b` | **FT-5** | المستوى الوحيد (Qwen 3.5) — اختر الكم | Q2_K ~3.6 GB → Q8_0 ~8.9 GB | [nassila-sanad-9b](https://huggingface.co/QinEmPeRoR93/nassila-sanad-9b) |
+| `nassila-sanad-9b` | **FT-6** | المستوى الوحيد (Qwen 3.5) — اختر الكم | Q2_K ~3.6 GB → Q8_0 ~8.9 GB (+ متغيرات MTP) | [nassila-sanad-9b](https://huggingface.co/QinEmPeRoR93/nassila-sanad-9b) |
 
-ست كمات GGUF (**Q2_K / Q3_K_M / Q4_K_M / Q5_K_M / Q6_K / Q8_0**) تشترك في نفس الأوزان المدرّبة — اختر الأكبر الذي تسمح به ذاكرتك. أسماء نموذجية: `nassila-sanad-9b-q4_k_m.gguf`، `nassila-sanad-9b-q6_k.gguf`.
+ست كمات GGUF افتراضية (**Q2_K / Q3_K_M / Q4_K_M / Q5_K_M / Q6_K / Q8_0**) تشترك في نفس جذع FT-6 (تحويل بـ `--no-mtp`). ملفات **MTP** المطابقة (`nassila-sanad-9b-mtp-*.gguf`) لـ `llama-server` مع فك الترميز التخميني. أسماء نموذجية: `nassila-sanad-9b-q4_k_m.gguf`، `nassila-sanad-9b-q6_k.gguf`.
+
+<Callout variant="info" title="اللغة">
+**واجهة** ناسيلا ثنائية اللغة (إنجليزية وعربية). سند دُرّب على نص **إنجليزي** كامل فقط؛ **تثبيت L3 بالعربية غير مُتحقّق** حتى **FT-7** (التطبيق المخطّط **2.1.0**). تحقّق من الأحكام يدوياً دائماً.
+</Callout>
 
 **متقاعدة (من عصر الملخصات):** `nassila-sanad-4b` (S15)، `nassila-sanad-12b` (S14)، `nassila-sanad-e4b` (S12) — بطاقاتهم بقيت على Hugging Face للتنزيلات القديمة فقط.
 
@@ -28,7 +32,7 @@ section: docs.sectionModelsRoadmap
 
 | رقاقة المستوى | نقطة التفتيش | متى تستخدمه |
 |-----------|------------|-------------|
-| **9B** | FT-5 | المستوى الوحيد لسند — اختر الكم بنفسك |
+| **9B** | FT-6 | المستوى الوحيد لسند — اختر الكم بنفسك |
 
 بدّل من رقاقة **شريط سند** أو **الإعدادات → توثيق الادعاءات بالمصدر**.
 

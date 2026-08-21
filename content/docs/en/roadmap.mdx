@@ -8,7 +8,7 @@ This page lists **user-visible** planned work and known gaps. It does not cover 
 
 ## Current release
 
-**Nassila 1.8.0 · Sanad 9B** — sole-tier Sanad registry (9B FT-5 default; 4B/12B retired) and Qwen3.5 thinking handling (no-thinking template on the web, token budget, in-app repair). Builds on **1.7.0 · Integrity Bundle** (structured DOCX manuscript import, dirty-close warning, preflight mapping breakdown, trust/packaging hardening). See [Changelog](/changelog).
+**Nassila 1.8.0 · Sanad 9B** — sole-tier Sanad registry and Qwen3.5 thinking handling. Hub weights are **FT-6** (v119, 2026-08-21). Builds on **1.7.0 · Integrity Bundle**. See [Changelog](/changelog).
 
 ## Release train (planned)
 
@@ -16,35 +16,30 @@ App versions use **worker-themed codenames**. Suggested near-term cuts (not date
 
 | Version | Codename | Focus |
 |---------|----------|--------|
-| **1.9.0** | **Shahid** | Tier 3+ gate; tables/figures; confirm-before-apply grey lit |
+| **1.10.0** | **Masdar Papers** | Wayback availability-gated archive links; bibliography dedupe; folder-scan PDF attach |
+| **2.0.0** | **MaktabOCR + Shahid** | Arabic/vision OCR + table/figure evidence (Tier 3 + multimodal gate) |
+| **2.1.0** | **Sanad Arabic** | FT-7 Arabic train slice + holdout; Arabic-aware mapping |
 
-**Recommended cut order:** 1.8.0 (shipped) → (Tier 3 eval gate) → 1.9.0.
+**Recommended cut order:** 1.8.0 (shipped) → **1.10.0** Masdar Papers → (Tier 3 + multimodal gate) → 2.0.0 → 2.1.0.
 
-### Shipped — 1.8.0 Sanad 9B
+> **Sanad FT-6** shipped on Hugging Face (2026-08-21) — Hub/GGUF only; **no 1.9.0 installer**. Use the current app with updated GGUFs.
 
-- Sole-tier Sanad registry (9B FT-5 default; 4B/12B retired)
-- Qwen3.5 thinking handling (no-thinking template + repair)
+### 1.10.0 — Masdar Papers
 
-### Shipped — 1.7.0 Integrity Bundle
+- Wayback archive button only when a snapshot exists (direct snapshot URL)
+- Bibliography dedupe (DOI, else title+year; ambiguous when uncertain)
+- Folder-scan PDF attach with review list + targeted re-audit
 
-- Structured DOCX manuscript import (real Word headings as a segmentation side-channel)
-- Dirty-close warning before losing unsaved work
-- Preflight+ matched / ambiguous / unmatched mapping breakdown in Sharh-lite
-- Trust & packaging hardening: audit rate limiting, mid-LLM cancel via `AbortSignal`, packaged smoke gates
+### 2.0.0 — MaktabOCR + Shahid
 
-### Shipped — 1.6.0 Maktab Loop
-
-- Golden OCR fixtures; scan coverage; page provenance; cache controls
-- Less module hopping: upload → segment → cited sources → grounding
-- Masdar source-fetch + chunking polish
-- Richer **deterministic** Sharh summaries
-- A11y: loop table keyboard nav; RTL pass
-- Vision/LLM Arabic OCR when ready (Tesseract Arabic remains deferred)
-
-### 1.9.0 — Shahid
-
-- Table/figure evidence path (gated on Tier 3 holdout)
+- Arabic/vision OCR for scan PDFs (replaces deferred Tesseract `ara`)
+- Table/figure evidence path (gated on Tier 3 holdout + separate multimodal eval)
 - Model-assisted grey lit: suggest CSL fields — **user confirms before apply**
+
+### 2.1.0 — Sanad Arabic
+
+- FT-7 native Arabic grounding train + frozen AR holdout
+- Until then: **Arabic UI yes; Arabic L3 grounding unvalidated**
 
 ## Shipped milestones (recent)
 
@@ -66,43 +61,43 @@ App versions use **worker-themed codenames**. Suggested near-term cuts (not date
 
 ## Worker maturity
 
-| Worker | Today | Target |
-|--------|-------|--------|
-| **Raqim** | Bibliography import, L1/L2, Resolve (partial EU ELI), export, bridge | **1.4–1.5** statute + web gray lit |
-| **Sanad** | L3 in manuscript loop; **9B sole tier (FT-5)** | Deeper Masdar integration; FT-6 gains (chunking/locators) |
-| **Tasnif / Sharh** | Inline deterministic copy; Sharh-lite summary | Richer explanations as Sharh matures |
-| **Maktab** | DOCX/pdf.js; Latin Enhanced OCR; Arabic → DOCX | **1.6** fixtures + vision OCR |
-| **Masdar** | OA PDF text; UX polish; user PDF attach | Source-fetch / chunking polish |
-| **Shahid** | Disabled | **1.9** table/figure evidence (Tier 3+) |
+| Worker | Today (1.8.0) | Target |
+|--------|---------------|--------|
+| **Raqim** | L1/L2, Resolve, statute, web gray lit | Wayback gating → **1.10** |
+| **Sanad** | L3; 9B FT-6 sole published Hub tier | FT-7 Arabic **2.1** |
+| **Maktab** | DOCX/pdf.js; Latin Enhanced OCR; Arabic → DOCX | Arabic/vision OCR → **2.0** |
+| **Masdar** | OA PDF + per-ref attach | Papers dedupe/folder attach → **1.10** |
+| **Tasnif / Sharh** | Inline deterministic; Sharh-lite summary | Richer templates as warranted |
+| **Shahid** | Disabled | Tables/figures → **2.0** (gated) |
 
 ## Manuscript loop (Tier 3 direction)
 
-**Today:** Upload/paste → parse References inline → L1/L2 → OA/abstract/attach → Sanad when enabled.
+**Today:** Upload/paste → parse References → L1/L2 → OA PDF/abstract/attach → Sanad when enabled.
 
-**Target:** One upload; Maktab segments; Masdar ingests cited PDFs automatically; Sanad runs per cite without manual paste between modules; Shahid for tables/figures.
+**Target:** One upload; Maktab segments; Masdar ingests cited PDFs; Sanad runs per cite without manual paste; Shahid for tables/figures (**2.0.0**).
 
-<Callout variant="info" title="Honest stubs">
-Maktab, Masdar, and Shahid appear as pipeline gaps — not fake finished apps.
+<Callout variant="info" title="Honest gaps">
+**Shahid** remains disabled until **2.0.0**. Maktab ingest and Masdar attach are **live**; Arabic scan OCR and table/figure evidence are not.
 </Callout>
 
 ## Webpage and grey-web citations
 
-Planned improvements for messy webpage references (primarily **1.5.0 Raqim Web**, with model-assisted follow-ons in **1.9.0**):
+Deterministic path shipped in **1.5.0 Raqim Web**. Model-assisted follow-ons planned for **2.0.0**:
 
-### Baseline and reliability
+### Baseline and reliability (shipped 1.5.0)
 
 - HTTP status, content-type, redirect logging
 - Dead-link visibility; paywall / archive hints
 - Host-specific parsers where stable (prefer code over model)
-- Feature flags for AI suggestions
 
 ### App refinements (no model required)
 
 - OpenAlex consistency when `type` stays `webpage`
 - Locale-aware accessed-date copy
 - Batch re-fetch metadata suggestions
+- Wayback availability gating → **1.10.0**
 
-### Model-assisted (future)
+### Model-assisted (2.0.0+)
 
 When trained facets ship, they may help with:
 
@@ -122,18 +117,19 @@ v1.1.2 sends manuscript References to Bibliography and supports **audit from Bib
 
 ## Long-term (not scheduled)
 
-After **1.4–1.8** — without version numbers or dates until a later cut is decided.
+After **2.1** — without version numbers or dates until promoted.
 
 | Item | Notes |
 |------|-------|
 | **Unified seven-worker GGUF pack** | Prefer independent checkpoints over one huge pack |
-| **Full multimodal Shahid** | Beyond the gated **1.9.0** table/figure slice |
+| **Full multimodal Shahid** | Beyond the gated **2.0.0** slice |
 | **Embedded browser for institutional login** | Last resort after OA, attach, open DOI in browser, library proxy |
 | **Default cloud LLM** | Local Sanad (9B) stays the primary path |
 | **Cloud collaboration / sync** | Needs project model and privacy beyond local `.nassila` files |
 | **Open-ended drafting / cover letters** | Out of scope — integrity workflow, not authorship |
 | **Notification center** | Not planned — light toasts only |
-| **Fuzzy auto-apply on grey lit** | Near-term path: **confirm before apply** |
+| **Fuzzy auto-apply on grey lit** | Near-term path: **confirm before apply** (2.0.0) |
+| **3.0.0 Ouroboros** | Closed loop; crash recovery; signed installers |
 
 ## What we will not promise here
 
@@ -141,6 +137,7 @@ After **1.4–1.8** — without version numbers or dates until a later cut is de
 - Default cloud LLM (local Sanad remains primary)
 - Automatic paywall bypass via Unpaywall email
 - In-app training tables, eval scores, or internal checkpoint gates
+- Arabic L3 grounding quality until **FT-7** ships (**2.1.0**)
 
 ## Related pages
 
