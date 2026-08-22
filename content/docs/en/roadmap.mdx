@@ -8,7 +8,7 @@ This page lists **user-visible** planned work and known gaps. It does not cover 
 
 ## Current release
 
-**Nassila 1.8.0 · Sanad 9B** — sole-tier Sanad registry and Qwen3.5 thinking handling. Hub weights are **FT-6** (v119, 2026-08-21). Builds on **1.7.0 · Integrity Bundle**. See [Changelog](/changelog).
+**Nassila 1.10.0 · Masdar Papers** — bibliography dedupe, folder-scan PDF attach with targeted re-audit, honest Wayback links, and Raqim Resolve fixes for titles and URLs. Hub weights are **FT-6** (v119, 2026-08-21). Builds on **1.8.0 · Sanad 9B**. See [Changelog](/changelog).
 
 ## Release train (planned)
 
@@ -16,19 +16,12 @@ App versions use **worker-themed codenames**. Suggested near-term cuts (not date
 
 | Version | Codename | Focus |
 |---------|----------|--------|
-| **1.10.0** | **Masdar Papers** | Wayback availability-gated archive links; bibliography dedupe; folder-scan PDF attach |
 | **2.0.0** | **MaktabOCR + Shahid** | Arabic/vision OCR + table/figure evidence (Tier 3 + multimodal gate) |
 | **2.1.0** | **Sanad Arabic** | FT-7 Arabic train slice + holdout; Arabic-aware mapping |
 
-**Recommended cut order:** 1.8.0 (shipped) → **1.10.0** Masdar Papers → (Tier 3 + multimodal gate) → 2.0.0 → 2.1.0.
+**Recommended cut order:** 1.8.0 (shipped) → **1.10.0 Masdar Papers** (shipped) → (Tier 3 + multimodal gate) → 2.0.0 → 2.1.0.
 
 > **Sanad FT-6** shipped on Hugging Face (2026-08-21) — Hub/GGUF only; **no 1.9.0 installer**. Use the current app with updated GGUFs.
-
-### 1.10.0 — Masdar Papers
-
-- Wayback archive button only when a snapshot exists (direct snapshot URL)
-- Bibliography dedupe (DOI, else title+year; ambiguous when uncertain)
-- Folder-scan PDF attach with review list + targeted re-audit
 
 ### 2.0.0 — MaktabOCR + Shahid
 
@@ -45,6 +38,7 @@ App versions use **worker-themed codenames**. Suggested near-term cuts (not date
 
 | Version | Codename | Highlight |
 |---------|----------|-----------|
+| **1.10.0** | **Masdar Papers** | Bibliography dedupe; folder-scan PDF attach + targeted re-audit; Wayback availability gating; Resolve title/URL fixes |
 | **1.8.0** | **Sanad 9B** | Sole-tier Sanad registry (9B FT-5); Qwen3.5 thinking handling; no-thinking template on the web |
 | **1.7.0** | **Integrity Bundle** | Structured DOCX import; dirty-close warning; preflight breakdown; trust & packaging hardening |
 | **1.6.0** | **Maktab Loop** | OCR golden fixtures; cache controls; deterministic Sharh; source-PDF attach |
@@ -61,13 +55,13 @@ App versions use **worker-themed codenames**. Suggested near-term cuts (not date
 
 ## Worker maturity
 
-| Worker | Today (1.8.0) | Target |
+| Worker | Today (1.10.0) | Target |
 |--------|---------------|--------|
-| **Raqim** | L1/L2, Resolve, statute, web gray lit | Wayback gating → **1.10** |
+| **Raqim** | L1/L2, Resolve, statute, web gray lit; Wayback gating | Grey-lit confirm-before-apply → **2.0** |
 | **Sanad** | L3; 9B FT-6 sole published Hub tier | FT-7 Arabic **2.1** |
 | **Maktab** | DOCX/pdf.js; Latin Enhanced OCR; Arabic → DOCX | Arabic/vision OCR → **2.0** |
-| **Masdar** | OA PDF + per-ref attach | Papers dedupe/folder attach → **1.10** |
-| **Tasnif / Sharh** | Inline deterministic; Sharh-lite summary | Richer templates as warranted |
+| **Masdar** | OA PDF + per-ref attach; papers dedupe/folder attach | Auto cited-PDF ingest → **2.0+** |
+| **Tasnif / Sharh** | Inline deterministic; Sharh-lite summary (+ dedupe outcome line) | Richer templates as warranted |
 | **Shahid** | Disabled | Tables/figures → **2.0** (gated) |
 
 ## Manuscript loop (Tier 3 direction)
@@ -95,7 +89,7 @@ Deterministic path shipped in **1.5.0 Raqim Web**. Model-assisted follow-ons pla
 - OpenAlex consistency when `type` stays `webpage`
 - Locale-aware accessed-date copy
 - Batch re-fetch metadata suggestions
-- Wayback availability gating → **1.10.0**
+- Wayback availability gating — shipped **1.10.0**
 
 ### Model-assisted (2.0.0+)
 

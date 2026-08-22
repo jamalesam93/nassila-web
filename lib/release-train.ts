@@ -1,10 +1,10 @@
 /** Public release train — user-facing only. App semver ≠ Sanad SNN checkpoints. */
 
 export const CURRENT_RELEASE = {
-  version: '1.8.0',
-  codenameEn: 'Sanad 9B',
-  codenameAr: 'سند 9B',
-  date: '2026-08-13',
+  version: '1.10.0',
+  codenameEn: 'Masdar Papers',
+  codenameAr: 'أوراق مصدر',
+  date: '2026-08-22',
 } as const
 
 export type ReleaseTrainEntry = {
@@ -18,16 +18,6 @@ export type ReleaseTrainEntry = {
 
 /** Upcoming / not yet shipped — user-visible focus only. */
 export const RELEASE_TRAIN: ReleaseTrainEntry[] = [
-  {
-    version: '1.10.0',
-    codenameEn: 'Masdar Papers',
-    codenameAr: 'أوراق مصدر',
-    status: 'planned',
-    summaryEn:
-      'Wayback availability-gated archive links; bibliography dedupe; folder-scan PDF attach + targeted re-audit. (Sanad FT-6 is Hub-only — no separate 1.9.0 installer.)',
-    summaryAr:
-      'روابط أرشيف Wayback عند توفر لقطة؛ دمج المراجع المكررة؛ إرفاق PDF من مجلد + إعادة تدقيق موجّه. (سند FT-6 على Hub فقط — بلا مثبّت 1.9.0 منفصل.)',
-  },
   {
     version: '2.0.0',
     codenameEn: 'MaktabOCR + Shahid',
@@ -49,6 +39,16 @@ export const RELEASE_TRAIN: ReleaseTrainEntry[] = [
 ]
 
 export const SHIPPED_CODENAMES: ReleaseTrainEntry[] = [
+  {
+    version: '1.10.0',
+    codenameEn: 'Masdar Papers',
+    codenameAr: 'أوراق مصدر',
+    status: 'shipped',
+    summaryEn:
+      'Wayback availability-gated archive links; bibliography dedupe; folder-scan PDF attach with review list + targeted re-audit; Raqim Resolve works again for titles and URLs.',
+    summaryAr:
+      'روابط أرشيف Wayback عند توفر لقطة؛ دمج المراجع المكررة؛ إرفاق PDF من مجلد بقائمة مراجعة + إعادة تدقيق موجّه؛ حل رقيم يعمل من جديد للعناوين والروابط.',
+  },
   {
     version: '1.8.0',
     codenameEn: 'Sanad 9B',

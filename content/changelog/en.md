@@ -1,3 +1,17 @@
+## [1.10.0] — 2026-08-22 · Masdar Papers
+
+### Added
+
+- **Bibliography dedupe** — duplicate references (same DOI, or same title + year) collapse into one audit finding, with citation sites from both numbers preserved. Title-only look-alikes are flagged ambiguous instead of silently merged; Sharh-lite shows the dedupe outcome when it did work.
+- **Attach papers by folder** — point the Manuscript loop at a folder of source PDFs: Nassila scans it (up to 200 files, 50 MB each), matches each PDF to your references by first-page DOI or title, and after your confirmation attaches and re-audits only the matched references.
+- **Targeted re-audit for multiple refs** — after attaching papers, one run re-grounds exactly the selected entries while other findings stay in place.
+
+### Changed
+
+- **Raqim Resolve works again for titles and URLs** — Resolve previously returned only a placeholder card for paper landing pages and silently dropped moderate title matches. URL rows now search Crossref / PubMed / OpenAlex / DataCite, and title matches with reasonable similarity surface again.
+- **Resolve panel field prefill** — switching between DOI / PMID / PMCID / URL / title auto-copies that value from the row into the search box (without overwriting what you typed), and Verify shows exactly which identifier it searched.
+- **Honest Wayback links** — the unconditional `[Wayback ↗]` on every URL row is gone. The Resolve panel now links to the Wayback Machine only when a snapshot actually exists, straight to that snapshot.
+
 ## [1.8.0] — 2026-08-13 · Sanad 9B
 
 ### Added
