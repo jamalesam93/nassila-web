@@ -37,3 +37,7 @@ yarn-error.log*
 .vercel
 
 # typescript
+*.tsbuildinfo
+
+# Generated codebase dump (Repomix) — regenerate locally, keep out of git
+codebase.txt
