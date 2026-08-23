@@ -7,8 +7,8 @@ const SHOWREEL_VIDEO = '/media/showreel.mp4'
 const SHOWREEL_POSTER = '/media/banner.png'
 
 const FRAMES = [
-  { src: '/media/ui-bibliography.png', alt: 'Nassila bibliography workspace with verify status' },
-  { src: '/media/ui-loop.png', alt: 'Manuscript Ouroboros loop audit view' },
+  { src: '/media/ui-verify.png', alt: 'Nassila bibliography workspace with verify status' },
+  { src: '/media/ui-manuscript.png', alt: 'Manuscript Ouroboros loop audit view' },
   { src: '/media/ui-import.png', alt: 'Import references into Nassila' },
 ]
 

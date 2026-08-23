@@ -8,10 +8,10 @@ const FEATURE_KEYS = ['import', 'validate', 'verify', 'integrity', 'manuscript',
 const FEATURE_MEDIA: Record<(typeof FEATURE_KEYS)[number], string | null> = {
   import: '/media/ui-import.png',
   validate: '/media/ui-validate.png',
-  verify: '/media/ui-bibliography.png',
+  verify: '/media/ui-verify.png',
   integrity: '/media/ui-integrity.png',
-  manuscript: '/media/ui-loop.png',
-  export: null,
+  manuscript: '/media/ui-manuscript.png',
+  export: '/media/ui-export-menu.png',
 }
 
 export function FeatureStrip() {

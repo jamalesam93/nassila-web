@@ -1,3 +1,13 @@
+## [1.10.1] — 2026-08-23 · Packaged network parity
+
+### Fixed
+
+- **"Keep my title — find correct DOI" works in installed builds** — the DOI↔title repair searched Crossref / PubMed / OpenAlex from the sandboxed renderer, which the production security policy blocks, so the button silently did nothing in the installed app (dev runs were unaffected). The registry search now runs in the main process with the same semantics: your title is the trusted anchor, the replacement DOI must genuinely belong to it, and only empty fields fill from the new record.
+- **DOI lookup works in installed builds** — the row-level "Find DOI" action and the "Find Missing DOIs" menu used the same blocked path.
+- **Autocorrect's online step and the input-bar "Resolve" button work in installed builds** — both were silently blocked by the same security policy; both now resolve through the main process.
+
+[Full history on GitHub](https://github.com/jamalesam93/Nassila/blob/main/CHANGELOG.md)
+
 ## [1.10.0] — 2026-08-22 · Masdar Papers
 
 ### Added

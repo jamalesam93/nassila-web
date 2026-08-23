@@ -1,10 +1,10 @@
 /** Public release train — user-facing only. App semver ≠ Sanad SNN checkpoints. */
 
 export const CURRENT_RELEASE = {
-  version: '1.10.0',
-  codenameEn: 'Masdar Papers',
-  codenameAr: 'أوراق مصدر',
-  date: '2026-08-22',
+  version: '1.10.1',
+  codenameEn: 'Packaged network parity',
+  codenameAr: 'تماسك النسخة المعبأة',
+  date: '2026-08-23',
 } as const
 
 export type ReleaseTrainEntry = {
@@ -39,6 +39,16 @@ export const RELEASE_TRAIN: ReleaseTrainEntry[] = [
 ]
 
 export const SHIPPED_CODENAMES: ReleaseTrainEntry[] = [
+  {
+    version: '1.10.1',
+    codenameEn: 'Packaged network parity',
+    codenameAr: 'تماسك النسخة المعبأة',
+    status: 'shipped',
+    summaryEn:
+      'Keep-my-title / DOI lookup / autocorrect online step / input-bar Resolve now work in installed builds (registry calls moved to main process); predatory list update reports failure.',
+    summaryAr:
+      'أبقِ عنواني / البحث عن DOI / خطوة التحسين أونلاين / زر Resolve في شريط الإدخال تعمل الآن في النسخة المثبّتة (نُقلت استدعاءات السجلات إلى العملية الرئيسية)؛ وتحديث قائمة المجلات المفترسة يبلّغ عن الفشل.',
+  },
   {
     version: '1.10.0',
     codenameEn: 'Masdar Papers',

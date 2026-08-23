@@ -3,12 +3,14 @@ import { Link } from '@/i18n/navigation'
 import { Callout } from './callout'
 import { childrenToText } from './children-to-text'
 import { CodeBlock } from './code-block'
+import { Figure } from './figure'
 import { Step, Steps } from './steps'
 import { Tab, Tabs } from './tabs'
 
 export const mdxComponents: MDXComponents = {
   Callout,
   CodeBlock,
+  Figure,
   Steps,
   Step,
   Tabs,
