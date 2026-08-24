@@ -41,3 +41,6 @@ yarn-error.log*
 
 # Generated codebase dump (Repomix) — regenerate locally, keep out of git
 codebase.txt
+
+# Raw publicity asset takes (canonical copies live in public/media/)
+/media-archive/

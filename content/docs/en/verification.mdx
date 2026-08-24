@@ -26,9 +26,13 @@ Resolution order (simplified):
 
 Outcomes include resolved DOI/PMID, OpenAlex work match, or explicit insufficient-data flags.
 
+<Figure src="/media/ui-doi-resolve.png" alt="Resolve input with a DOI and the resolved reference row showing DOI, URL, and Wayback chips" caption="Identifier resolution in Bibliography mode — the resolved row carries DOI, URL, and archive links." />
+
 ## L2 — Metadata alignment
 
 When L1 finds a canonical record, L2 compares your CSL fields. Crossref/PubMed rows may receive **safe auto-patches** when the registry clearly disagrees. Remaining differences appear as **yellow mismatch cards** in Issues — click to jump to the row.
+
+<Figure src="/media/ui-verify.png" alt="Verify row action with registry candidate matches and confidence" caption="Per-row verify — registry candidates are listed with confidence; nothing is applied until you select it." />
 
 <Callout variant="info" title="Packaged builds">
 In release builds, unified L1+L2 runs in the **main process** (IPC) so Verify works even when production CSP blocks renderer network calls.

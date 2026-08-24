@@ -1,22 +1,27 @@
 'use client'
 
 import Image from 'next/image'
-import { useTranslations } from 'next-intl'
+import { useLocale, useTranslations } from 'next-intl'
 
 const FEATURE_KEYS = ['import', 'validate', 'verify', 'integrity', 'manuscript', 'export'] as const
 
-const FEATURE_MEDIA: Record<(typeof FEATURE_KEYS)[number], string | null> = {
-  import: '/media/ui-import.png',
-  validate: '/media/ui-validate.png',
-  verify: '/media/ui-verify.png',
-  integrity: '/media/ui-integrity.png',
-  manuscript: '/media/ui-manuscript.png',
-  export: '/media/ui-export-menu.png',
+function featureMedia(locale: string): Record<(typeof FEATURE_KEYS)[number], string> {
+  const base = locale === 'ar' ? '/media/ar' : '/media'
+  return {
+    import: `${base}/ui-import.png`,
+    validate: `${base}/ui-validate.png`,
+    verify: `${base}/ui-verify.png`,
+    integrity: `${base}/ui-integrity.png`,
+    manuscript: `${base}/ui-manuscript.png`,
+    export: `${base}/ui-export-menu.png`,
+  }
 }
 
 export function FeatureStrip() {
   const t = useTranslations('features')
   const home = useTranslations('home')
+  const locale = useLocale()
+  const media = featureMedia(locale)
 
   return (
     <section className="py-16">
@@ -25,23 +30,19 @@ export function FeatureStrip() {
         <p className="mt-2 max-w-2xl text-muted-foreground">{home('featuresSubtitle')}</p>
         <div className="mt-10 space-y-16">
           {FEATURE_KEYS.map((key, i) => {
-            const media = FEATURE_MEDIA[key]
-            const reverse = media !== null && i % 2 === 1
+            const src = media[key]
+            const reverse = i % 2 === 1
             return (
               <div
                 key={key}
-                className={
-                  media
-                    ? `grid items-center gap-8 lg:grid-cols-2 ${reverse ? 'lg:[&>*:first-child]:order-2' : ''}`
-                    : 'max-w-2xl'
-                }
+                className={`grid items-center gap-8 lg:grid-cols-2 ${reverse ? 'lg:[&>*:first-child]:order-2' : ''}`}
               >
                 <div>
                   <h3 className="text-lg font-semibold">{t(`${key}.title`)}</h3>
                   <p className="mt-2 text-muted-foreground">{t(`${key}.body`)}</p>
                   <p className="mt-3 text-xs text-muted-foreground">{t('shownIn')}</p>
                 </div>
-                {media ? <FeatureShot src={media} alt={t(`${key}.title`)} /> : null}
+                <FeatureShot src={src} alt={t(`${key}.title`)} />
               </div>
             )
           })}

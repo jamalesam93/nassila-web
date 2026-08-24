@@ -1,15 +1,35 @@
 'use client'
 
 import Image from 'next/image'
+import { useLocale } from 'next-intl'
 import { useEffect, useState, useSyncExternalStore } from 'react'
 
-const SHOWREEL_VIDEO = '/media/showreel.mp4'
 const SHOWREEL_POSTER = '/media/banner.png'
 
+const SHOWREEL_VIDEO = {
+  en: '/media/showreel.mp4',
+  ar: '/media/ar/ar-showreel.mp4',
+}
+
 const FRAMES = [
-  { src: '/media/ui-verify.png', alt: 'Nassila bibliography workspace with verify status' },
-  { src: '/media/ui-manuscript.png', alt: 'Manuscript Ouroboros loop audit view' },
-  { src: '/media/ui-import.png', alt: 'Import references into Nassila' },
+  {
+    en: '/media/ui-verify.png',
+    ar: '/media/ar/ui-verify.png',
+    alt: 'Nassila bibliography workspace with verify status',
+    altAr: 'مساحة عمل المراجع في ناسيلا مع حالة التحقق',
+  },
+  {
+    en: '/media/ui-manuscript.png',
+    ar: '/media/ar/ui-manuscript.png',
+    alt: 'Manuscript Ouroboros loop audit view',
+    altAr: 'عرض تدقيق حلقة المخطوطة',
+  },
+  {
+    en: '/media/ui-import.png',
+    ar: '/media/ar/ui-import.png',
+    alt: 'Import references into Nassila',
+    altAr: 'استيراد المراجع إلى ناسيلا',
+  },
 ]
 
 function subscribeReducedMotion(cb: () => void) {
@@ -23,6 +43,11 @@ function getReducedMotion() {
 }
 
 export function AppShowreel() {
+  const locale = useLocale()
+  const isArabic = locale === 'ar'
+  const frames = isArabic
+    ? FRAMES.map((f) => ({ src: f.ar, alt: f.altAr }))
+    : FRAMES.map((f) => ({ src: f.en, alt: f.alt }))
   const [index, setIndex] = useState(0)
   const [videoFailed, setVideoFailed] = useState(false)
   const reduceMotion = useSyncExternalStore(subscribeReducedMotion, getReducedMotion, () => false)
@@ -56,10 +81,10 @@ export function AppShowreel() {
             poster={SHOWREEL_POSTER}
             onError={() => setVideoFailed(true)}
           >
-            <source src={SHOWREEL_VIDEO} type="video/mp4" />
+            <source src={isArabic ? SHOWREEL_VIDEO.ar : SHOWREEL_VIDEO.en} type="video/mp4" />
           </video>
         ) : (
-          FRAMES.map((f, i) => (
+          frames.map((f, i) => (
             <Image
               key={f.src}
               src={f.src}

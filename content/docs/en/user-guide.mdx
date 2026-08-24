@@ -30,6 +30,8 @@ Pick a CSL style in the sidebar, then **Export** (Ctrl+E).
 </Step>
 </Steps>
 
+<Figure src="/media/ui-references-menu.png" alt="References menu with Autocorrect, Find Missing DOIs, Verify references, Detect Duplicates, and Select Citation Style" caption="The References menu mirrors the toolbar actions and their shortcuts." />
+
 ## Passage grounding (Sanad)
 
 Sanad checks manuscript claims against source excerpts using a local LLM and returns structured JSON verdicts with verbatim quotes.
@@ -62,6 +64,8 @@ For **DOI** references, Nassila can ask [Unpaywall](https://unpaywall.org/produc
 1. Open **Settings → General → Manuscript source fetch**.
 2. Enter your email once (Unpaywall API policy). It is saved **only on this computer** and sent **directly to Unpaywall** from the app — not to Nassila servers.
 3. Future manuscript audits reuse it automatically.
+
+<Figure src="/media/ui-settings.png" alt="Settings dialog with notification, predatory journal list, and Manuscript source fetch options" caption="Settings → General — the Unpaywall email lives under Manuscript source fetch." />
 
 If the email is unset, the loop still uses **registry abstracts** and **Europe PMC** where available; only the Unpaywall OA path is skipped.
 

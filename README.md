@@ -37,4 +37,4 @@ See [DESIGN-WEB.md](./DESIGN-WEB.md) — extends the desktop app's Impeccable di
 
 - `content/docs/{en,ar}/` — user documentation (ported from Nassila `docs/`)
 - `content/changelog/` — release summaries (sync per `docs/CHANGELOG_SYNC_SOP.md`, current release set in `lib/release-train.ts`)
-- `public/media/` — product screenshots (replace placeholders with fresh captures)
+- `public/media/` — product screenshots (canonical captures; raw takes archived in `media-archive/`)
