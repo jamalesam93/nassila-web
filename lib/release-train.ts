@@ -1,10 +1,14 @@
 /** Public release train — user-facing only. App semver ≠ Sanad SNN checkpoints. */
 
 export const CURRENT_RELEASE = {
-  version: '1.10.1',
-  codenameEn: 'Packaged network parity',
-  codenameAr: 'تماسك النسخة المعبأة',
-  date: '2026-08-23',
+  version: '2.0.0',
+  codenameEn: 'MaktabOCR + Shahid',
+  codenameAr: 'مكتب OCR + شاهد',
+  date: '2026-09-06',
+  workers: {
+    maktabOcr: 'live',
+    shahid: 'live',
+  },
 } as const
 
 export type ReleaseTrainEntry = {
@@ -19,16 +23,6 @@ export type ReleaseTrainEntry = {
 /** Upcoming / not yet shipped — user-visible focus only. */
 export const RELEASE_TRAIN: ReleaseTrainEntry[] = [
   {
-    version: '2.0.0',
-    codenameEn: 'MaktabOCR + Shahid',
-    codenameAr: 'مكتب OCR + شاهد',
-    status: 'planned',
-    summaryEn:
-      'Arabic/vision OCR for scan PDFs + table/figure evidence — gated on Tier 3 + multimodal eval.',
-    summaryAr:
-      'OCR عربي/رؤية لملفات PDF الممسوحة + أدلة الجداول/الأشكال — بوابة Tier 3 + تقييم متعدد الوسائط.',
-  },
-  {
     version: '2.1.0',
     codenameEn: 'Sanad Arabic',
     codenameAr: 'سند عربي',
@@ -39,6 +33,16 @@ export const RELEASE_TRAIN: ReleaseTrainEntry[] = [
 ]
 
 export const SHIPPED_CODENAMES: ReleaseTrainEntry[] = [
+  {
+    version: '2.0.0',
+    codenameEn: 'MaktabOCR + Shahid',
+    codenameAr: 'مكتب OCR + شاهد',
+    status: 'shipped',
+    summaryEn:
+      'Maktab OCR with native PDF inspection and selective scan fallback; Shahid multimodal table and figure evidence extraction; verified end-to-end grounding with offline stability.',
+    summaryAr:
+      'OCR مكتب مع الفحص الأصلي لملفات PDF والرجوع التلقائي للمسح الضوئي؛ استخراج أدلة الجداول والأشكال عبر شاهد متعدد الوسائط؛ تحقق التوثيق المتكامل مع استقرار تام دون اتصال.',
+  },
   {
     version: '1.10.1',
     codenameEn: 'Packaged network parity',

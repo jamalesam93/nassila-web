@@ -72,21 +72,21 @@ Settings → **General → Manuscript source fetch** — one-time email for Unpa
 
 | Stage | Worker | Status |
 |-------|--------|--------|
-| Ingest | Maktab | Stub — segmentation improving |
-| Sources | Masdar | OA PDF text when Unpaywall finds a PDF (**1.2.0**); user PDF attach still planned |
+| Ingest | Maktab | Live — native PDF inspection + scan fallback (**2.0.0**) |
+| Sources | Masdar | OA PDF text when Unpaywall finds a PDF (**1.2.0**); per-reference and folder-scan PDF attach (**1.6.0** / **1.10.0**) |
 | Records | Raqim | Live — L1/L2, export |
 | Ground | Sanad | Live — L3 when enabled |
 | Risk | Tasnif | Live — inline in loop |
 | Explain | Sharh | Partial — deterministic copy |
-| Evidence | Shahid | Disabled — Tier 3+ |
+| Evidence | Shahid | Live — tables and figures as evidence (**2.0.0**) |
 
 Full glossary: [Workers](/docs/workers).
 
 ## What is not shipped yet
 
-- Cited **PDF attach** in audits (Masdar)
 - Automatic Maktab→Masdar→Sanad pipeline without manual steps
-- Table/figure evidence (Shahid)
+- Full multimodal Shahid beyond tables and figures — planned for future research train
+- Validated native Arabic L3 grounding — planned for **2.1.0 Sanad Arabic** (FT-7)
 
 Honest stubs appear in the UI — no fake progress bars.
 

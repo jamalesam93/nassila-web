@@ -8,7 +8,7 @@ This page lists **user-visible** planned work and known gaps. It does not cover 
 
 ## Current release
 
-**Nassila 1.10.1 · Packaged network parity** — Keep-my-title / DOI lookup / autocorrect online / input-bar Resolve now work in installed builds (registry calls moved to the main process). Builds on **1.10.0 · Masdar Papers**. See [Changelog](/changelog).
+**Nassila 2.0.0 · MaktabOCR + Shahid** — Native PDF layout inspection with selective scan OCR fallback; Shahid multimodal table and figure evidence extraction; verified end-to-end grounding with offline stability. Builds on **1.10.1 · Packaged network parity**. See [Changelog](/changelog).
 
 ## Release train (planned)
 
@@ -16,18 +16,11 @@ App versions use **worker-themed codenames**. Suggested near-term cuts (not date
 
 | Version | Codename | Focus |
 |---------|----------|--------|
-| **2.0.0** | **MaktabOCR + Shahid** | Arabic/vision OCR + table/figure evidence (Tier 3 + multimodal gate) |
 | **2.1.0** | **Sanad Arabic** | FT-7 Arabic train slice + holdout; Arabic-aware mapping |
 
-**Recommended cut order:** 1.8.0 (shipped) → **1.10.0 Masdar Papers** (shipped) → (Tier 3 + multimodal gate) → 2.0.0 → 2.1.0.
+**Recommended cut order:** 1.10.1 (shipped) → **2.0.0 MaktabOCR + Shahid** (shipped) → 2.1.0.
 
 > **Sanad FT-6** shipped on Hugging Face (2026-08-21) — Hub/GGUF only; **no 1.9.0 installer**. Use the current app with updated GGUFs.
-
-### 2.0.0 — MaktabOCR + Shahid
-
-- Arabic/vision OCR for scan PDFs (replaces deferred Tesseract `ara`)
-- Table/figure evidence path (gated on Tier 3 holdout + separate multimodal eval)
-- Model-assisted grey lit: suggest CSL fields — **user confirms before apply**
 
 ### 2.1.0 — Sanad Arabic
 
@@ -38,6 +31,7 @@ App versions use **worker-themed codenames**. Suggested near-term cuts (not date
 
 | Version | Codename | Highlight |
 |---------|----------|-----------|
+| **2.0.0** | **MaktabOCR + Shahid** | Native PDF layout inspection + scan OCR fallback; Arabic OCR adapter; Shahid table & figure evidence; two-tier decoupling |
 | **1.10.1** | **Packaged network parity** | Keep-my-title / DOI lookup / autocorrect online / input-bar Resolve fixed for installed builds |
 | **1.10.0** | **Masdar Papers** | Bibliography dedupe; folder-scan PDF attach + targeted re-audit; Wayback availability gating; Resolve title/URL fixes |
 | **1.8.0** | **Sanad 9B** | Sole-tier Sanad registry (9B FT-5); Qwen3.5 thinking handling; no-thinking template on the web |
@@ -56,28 +50,28 @@ App versions use **worker-themed codenames**. Suggested near-term cuts (not date
 
 ## Worker maturity
 
-| Worker | Today (1.10.0) | Target |
+| Worker | Today (2.0.0) | Target |
 |--------|---------------|--------|
-| **Raqim** | L1/L2, Resolve, statute, web gray lit; Wayback gating | Grey-lit confirm-before-apply → **2.0** |
+| **Raqim** | L1/L2, Resolve, statute, web gray lit; Wayback gating; confirm-before-apply | Continuous polish |
 | **Sanad** | L3; 9B FT-6 sole published Hub tier | FT-7 Arabic **2.1** |
-| **Maktab** | DOCX/pdf.js; Latin Enhanced OCR; Arabic → DOCX | Arabic/vision OCR → **2.0** |
-| **Masdar** | OA PDF + per-ref attach; papers dedupe/folder attach | Auto cited-PDF ingest → **2.0+** |
+| **Maktab** | DOCX/pdf.js; native inspector + scan OCR fallback; Arabic OCR adapter | Continuous polish |
+| **Masdar** | OA PDF + per-ref attach; papers dedupe/folder attach | Auto cited-PDF ingest → **2.1+** |
 | **Tasnif / Sharh** | Inline deterministic; Sharh-lite summary (+ dedupe outcome line) | Richer templates as warranted |
-| **Shahid** | Disabled | Tables/figures → **2.0** (gated) |
+| **Shahid** | Live — tables & figures multimodal evidence | Multimodal vision models → **2.1+** |
 
 ## Manuscript loop (Tier 3 direction)
 
-**Today:** Upload/paste → parse References → L1/L2 → OA PDF/abstract/attach → Sanad when enabled.
+**Today:** Upload/paste → parse References → L1/L2 → OA PDF/abstract/attach → Sanad when enabled → Shahid for tables/figures.
 
-**Target:** One upload; Maktab segments; Masdar ingests cited PDFs; Sanad runs per cite without manual paste; Shahid for tables/figures (**2.0.0**).
+**Target:** One upload; Maktab segments; Masdar ingests cited PDFs; Sanad runs per cite without manual paste; Shahid extracts multimodal table/figure evidence (**2.0.0** shipped).
 
-<Callout variant="info" title="Honest gaps">
-**Shahid** remains disabled until **2.0.0**. Maktab ingest and Masdar attach are **live**; Arabic scan OCR and table/figure evidence are not.
+<Callout variant="info" title="Shipped in 2.0.0">
+**Shahid** table and figure evidence extraction is now **live**. Maktab native PDF layout inspection with selective scan OCR fallback and pretrained Arabic adapter are active.
 </Callout>
 
 ## Webpage and grey-web citations
 
-Deterministic path shipped in **1.5.0 Raqim Web**. Model-assisted follow-ons planned for **2.0.0**:
+Deterministic path shipped in **1.5.0 Raqim Web**. Model-assisted follow-ons shipped in **2.0.0**:
 
 ### Baseline and reliability (shipped 1.5.0)
 
@@ -92,7 +86,7 @@ Deterministic path shipped in **1.5.0 Raqim Web**. Model-assisted follow-ons pla
 - Batch re-fetch metadata suggestions
 - Wayback availability gating — shipped **1.10.0**
 
-### Model-assisted (2.0.0+)
+### Model-assisted (shipped 2.0.0)
 
 When trained facets ship, they may help with:
 
@@ -117,13 +111,13 @@ After **2.1** — without version numbers or dates until promoted.
 | Item | Notes |
 |------|-------|
 | **Unified seven-worker GGUF pack** | Prefer independent checkpoints over one huge pack |
-| **Full multimodal Shahid** | Beyond the gated **2.0.0** slice |
+| **Full multimodal Shahid** | Beyond the shipped **2.0.0** tables/figures slice |
 | **Embedded browser for institutional login** | Last resort after OA, attach, open DOI in browser, library proxy |
 | **Default cloud LLM** | Local Sanad (9B) stays the primary path |
 | **Cloud collaboration / sync** | Needs project model and privacy beyond local `.nassila` files |
 | **Open-ended drafting / cover letters** | Out of scope — integrity workflow, not authorship |
 | **Notification center** | Not planned — light toasts only |
-| **Fuzzy auto-apply on grey lit** | Near-term path: **confirm before apply** (2.0.0) |
+| **Fuzzy auto-apply on grey lit** | Current path: **confirm before apply** (2.0.0) |
 | **3.0.0 Ouroboros** | Closed loop; crash recovery; signed installers |
 
 ## What we will not promise here

@@ -1,3 +1,17 @@
+## [2.0.0] — 2026-09-06 · MaktabOCR + Shahid
+
+### Added
+
+- **Maktab OCR (embedded + scan fallback)** — instant vector text extraction for born-digital PDFs with automatic, selective fallback to bundled offline OCR for scanned pages and legacy documents.
+- **Pretrained Arabic OCR Adapter** — dedicated offline recognition for scanned and low-contrast Arabic documents, preserving Arabic typography and eliminating character corruption.
+- **Shahid Table & Figure Multimodal Evidence** — direct extraction and binding of tables, numerical data cells, and figure captions from complex scholarly manuscripts to verify data-driven claims.
+- **End-to-End Grounding Verification** — full verification across full-text manuscripts with verbatim citation evidence matching, zero false-supported claims, and independent claim scoring decoupled from UI triage pills.
+- **Two-Tier Review Decoupling** — finding-level UI status (pass/warn/fail) is cleanly separated from individual claim verdicts, ensuring multi-claim analyses and formatting warnings do not obscure verified facts.
+- **Abstract-Only Caution Chips** — clear indicators display on paywalled or closed-access citations evaluated only from abstracts, alerting authors when full-text inspection is recommended.
+- **Offline Stability & Clean Installation** — verified zero-network installation and execution on Windows workstations with bundled language resources, full local privacy, and strict security boundaries.
+
+[Full history on GitHub](https://github.com/jamalesam93/Nassila/blob/main/CHANGELOG.md)
+
 ## [1.10.1] — 2026-08-23 · Packaged network parity
 
 ### Fixed

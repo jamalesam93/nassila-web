@@ -10,10 +10,10 @@ Nassila's **Ouroboros** architecture uses seven **worker codenames** — each a 
 
 | Worker | Arabic | Loop stage | End-state role | Current status |
 |--------|--------|------------|----------------|----------------|
-| **Maktab** | مكتب | Ingest | Manuscript upload and segmentation | **Partial** — DOCX/pdf.js live; Enhanced OCR **eng/fra**; Arabic → prefer DOCX (**1.3.1**) |
+| **Maktab** | مكتب | Ingest | Manuscript upload and segmentation | **Live** — DOCX/pdf.js + native inspector + scan fallback (**2.0.0**) |
 | **Masdar** | مصدر | Sources | Cited-paper text (OA PDF + user attach) | OA PDF grounding (**1.2.0**) + per-ref attach (**1.3.0**) |
 | **Sanad** | سند | Ground | Passage vs source excerpt → verdicts | **Live** — L3 when Passage grounding enabled |
-| **Shahid** | شاهد | Evidence | Tables and figures as evidence | Disabled — planned **2.0.0** |
+| **Shahid** | شاهد | Evidence | Tables and figures as evidence | **Live** — table and figure evidence extraction (**2.0.0**) |
 | **Raqim** | رقيم | Records | Import, verify L1/L2, export (citeproc) | **Live** — Bibliography mode + loop feed |
 | **Tasnif** | تصنيف | Risk | Dedupe, predatory flags, issue triage | **Live** — inline in loop + Bibliography |
 | **Sharh** | شرح | Explain | Issue and mismatch explanations | Partial — Sharh-lite evidence summary (**1.3.0**) |
@@ -32,9 +32,9 @@ Nassila's **Ouroboros** architecture uses seven **worker codenames** — each a 
 - **Raqim** — Bibliography mode (primary reference workspace)
 - **Sanad** — Manuscript Sanad bar and Passage grounding settings
 - **Tasnif / Sharh** — Inline in loop audit detail and bibliography drawer
-- **Maktab** — Manuscript ingest (DOCX / PDF / Latin OCR); Arabic scan OCR planned **2.0.0**
+- **Maktab** — Manuscript ingest (DOCX / PDF / native inspection + scan OCR fallback)
 - **Masdar** — OA fetch + attach; deeper chunking planned
-- **Shahid** — Honest stub until **2.0.0**
+- **Shahid** — Table and figure evidence extraction in loop audit detail
 
 <Callout variant="info" title="Transitional nav">
 Some builds may still show a seven-item worker nav from early Ouroboros UI. Treat it as **transitional scaffolding**, not end-state information architecture.
