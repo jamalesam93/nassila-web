@@ -117,7 +117,7 @@ Serve the Sanad GGUF directly with `llama-server`:
 
 <CodeBlock>llama-server -m nassila-sanad-9b-q6_k.gguf --host 127.0.0.1 --port 1234 --ctx-size 8192 --n-gpu-layers 99 --jinja --chat-template-file qwen3.5-no-thinking.jinja</CodeBlock>
 
-Qwen3.5 **thinks by default**; without the no-thinking template it emits a `thinking` trace before the JSON and the output gets cut off. Nassila 1.8.0 strips traces in-app as a backup, but serving with the template gives the cleanest output.
+Qwen3.5 **thinks by default**; without the no-thinking template it emits a `thinking` trace before the JSON and the output gets cut off. Nassila 1.8.0+ strips traces in-app as a backup, but serving with the template gives the cleanest output.
 
 Create `qwen3.5-no-thinking.jinja` with the template below, then pass it with `--chat-template-file` as above:
 

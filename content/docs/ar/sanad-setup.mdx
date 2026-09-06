@@ -117,7 +117,7 @@ section: docs.sectionManuscript
 
 <CodeBlock>llama-server -m nassila-sanad-9b-q6_k.gguf --host 127.0.0.1 --port 1234 --ctx-size 8192 --n-gpu-layers 99 --jinja --chat-template-file qwen3.5-no-thinking.jinja</CodeBlock>
 
-نموذج Qwen3.5 **يفكّر افتراضياً**؛ بدون قالب عدم التفكير يصدر أثر `thinking` قبل JSON وينقطع الناتج. تزيل ناسيلا 1.8.0 الآثار داخل التطبيق كاحتياط، لكن استخدام القالب مع الخادم يعطي أنقى مخرجات.
+نموذج Qwen3.5 **يفكّر افتراضياً**؛ بدون قالب عدم التفكير يصدر أثر `thinking` قبل JSON وينقطع الناتج. تزيل ناسيلا 1.8.0+ الآثار داخل التطبيق كاحتياط، لكن استخدام القالب مع الخادم يعطي أنقى مخرجات.
 
 أنشئ ملف `qwen3.5-no-thinking.jinja` بالقالب أدناه، ثم مرّره مع `--chat-template-file` كما أعلاه:
 
