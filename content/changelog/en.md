@@ -1,3 +1,16 @@
+## [2.1.0] — 2026-09-18 · Maktab Arabic
+
+### Added
+
+- **Production Arabic scan OCR** — scanned Arabic PDFs use the packaged Paddle PP-OCRv5 adapter on your machine. Broken font-encoding Arabic PDFs still need a **DOCX**. Tesseract Arabic is not the primary path.
+- **Arabic-aware citation mapping** — Arabic bibliography headings, Arabic-Indic numbers, and Arabic author-year cites map to bibliography keys.
+
+### Changed
+
+- **Arabic L3 grounding stays unvalidated** — Sanad verdicts on Arabic manuscripts are not a 2.1.0 claim. That work is **2.2.0**.
+
+[Full history on GitHub](https://github.com/jamalesam93/Nassila/blob/main/CHANGELOG.md)
+
 ## [2.0.0] — 2026-09-06 · MaktabOCR + Shahid
 
 ### Added

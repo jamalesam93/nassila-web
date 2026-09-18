@@ -8,7 +8,7 @@ This page lists **user-visible** planned work and known gaps. It does not cover 
 
 ## Current release
 
-**Nassila 2.0.0 · MaktabOCR + Shahid** — Native PDF layout inspection with selective scan OCR fallback; Shahid multimodal table and figure evidence extraction; verified end-to-end grounding with offline stability. Builds on **1.10.1 · Packaged network parity**. See [Changelog](/changelog).
+**Nassila 2.1.0 · Maktab Arabic** — Production Arabic scan OCR (Paddle PP-OCRv5) and Arabic-aware citation mapping. Arabic L3 grounding stays unvalidated. Builds on **2.0.0 · MaktabOCR + Shahid**. See [Changelog](/changelog).
 
 ## Release train (planned)
 
@@ -16,21 +16,40 @@ App versions use **worker-themed codenames**. Suggested near-term cuts (not date
 
 | Version | Codename | Focus |
 |---------|----------|--------|
-| **2.1.0** | **Sanad Arabic** | FT-7 Arabic train slice + holdout; Arabic-aware mapping |
+| **2.2.0** | **Sanad Arabic** | Native Arabic L3 grounding (FT-7) |
 
-**Recommended cut order:** 1.10.1 (shipped) → **2.0.0 MaktabOCR + Shahid** (shipped) → 2.1.0.
+**Recommended cut order:** **2.1.0 Maktab Arabic** (shipped) → 2.2.0 Sanad Arabic.
 
 > **Sanad FT-6** shipped on Hugging Face (2026-08-21) — Hub/GGUF only; **no 1.9.0 installer**. Use the current app with updated GGUFs.
 
-### 2.1.0 — Sanad Arabic
+### 2.2.0 — Sanad Arabic
 
-- FT-7 native Arabic grounding train + frozen AR holdout
-- Until then: **Arabic UI yes; Arabic L3 grounding unvalidated**
+- Native Arabic L3 grounding on Sanad 9B once FT-7 is published
+- Until then: **verify Arabic verdicts manually**
+
+## Longer horizon (2.3.0–5.0.0)
+
+Direction, not a promise — versions and scope can move when we cut.
+
+| Version | Codename | Focus |
+|---------|----------|--------|
+| **2.3.0** | **Masdar Auto** | Auto cited-PDF ingest; library proxy prefixes; page provenance |
+| **2.4.0** | **Tasnif Risk** | Retraction/correction flags; preprint→published version; predatory-list cadence |
+| **2.5.0** | **Projects Ledger** | Action log; New Session; autosave; first-run checklist |
+| **3.0.0** | **Ouroboros** | Closed repair→re-audit loop; crash recovery; signed installers |
+| **3.1.0** | **Sharh Explain** | Richer explanations + annotated evidence export |
+| **3.2.0** | **Raqim Signals** | Webpage metadata and grey-web typing assistance (confirm before apply) |
+| **3.3.0** | **Sanad Bilingual** | English–Arabic mixed manuscripts; stronger EN and AR grounding |
+| **4.0.0** | **Shahid Vision** | Full multimodal Shahid beyond tables and figures |
+| **4.1.0** | **Nassila CLI** | Headless batch audit for editors and CI |
+| **4.2.0** | **Cross-platform** | macOS and Linux installers |
+| **5.0.0** | **One Nassila** | Routed pack of independently gated artifacts (**not** one merged GGUF); institutional login last resort; offline review packages |
 
 ## Shipped milestones (recent)
 
 | Version | Codename | Highlight |
 |---------|----------|-----------|
+| **2.1.0** | **Maktab Arabic** | Production Arabic scan OCR (Paddle); Arabic-aware citation mapping; Arabic L3 still unvalidated |
 | **2.0.0** | **MaktabOCR + Shahid** | Native PDF layout inspection + scan OCR fallback; Arabic OCR adapter; Shahid table & figure evidence; two-tier decoupling |
 | **1.10.1** | **Packaged network parity** | Keep-my-title / DOI lookup / autocorrect online / input-bar Resolve fixed for installed builds |
 | **1.10.0** | **Masdar Papers** | Bibliography dedupe; folder-scan PDF attach + targeted re-audit; Wayback availability gating; Resolve title/URL fixes |
@@ -50,14 +69,14 @@ App versions use **worker-themed codenames**. Suggested near-term cuts (not date
 
 ## Worker maturity
 
-| Worker | Today (2.0.0) | Target |
+| Worker | Today (2.1.0) | Target |
 |--------|---------------|--------|
-| **Raqim** | L1/L2, Resolve, statute, web gray lit; Wayback gating; confirm-before-apply | Continuous polish |
-| **Sanad** | L3; 9B FT-6 sole published Hub tier | FT-7 Arabic **2.1** |
-| **Maktab** | DOCX/pdf.js; native inspector + scan OCR fallback; Arabic OCR adapter | Continuous polish |
-| **Masdar** | OA PDF + per-ref attach; papers dedupe/folder attach | Auto cited-PDF ingest → **2.1+** |
-| **Tasnif / Sharh** | Inline deterministic; Sharh-lite summary (+ dedupe outcome line) | Richer templates as warranted |
-| **Shahid** | Live — tables & figures multimodal evidence | Multimodal vision models → **2.1+** |
+| **Raqim** | L1/L2, Resolve, statute, web gray lit; Wayback gating; confirm-before-apply | Signals assistance **3.2.0** |
+| **Sanad** | L3; 9B FT-6 sole published Hub tier | Arabic L3 **2.2**; EN+AR mixed-script **3.3** |
+| **Maktab** | DOCX/pdf.js; native inspector; Latin OCR; **production Arabic scan OCR** | Further ingest polish as warranted |
+| **Masdar** | OA PDF + per-ref attach; papers dedupe/folder attach | Auto cited-PDF ingest → **2.3** |
+| **Tasnif / Sharh** | Inline deterministic; Sharh-lite summary (+ dedupe outcome line) | Risk signals **2.4**; richer explanations **3.1** |
+| **Shahid** | Live — tables & figures multimodal evidence | Full vision → **4.0** |
 
 ## Manuscript loop (Tier 3 direction)
 
@@ -71,7 +90,7 @@ App versions use **worker-themed codenames**. Suggested near-term cuts (not date
 
 ## Webpage and grey-web citations
 
-Deterministic path shipped in **1.5.0 Raqim Web**. Model-assisted follow-ons shipped in **2.0.0**:
+Deterministic path shipped in **1.5.0 Raqim Web**. Model-assisted follow-ons shipped in **2.0.0**. Trained webpage facets are planned for **3.2.0**:
 
 ### Baseline and reliability (shipped 1.5.0)
 
@@ -106,27 +125,26 @@ v1.1.2 sends manuscript References to Bibliography and supports **audit from Bib
 
 ## Long-term (not scheduled)
 
-After **2.1** — without version numbers or dates until promoted.
+Items not given a version above. **3.0.0 Ouroboros** is now on the longer-horizon table.
 
 | Item | Notes |
 |------|-------|
-| **Unified seven-worker GGUF pack** | Prefer independent checkpoints over one huge pack |
-| **Full multimodal Shahid** | Beyond the shipped **2.0.0** tables/figures slice |
-| **Embedded browser for institutional login** | Last resort after OA, attach, open DOI in browser, library proxy |
 | **Default cloud LLM** | Local Sanad (9B) stays the primary path |
-| **Cloud collaboration / sync** | Needs project model and privacy beyond local `.nassila` files |
+| **Merged multi-worker GGUF** | **Non-goal** under **5.0.0** — routed pack instead |
+| **Cloud collaboration / sync** | Needs project model and privacy beyond local `.nassila` files; **5.0.0** ships offline review packages instead |
 | **Open-ended drafting / cover letters** | Out of scope — integrity workflow, not authorship |
 | **Notification center** | Not planned — light toasts only |
 | **Fuzzy auto-apply on grey lit** | Current path: **confirm before apply** (2.0.0) |
-| **3.0.0 Ouroboros** | Closed loop; crash recovery; signed installers |
 
 ## What we will not promise here
 
 - A full reference-manager replacement
 - Default cloud LLM (local Sanad remains primary)
+- One merged multi-worker GGUF as the 5.0.0 ship identity
 - Automatic paywall bypass via Unpaywall email
 - In-app training tables, eval scores, or internal checkpoint gates
-- Arabic L3 grounding quality until **FT-7** ships (**2.1.0**)
+- Arabic L3 grounding quality until **2.2.0 Sanad Arabic**
+- Sanad languages beyond English and Arabic
 
 ## Related pages
 

@@ -1,10 +1,10 @@
 /** Public release train — user-facing only. App semver ≠ Sanad SNN checkpoints. */
 
 export const CURRENT_RELEASE = {
-  version: '2.0.0',
-  codenameEn: 'MaktabOCR + Shahid',
-  codenameAr: 'مكتب OCR + شاهد',
-  date: '2026-09-06',
+  version: '2.1.0',
+  codenameEn: 'Maktab Arabic',
+  codenameAr: 'مكتب عربي',
+  date: '2026-09-18',
   workers: {
     maktabOcr: 'live',
     shahid: 'live',
@@ -23,16 +23,28 @@ export type ReleaseTrainEntry = {
 /** Upcoming / not yet shipped — user-visible focus only. */
 export const RELEASE_TRAIN: ReleaseTrainEntry[] = [
   {
-    version: '2.1.0',
+    version: '2.2.0',
     codenameEn: 'Sanad Arabic',
     codenameAr: 'سند عربي',
     status: 'planned',
-    summaryEn: 'FT-7 Arabic train slice + holdout; Arabic-aware mapping; separate AR metrics.',
-    summaryAr: 'شريحة تدريب عربية FT-7 + holdout؛ ربط عربي؛ مقاييس AR منفصلة.',
+    summaryEn:
+      'Native Arabic L3 grounding on Sanad 9B (FT-7) once the model is published. Until then, verify Arabic verdicts manually.',
+    summaryAr:
+      'توثيق L3 أصيل بالعربية على سند 9B (FT-7) بعد نشر النموذج. حتى ذلك الحين تحقّق من أحكام العربية يدوياً.',
   },
 ]
 
 export const SHIPPED_CODENAMES: ReleaseTrainEntry[] = [
+  {
+    version: '2.1.0',
+    codenameEn: 'Maktab Arabic',
+    codenameAr: 'مكتب عربي',
+    status: 'shipped',
+    summaryEn:
+      'Production Arabic scan OCR via the packaged Paddle PP-OCRv5 adapter, plus Arabic-aware citation mapping. Arabic L3 grounding stays unvalidated.',
+    summaryAr:
+      'OCR عربي إنتاجي لمسح PDF عبر محوّل Paddle PP-OCRv5 المعبأ، مع تعيين واعٍ بالعربية للاستشهادات. تثبيت L3 بالعربية يبقى غير مُتحقّق.',
+  },
   {
     version: '2.0.0',
     codenameEn: 'MaktabOCR + Shahid',
