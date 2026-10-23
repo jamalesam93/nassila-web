@@ -43,7 +43,7 @@ export const SHIPPED_CODENAMES: ReleaseTrainEntry[] = [
     summaryEn:
       'Arabic scan lines stay in reading order. Legacy-encoded Arabic text layers are sent to OCR. An optional Indra download reads Arabic scans; Paddle covers any page Indra cannot. Arabic L3 grounding stays unvalidated.',
     summaryAr:
-      'أسطر المسح العربي تبقى بترتيب القراءة. طبقات النص العربي ذات الترميز القديم تُرسَل إلى OCR. يمكن تنزيل معرّف Indra اختياريًا؛ ملفات PDF العربية الممسوحة ما زالت تستخدم محوّل Paddle المعبأ. تثبيت L3 بالعربية يبقى غير مُتحقّق.',
+      'أسطر المسح العربي تبقى بترتيب القراءة. طبقات النص العربي ذات الترميز القديم تُرسَل إلى OCR. بعد التنزيل يقرأ Indra المسح العربي، ويغطي Paddle الصفحة التي يعجز عنها. تثبيت L3 بالعربية يبقى غير مُتحقّق.',
   },
   {
     version: '2.1.0',
