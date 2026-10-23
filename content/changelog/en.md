@@ -8,7 +8,7 @@
 
 ### Added
 
-- **Optional Indra download.** Settings → Local models can fetch an extra Arabic recognizer. It is not bundled, and scanned Arabic PDFs still use the packaged Paddle adapter.
+- **Optional Indra download.** Settings → Local models can fetch Arabic OCR weights (about 14 MB). They are not bundled. Once installed, Indra reads Arabic scans, and PaddleOCR reads any page Indra cannot. Without the download, scanned Arabic PDFs stay on the packaged Paddle adapter.
 
 ### Changed
 

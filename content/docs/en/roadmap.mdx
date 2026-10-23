@@ -8,7 +8,7 @@ This page lists **user-visible** planned work and known gaps. It does not cover 
 
 ## Current release
 
-**Nassila 2.1.1 · Arabic OCR fidelity** — Arabic scan lines stay in reading order, and legacy-encoded Arabic text layers are sent to OCR. Scanned Arabic PDFs still use the packaged Paddle adapter. An optional Indra download does not replace it. Arabic L3 grounding stays unvalidated. Builds on **2.1.0 · Maktab Arabic**. See [Changelog](/changelog).
+**Nassila 2.1.1 · Arabic OCR fidelity** — Arabic scan lines stay in reading order, and legacy-encoded Arabic text layers are sent to OCR. An optional download adds Indra for Arabic scans; PaddleOCR covers any page Indra cannot, and stays the reader until that download. Arabic L3 grounding stays unvalidated. Builds on **2.1.0 · Maktab Arabic**. See [Changelog](/changelog).
 
 ## Release train (planned)
 
@@ -49,7 +49,7 @@ Direction, not a promise — versions and scope can move when we cut.
 
 | Version | Codename | Highlight |
 |---------|----------|-----------|
-| **2.1.1** | **Arabic OCR fidelity** | Arabic line order; legacy-encoded layers sent to OCR; optional Indra download; Paddle remains the scan engine |
+| **2.1.1** | **Arabic OCR fidelity** | Arabic line order; legacy-encoded layers sent to OCR; optional Indra download reads Arabic scans, with Paddle as the fallback |
 | **2.1.0** | **Maktab Arabic** | Production Arabic scan OCR (Paddle); Arabic-aware citation mapping; Arabic L3 still unvalidated |
 | **2.0.0** | **MaktabOCR + Shahid** | Native PDF layout inspection + scan OCR fallback; Arabic OCR adapter; Shahid table & figure evidence; two-tier decoupling |
 | **1.10.1** | **Packaged network parity** | Keep-my-title / DOI lookup / autocorrect online / input-bar Resolve fixed for installed builds |
