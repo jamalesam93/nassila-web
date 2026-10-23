@@ -1,10 +1,10 @@
 /** Public release train — user-facing only. App semver ≠ Sanad SNN checkpoints. */
 
 export const CURRENT_RELEASE = {
-  version: '2.1.0',
-  codenameEn: 'Maktab Arabic',
-  codenameAr: 'مكتب عربي',
-  date: '2026-09-18',
+  version: '2.1.1',
+  codenameEn: 'Arabic OCR fidelity',
+  codenameAr: 'دقة OCR العربي',
+  date: '2026-10-23',
   workers: {
     maktabOcr: 'live',
     shahid: 'live',
@@ -35,6 +35,16 @@ export const RELEASE_TRAIN: ReleaseTrainEntry[] = [
 ]
 
 export const SHIPPED_CODENAMES: ReleaseTrainEntry[] = [
+  {
+    version: '2.1.1',
+    codenameEn: 'Arabic OCR fidelity',
+    codenameAr: 'دقة OCR العربي',
+    status: 'shipped',
+    summaryEn:
+      'Arabic scan lines stay in reading order. Legacy-encoded Arabic text layers are sent to OCR. An optional Indra recognizer can be downloaded; scanned Arabic PDFs still use the packaged Paddle adapter. Arabic L3 grounding stays unvalidated.',
+    summaryAr:
+      'أسطر المسح العربي تبقى بترتيب القراءة. طبقات النص العربي ذات الترميز القديم تُرسَل إلى OCR. يمكن تنزيل معرّف Indra اختياريًا؛ ملفات PDF العربية الممسوحة ما زالت تستخدم محوّل Paddle المعبأ. تثبيت L3 بالعربية يبقى غير مُتحقّق.',
+  },
   {
     version: '2.1.0',
     codenameEn: 'Maktab Arabic',

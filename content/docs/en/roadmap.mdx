@@ -8,7 +8,7 @@ This page lists **user-visible** planned work and known gaps. It does not cover 
 
 ## Current release
 
-**Nassila 2.1.0 · Maktab Arabic** — Production Arabic scan OCR (Paddle PP-OCRv5) and Arabic-aware citation mapping. Arabic L3 grounding stays unvalidated. Builds on **2.0.0 · MaktabOCR + Shahid**. See [Changelog](/changelog).
+**Nassila 2.1.1 · Arabic OCR fidelity** — Arabic scan lines stay in reading order, and legacy-encoded Arabic text layers are sent to OCR. Scanned Arabic PDFs still use the packaged Paddle adapter. An optional Indra download does not replace it. Arabic L3 grounding stays unvalidated. Builds on **2.1.0 · Maktab Arabic**. See [Changelog](/changelog).
 
 ## Release train (planned)
 
@@ -18,7 +18,7 @@ App versions use **worker-themed codenames**. Suggested near-term cuts (not date
 |---------|----------|--------|
 | **2.2.0** | **Sanad Arabic** | Native Arabic L3 grounding (FT-7) |
 
-**Recommended cut order:** **2.1.0 Maktab Arabic** (shipped) → 2.2.0 Sanad Arabic.
+**Recommended cut order:** **2.1.1 Arabic OCR fidelity** (shipped) → 2.2.0 Sanad Arabic (paused).
 
 > **Sanad FT-6** shipped on Hugging Face (2026-08-21) — Hub/GGUF only; **no 1.9.0 installer**. Use the current app with updated GGUFs.
 
@@ -40,15 +40,16 @@ Direction, not a promise — versions and scope can move when we cut.
 | **3.1.0** | **Sharh Explain** | Richer explanations + annotated evidence export |
 | **3.2.0** | **Raqim Signals** | Webpage metadata and grey-web typing assistance (confirm before apply) |
 | **3.3.0** | **Sanad Bilingual** | English–Arabic mixed manuscripts; stronger EN and AR grounding |
-| **4.0.0** | **Shahid Vision** | Full multimodal Shahid beyond tables and figures |
+| **4.0.0** | **Cross-platform** | macOS and Linux installers; Tauri v2 + Rust backend migration (native OCR/PDF pipeline); sub-50 MB installer target |
 | **4.1.0** | **Nassila CLI** | Headless batch audit for editors and CI |
-| **4.2.0** | **Cross-platform** | macOS and Linux installers |
+| **4.2.0** | **Shahid Vision** | Full multimodal Shahid beyond tables and figures |
 | **5.0.0** | **One Nassila** | Routed pack of independently gated artifacts (**not** one merged GGUF); institutional login last resort; offline review packages |
 
 ## Shipped milestones (recent)
 
 | Version | Codename | Highlight |
 |---------|----------|-----------|
+| **2.1.1** | **Arabic OCR fidelity** | Arabic line order; legacy-encoded layers sent to OCR; optional Indra download; Paddle remains the scan engine |
 | **2.1.0** | **Maktab Arabic** | Production Arabic scan OCR (Paddle); Arabic-aware citation mapping; Arabic L3 still unvalidated |
 | **2.0.0** | **MaktabOCR + Shahid** | Native PDF layout inspection + scan OCR fallback; Arabic OCR adapter; Shahid table & figure evidence; two-tier decoupling |
 | **1.10.1** | **Packaged network parity** | Keep-my-title / DOI lookup / autocorrect online / input-bar Resolve fixed for installed builds |
@@ -69,14 +70,14 @@ Direction, not a promise — versions and scope can move when we cut.
 
 ## Worker maturity
 
-| Worker | Today (2.1.0) | Target |
+| Worker | Today (2.1.1) | Target |
 |--------|---------------|--------|
 | **Raqim** | L1/L2, Resolve, statute, web gray lit; Wayback gating; confirm-before-apply | Signals assistance **3.2.0** |
 | **Sanad** | L3; 9B FT-6 sole published Hub tier | Arabic L3 **2.2**; EN+AR mixed-script **3.3** |
 | **Maktab** | DOCX/pdf.js; native inspector; Latin OCR; **production Arabic scan OCR** | Further ingest polish as warranted |
 | **Masdar** | OA PDF + per-ref attach; papers dedupe/folder attach | Auto cited-PDF ingest → **2.3** |
 | **Tasnif / Sharh** | Inline deterministic; Sharh-lite summary (+ dedupe outcome line) | Risk signals **2.4**; richer explanations **3.1** |
-| **Shahid** | Live — tables & figures multimodal evidence | Full vision → **4.0** |
+| **Shahid** | Live — tables & figures multimodal evidence | Full vision → **4.2** |
 
 ## Manuscript loop (Tier 3 direction)
 

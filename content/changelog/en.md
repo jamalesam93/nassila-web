@@ -1,3 +1,22 @@
+## [2.1.1] — 2026-10-23 · Arabic OCR fidelity
+
+### Fixed
+
+- **Arabic scan lines stay in reading order.** Recognized Arabic used to come out bottom-to-top. Each line is now kept in place.
+- **Legacy Arabic fonts are sent to OCR.** A PDF whose Arabic text layer decodes to the wrong characters is flagged instead of being read as bibliography text.
+- **Arabic quotes tolerate spelling variants.** Diacritics and a trailing period versus an Arabic comma no longer mark a supported quote as weak.
+
+### Added
+
+- **Optional Indra download.** Settings → Local models can fetch an extra Arabic recognizer. It is not bundled, and scanned Arabic PDFs still use the packaged Paddle adapter.
+
+### Changed
+
+- **Smaller Windows install.** Native libraries for other operating systems are no longer included.
+- **Arabic L3 grounding stays unvalidated.** That work remains **2.2.0**.
+
+[Full history on GitHub](https://github.com/jamalesam93/Nassila/blob/main/CHANGELOG.md)
+
 ## [2.1.0] — 2026-09-18 · Maktab Arabic
 
 ### Added
