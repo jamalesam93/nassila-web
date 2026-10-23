@@ -72,7 +72,7 @@ Settings → **General → Manuscript source fetch** — one-time email for Unpa
 
 | Stage | Worker | Status |
 |-------|--------|--------|
-| Ingest | Maktab | Live — native PDF inspection + scan fallback (**2.0.0**); production Arabic scan OCR (**2.1.0**); Arabic line order and legacy-encoding routing (**2.1.1**) |
+| Ingest | Maktab | Live — text layer first. Arabic scans: Indra when downloaded, otherwise packaged Paddle (**2.1.1**). English and French scans: bundled Tesseract. Legacy-encoded Arabic layers are sent to OCR. |
 | Sources | Masdar | OA PDF text when Unpaywall finds a PDF (**1.2.0**); per-reference and folder-scan PDF attach (**1.6.0** / **1.10.0**) |
 | Records | Raqim | Live — L1/L2, export |
 | Ground | Sanad | Live — L3 when enabled |

@@ -10,7 +10,7 @@ Nassila's **Ouroboros** architecture uses seven **worker codenames** — each a 
 
 | Worker | Arabic | Loop stage | End-state role | Current status |
 |--------|--------|------------|----------------|----------------|
-| **Maktab** | مكتب | Ingest | Manuscript upload and segmentation | **Live** — DOCX/pdf.js + native inspector + scan fallback (**2.0.0**) |
+| **Maktab** | مكتب | Ingest | Manuscript upload and segmentation | **Live** — text layer, then Arabic scans via Indra (optional download) or packaged Paddle, and English/French scans via Tesseract |
 | **Masdar** | مصدر | Sources | Cited-paper text (OA PDF + user attach) | OA PDF grounding (**1.2.0**) + per-ref attach (**1.3.0**) |
 | **Sanad** | سند | Ground | Passage vs source excerpt → verdicts | **Live** — L3 when Passage grounding enabled |
 | **Shahid** | شاهد | Evidence | Tables and figures as evidence | **Live** — table and figure evidence extraction (**2.0.0**) |

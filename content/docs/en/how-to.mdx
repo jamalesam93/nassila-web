@@ -54,7 +54,7 @@ Nassila 1.5.0 includes a deterministic webpage resolver for web sources, preprin
 ### Import files
 
 Click **Import** in the toolbar or press **Ctrl+I**. Supported types include **`.bib`**, **`.ris`**, **`.json`** (CSL-JSON), **`.docx`**, and **`.pdf`**. For DOCX and PDF:
-- **Maktab Tier A Rust WASM Engine:** PDF ingest utilizes `@firecrawl/pdf-inspector-wasm` for 10–20× faster text extraction, structured Markdown headings (`# Intro`), and vector/heuristic tables (`| ... |`), with seamless fallback to `pdfjs-dist` and Tesseract OCR when needed.
+- **PDF text.** Born-digital pages are read from the text layer. Scanned Arabic pages use Indra when its weights are downloaded from Settings, and the packaged Paddle adapter otherwise. Scanned English and French pages use bundled Tesseract (`eng` / `fra`). Arabic does not use Tesseract.
 
 ## Reading the Output panel
 
