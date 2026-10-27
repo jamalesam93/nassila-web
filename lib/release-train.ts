@@ -1,10 +1,10 @@
 /** Public release train — user-facing only. App semver ≠ Sanad SNN checkpoints. */
 
 export const CURRENT_RELEASE = {
-  version: '2.1.1',
-  codenameEn: 'Arabic OCR fidelity',
-  codenameAr: 'دقة OCR العربي',
-  date: '2026-10-23',
+  version: '2.1.2',
+  codenameEn: 'Arabic localization & security hardening',
+  codenameAr: 'تدقيق التعريب والتحصين الأمني',
+  date: '2026-10-27',
   workers: {
     maktabOcr: 'live',
     shahid: 'live',
@@ -35,6 +35,16 @@ export const RELEASE_TRAIN: ReleaseTrainEntry[] = [
 ]
 
 export const SHIPPED_CODENAMES: ReleaseTrainEntry[] = [
+  {
+    version: '2.1.2',
+    codenameEn: 'Arabic localization & security hardening',
+    codenameAr: 'تدقيق التعريب والتحصين الأمني',
+    status: 'shipped',
+    summaryEn:
+      'Comprehensive Arabic translation audit and native 6-form CLDR pluralization. Upgraded to Electron 42 and PDF.js 6, zero npm audit vulnerabilities, hardened PDF.js worker resource lifecycle, and zero-dependency Windows icon generation.',
+    summaryAr:
+      'تدقيق شامل للتعريب والمصطلحات الأكاديمية مع دعم صيغ الجمع الست لقواعد CLDR. ترقية Electron 42 وPDF.js 6، وتصفير ثغرات الحزم، وإحكام دورة تنظيف مهام PDF.js، وتوليد أيقونة ويندوز دون حزم وسيطة.',
+  },
   {
     version: '2.1.1',
     codenameEn: 'Arabic OCR fidelity',

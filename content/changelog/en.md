@@ -1,3 +1,22 @@
+## [2.1.2] — 2026-10-27 · Arabic localization & security hardening
+
+### Added
+
+- **Full 6-form CLDR Arabic pluralization.** Comprehensive support for native Arabic plural forms (`zero`, `one`, `two`, `few`, `many`, `other`) across citations, detected issues, and verification tallies.
+- **Zero-dependency icon generator.** Replaced `to-ico` and removed 85 legacy transitive packages in favor of an inline DIB stream encoder producing a bit-for-bit identical Windows icon.
+
+### Fixed
+
+- **Arabic translation & terminology audit.** Audited all UI copy and native menus to replace literal translations and calques with standard scholarly terminology (e.g. predatory journals as `دوريات ومجلات وهمية / افتراسية`).
+- **PDF.js worker cleanup.** Systematic `loadingTask.destroy()` cleanup prevents worker memory leaks during high-volume manuscript and folder-scan auditing.
+
+### Security
+
+- **Electron & PDF.js upgrades.** Upgraded Electron to `42.11.18` (clearing 14 CVE advisories) and PDF.js to `6.4.299`.
+- **0 dependency vulnerabilities.** Resolved all transitive vulnerabilities in `adm-zip`, `@xmldom/xmldom`, `postcss`, and `vite`. Both `npm audit --omit=dev` and full audit report zero vulnerabilities.
+
+[Full history on GitHub](https://github.com/jamalesam93/Nassila/blob/main/CHANGELOG.md)
+
 ## [2.1.1] — 2026-10-23 · Arabic OCR fidelity
 
 ### Fixed
